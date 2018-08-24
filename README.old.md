@@ -1,2 +1,2 @@
 # polarbear
-A great icebreaker
+A great ice breaker.
