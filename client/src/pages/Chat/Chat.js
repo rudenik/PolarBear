@@ -3,6 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 
 class Chat extends Component {
+
   render() {
     return (
       <div class="container">
@@ -15,6 +16,7 @@ class Chat extends Component {
       </div>
     );
   }
+
 }
 
 const mapStateToProps = state => {//get state from global .js aka reducer file
