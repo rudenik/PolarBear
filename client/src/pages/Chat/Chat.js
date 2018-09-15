@@ -6,17 +6,12 @@ class Chat extends Component {
   render() {
     return (
       <div class="container">
-        <div>{this.props.ctr}</div>
-        <div class="row">
-          <div class="col s12">
-            <span class="flow-text">
+        <div>{props.showuser}</div>
+        
+            {/* <span class="flow-text">
               This div is 12-columns wide on all screen sizes
-            </span>
-          </div>
-          <div class="col s6 offset-s6">
-            <span class="flow-text">6-columns (offset-by-6)</span>
-          </div>
-        </div>
+            </span> */}
+        
       </div>
     );
   }
@@ -24,7 +19,7 @@ class Chat extends Component {
 
 const mapStateToProps = state => {//get state from global .js aka reducer file
   return {
-    ctr: state.counter
+    ctr: state.showuser
   };
 };
 
