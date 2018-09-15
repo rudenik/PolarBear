@@ -5,7 +5,7 @@ class Chat extends Component {
     render(){
 
         return(
-            <div></div>
+            <div>Hello</div>
         )
     }
 }
