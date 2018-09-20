@@ -7,9 +7,9 @@ class Chat extends Component {
   render() {
     return (
       <Container>
-        <Col size="s12 m12">
+        <div class="col s12 m12">
           <div>Test</div>
-        </Col>
+          </div>
       </Container>
     );
   }

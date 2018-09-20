@@ -10,20 +10,13 @@ class App extends Component {
   render() {
     return (
       <Router>
-          <Container>
-            <Row>
-            <Col size="s12">
-              <SignUp/>
-                
-                
-                
-              
-              </Col>
+          
           <Switch>
+          <Route exact path="/signup" component={SignUp} />
             <Route exact path="/chat" component={Chat} />
           </Switch>
-          </Row>
-          </Container>
+  
+     
       </Router>
     );
   }
