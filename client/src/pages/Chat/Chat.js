@@ -7,7 +7,9 @@ class Chat extends Component {
   render() {
     return (
       <Container>
-        <div>{this.props.ctr}</div>
+        <Col size="s12 m12">
+          <div>Test</div>
+        </Col>
       </Container>
     );
   }
@@ -21,7 +23,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Chat);
-
-export const AuthContext= React.createContext(false);//global state
-<AuthContext.Provider vale={true or whatever}></AuthContext.Provider>
-<AuthContext.Consumer></AuthContext.Consumer>
