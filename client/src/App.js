@@ -5,18 +5,14 @@ import Chat from "./pages/Chat";
 import { Container, Row, Col } from "./components/Grid";
 import SignUp from "./pages/SignUp";
 
-
 class App extends Component {
   render() {
     return (
       <Router>
-          
-          <Switch>
+        <Switch>
           <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/chat" component={Chat} />
-          </Switch>
-  
-     
+          <Route exact path="/chat" component={Chat} />
+        </Switch>
       </Router>
     );
   }

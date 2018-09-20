@@ -2,14 +2,26 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Container, Row, Col } from "../../components/Grid";
-
+import "./Chat.css";
 class Chat extends Component {
   render() {
     return (
-      <Container>
-        <div class="col s12 m12">
-          <div>Test</div>
-          </div>
+      <Container customClass="containerStyle">
+        <Container customClass="userTitle">
+          <Row>
+            <div className="col s12 m12 l12 userContainer">
+              <img
+                src="http://www.placepuppy.net/1p/200/200"
+                alt=""
+                className="headShot"
+              />
+              <div>
+                {this.props.name}
+                {this.props.title}
+              </div>
+            </div>
+          </Row>
+        </Container>
       </Container>
     );
   }
@@ -18,7 +30,9 @@ class Chat extends Component {
 const mapStateToProps = state => {
   //get state from global .js aka reducer file
   return {
-    ctr: state.showuser
+    photo: state.userPhoto,
+    name: state.userName,
+    title: state.userTitle
   };
 };
 

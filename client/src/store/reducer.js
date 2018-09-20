@@ -1,5 +1,7 @@
 const initialState = {
-  showuser: "Loreum Ipsump the coder",
+  userPhoto: "",
+  userName:"Loreum Ipsump the coder",
+  userTitle:"Web developer",
   results: []
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const Row = ({ children }) => {
-    return (<div className="row">
+export const Row = ({ customClass,children }) => {
+    return (<div className={`row ${customClass?customClass:""}`}>
         { children }
     </div>)
 }
