@@ -7,7 +7,7 @@ import React, { Component } from "react";
 
 export const InputArea = (props) => {
     return(
-    <div className="input-field col s8">
+    <div className="input-field">
           <textarea id={props.textAreaID} className="materialize-textarea"></textarea>
           <label for={props.textAreaID}>{props.label}</label>
         </div>

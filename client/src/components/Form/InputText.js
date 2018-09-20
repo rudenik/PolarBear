@@ -12,7 +12,7 @@ return(
         </Col>
         <Col size="s8">
         <input id={props.inputID} type="text" className="validate"/>
-        <label for={props.inputID}>{props.fieldName}</label>
+        <label>{props.fieldName}</label>
         </Col>
         </Row>
     </div>
