@@ -21,3 +21,7 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Chat);
+
+export const AuthContext= React.createContext(false);//global state
+<AuthContext.Provider vale={true or whatever}></AuthContext.Provider>
+<AuthContext.Consumer></AuthContext.Consumer>
