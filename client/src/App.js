@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Chat from "./pages/Chat";
 import { Container, Row, Col } from "./components/Grid";
-import SignUp from "./components/SignUp";
+import SignUp from "./pages/SignUp";
 
 
 class App extends Component {
@@ -13,11 +13,11 @@ class App extends Component {
           <Container>
             <Row>
             <Col size="s12">
-              <SignUp>
+              <SignUp/>
                 
-                <h1>SignUP!</h1>
                 
-              </SignUp>
+                
+              
               </Col>
           <Switch>
             <Route exact path="/chat" component={Chat} />
