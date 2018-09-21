@@ -11,15 +11,18 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import "./NavBar.css";
 
-import { createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 // import blue from '@material-ui/core/colors/blue';
 
 const theme = createMuiTheme({
   palette: {
-    primary: {
+    primary:  {
         main: '#2667FF',
+    }, 
+    secondary: {
+        main: 'rgb(30, 122, 158)'
     }
-    },
+    }
 });
 
 
@@ -27,6 +30,7 @@ const theme = createMuiTheme({
 const styles = (theme) => ({
   root: {
     flexGrow: 1,
+    
   },
   grow: {
     flexGrow: 1,
@@ -35,9 +39,6 @@ const styles = (theme) => ({
     marginLeft: -12,
     marginRight: 20,
   },
-  primary: {
-    color: theme.palette.primary.main,
-  }
 });
 
 class MenuAppBar extends React.Component {
@@ -47,14 +48,17 @@ class MenuAppBar extends React.Component {
   };
   handleChange = event => {
     this.setState({ auth: event.target.checked });
+    console.log(event);
   };
 
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
+    console.log(event);
   };
 
-  handleClose = () => {
+  handleClose = (event) => {
     this.setState({ anchorEl: null });
+    console.log(event.target.id)
   };
 
  render(){
@@ -62,8 +66,9 @@ class MenuAppBar extends React.Component {
   const { auth, anchorEl } = this.state;
   const open = Boolean(anchorEl); 
   return (
-    <div className={classes.root} style={{"background-color": "#2667FF" }}>
-      <AppBar position="static" theme={theme}>
+      <MuiThemeProvider theme ={theme}>
+    <div className={classes.root}>
+      <AppBar position="static" >
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             
@@ -94,18 +99,20 @@ class MenuAppBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                <MenuItem id="profile"  onClick={this.handleClose}>Profile</MenuItem>
+                  <MenuItem id="chat" onClick={this.handleClose}>Chat</MenuItem>
+                  <MenuItem id="match" onClick={this.handleClose}>Matching</MenuItem>
                 </Menu>
         </Toolbar>
       </AppBar>
     </div>
+    </MuiThemeProvider>
   );
 }
 }
 MenuAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  variant: PropTypes.oneOf(['primary'])
+//   variant: PropTypes.oneOf(['primary'])
 };
 
 export default withStyles(styles)(MenuAppBar);
