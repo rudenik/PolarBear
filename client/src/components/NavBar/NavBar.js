@@ -62,7 +62,7 @@ class MenuAppBar extends React.Component {
   const { auth, anchorEl } = this.state;
   const open = Boolean(anchorEl); 
   return (
-    <div className={classes.root} >
+    <div className={classes.root} style={{"background-color": "#2667FF" }}>
       <AppBar position="static" theme={theme}>
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
