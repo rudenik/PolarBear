@@ -1,14 +1,30 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Chat from "./pages/Chat";
+import { Container, Row, Col } from "./components/Grid";
+import SignUp from "./pages/SignUp";
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+          <Container>
+            <Row>
+            <Col size="s12">
+              <SignUp/>
+                
+                
+                
+              
+              </Col>
+          <Switch>
+            <Route exact path="/chat" component={Chat} />
+          </Switch>
+          </Row>
+          </Container>
+      </Router>
     );
   }
 }
