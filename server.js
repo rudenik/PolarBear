@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const server=require('http').Server(app);
+const server = require('http').Server(app);
 const io = require("socket.io")(server);
 const PORT = process.env.PORT || 3001;
 
@@ -11,12 +11,16 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production")
+{
   app.use(express.static("client/build"));
 }
 
 //add routes
 app.use(routes);
+
+// Requiring our models for syncing
+var db = require("./models");
 
 //connect to mongodb
 // mongoose.connect(
@@ -25,10 +29,13 @@ app.use(routes);
 // );
 
 //start the api server
-server.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+db.sequelize.sync({ force: false }).then(function ()
+{
+  server.listen(PORT, function ()
+  {
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  });
 });
-
 
 
 // io.on("connection", function(socket) {
