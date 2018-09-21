@@ -1,0 +1,10 @@
+.card{
+    height: 400px;
+    margin-left:20px;
+    margin-right:20px;
+    padding: 10px;
+    border: 20px rgba(245, 166, 35, 41) solid;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
