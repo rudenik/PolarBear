@@ -1,10 +1,10 @@
-.header{
+.match__header{
     height: 80px;
     padding-top: 10px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 2rem;
 }
-.title{
+.match__title{
     color: #2667FF;
 }
