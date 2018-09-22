@@ -1,1 +1,1 @@
-export {default}from "./UserMatches.js";
+export {default}from "./MatchCard.js";
