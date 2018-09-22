@@ -1,0 +1,24 @@
+.landing {
+    text-align: center;
+    color: #2667FF;
+}
+
+.landing__bear {
+    width: 100%;
+    display: block;
+}
+
+.landing__name {
+    font-weight: 1000px;
+    margin: 0;
+}
+
+.landing__subscript {
+    margin-top: 0;
+    margin-bottom:30px;
+}
+
+.landing__button {
+    margin: 10px;
+    background-color: #2667FF;
+}
