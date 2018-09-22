@@ -8,6 +8,7 @@ import Event from "./pages/Event";
 import Landing from "./pages/Landing";
 import MatchCard from "./pages/MatchCard"
 import YourAccount from "./pages/YourAccount"
+import UserMatches from "./pages/UserMatches";
 
 
 
@@ -24,6 +25,7 @@ class App extends Component {
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/youraccount" component={YourAccount} />
       <Route exact path="/match" component={MatchCard} />
+      <Route exact path="/usermatches" component={UserMatches} />
       </Switch>
       </Router> 
       </div>
