@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+// const routes = require("./routes");
 const app = express();
 const server=require('http').Server(app);
 const io = require("socket.io")(server);
@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //add routes
-app.use(routes);
+// app.use(routes);
 
 //connect to mongodb
 // mongoose.connect(
@@ -32,15 +32,7 @@ server.listen(PORT, function() {
 
 
 
-// io.on("connection", function(socket) {
-//   console.log("user connected");
-
-//   socket.on("saved", data => {
-//     console.log(data);
-//     socket.broadcast.emit("send to all", data);
-//   });
-
-//   socket.on("disconnect", () => {
-//     console.log("user disconnected");
-//   });
-// });
+io.on("connection", function(socket) {
+  console.log("user connected");
+  
+});
