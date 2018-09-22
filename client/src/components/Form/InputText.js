@@ -11,13 +11,10 @@ return(
         <MaterialIcon icon={props.matIcon} color="#2667FF"/>
         </Col>
         <Col size="s9">
-        <input id={props.inputID} type="text" className="validate"/>
+        <input id={props.inputID} type="text" className="validate" />
         <label>{props.fieldName}</label>
         </Col>
         </Row>
     </div>
 )
 }
-
-
-{/* <i className="material-icons prefix">{props.matIcon}</i> */}

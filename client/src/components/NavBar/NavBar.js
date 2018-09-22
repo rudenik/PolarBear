@@ -72,7 +72,6 @@ class MenuAppBar extends React.Component {
           <Typography variant="title" color="inherit" className={classes.grow}>
             Polar Bear
           </Typography>
-        
           <IconButton
                   aria-owns={open ? 'menu-appbar' : null}
                   aria-haspopup="true"
