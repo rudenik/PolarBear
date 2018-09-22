@@ -5,7 +5,6 @@ class YourAccount extends Component {
   render() {
     return (
         <div className="yourAccount whiteBackground wrapper">
-            <h1 className="polarBlue align-center">Polar Bear</h1>
             <h2 className="polarBlue align-center">Your Account</h2>
             <div className="accountBox orangeBackground">
                 <div className="yourAccount whiteBackground">
