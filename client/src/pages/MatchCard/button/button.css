@@ -1,0 +1,18 @@
+.button-pc{
+    margin-top: 10px;
+    width: 125px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.pass{
+    background-color: #D0021B;
+    color: white;
+
+}
+
+.connect{
+    background-color: #619E1E;
+    color: white;
+
+}
