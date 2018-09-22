@@ -1,29 +1,17 @@
-<<<<<<< HEAD
-.button-pc{
-=======
 .match__button-pc{
->>>>>>> dev
     margin-top: 10px;
     width: 125px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
 
-<<<<<<< HEAD
-.pass{
-=======
 .match__pass{
->>>>>>> dev
     background-color: #D0021B;
     color: white;
 
 }
 
-<<<<<<< HEAD
-.connect{
-=======
 .match__connect{
->>>>>>> dev
     background-color: #619E1E;
     color: white;
 
