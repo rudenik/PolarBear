@@ -5,26 +5,23 @@ module.exports = function (sequelize, DataTypes)
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [20]
+                max: [20]
             }
         },
         eventCode: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [20]
+                len: [4]
             }
         }
     });
 
     Events.associate = function (models)
     {
-        Events.belongsTo(models.userEvents, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+        Events.belongsToMany(models.User, {through: 'UserEvents'});
     };
 
-    return User;
+
+    return Events;
 };

@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const routes = require("./controllers/userController");
 const app = express();
 const server = require('http').Server(app);
 const io = require("socket.io")(server);
@@ -17,10 +17,16 @@ if (process.env.NODE_ENV === "production")
 }
 
 //add routes
-app.use(routes);
+//app.use(routes);
+require('./controllers/userController')
 
-// Requiring our models for syncing
+// //Requiring our models for syncing
 var db = require("./models");
+
+
+// Static directory
+app.use(express.static("public"));
+
 
 //connect to mongodb
 // mongoose.connect(
@@ -31,7 +37,7 @@ var db = require("./models");
 //start the api server
 db.sequelize.sync({ force: false }).then(function ()
 {
-  server.listen(PORT, function ()
+  app.listen(PORT, function ()
   {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   });
@@ -50,3 +56,7 @@ db.sequelize.sync({ force: false }).then(function ()
 //     console.log("user disconnected");
 //   });
 // });
+
+// app.listen(PORT, () => {
+//   console.log('sjkbkhbsv')
+// })

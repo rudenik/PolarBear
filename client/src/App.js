@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Chat from "./pages/Chat";
 import { Container, Row, Col } from "./components/Grid";
 import SignUp from "./pages/SignUp";
+import axios from 'axios';
 
 
 class App extends Component {
