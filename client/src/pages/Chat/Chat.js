@@ -4,9 +4,11 @@ import axios from "axios";
 class Chat extends Component {
     render(){
 
-        return(
+        return([
             <div>Hello</div>
-        )
+            <div>Hello</div>
+            <div>Hello</div>
+        ])
     }
 }
 
