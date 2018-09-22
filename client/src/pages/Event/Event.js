@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "./Event.css"
 import { InputText, InputArea } from "../../components/event__form";
 import { Row, Col, Container } from "../../components/Grid";
-import {Button, Dropdown, NavItem} from 'react-materialize'
+// import {Button, Dropdown, NavItem} from 'react-materialize'
 
 class Event extends Component {
 
@@ -23,13 +23,7 @@ class Event extends Component {
        </div>
         <div className="JobSeeker">
           <p>I am a:</p> 
-          <Dropdown trigger={
-        <Button>Job Seeker</Button>
-            }>
-         <NavItem>Student</NavItem>
-         <NavItem>Employer</NavItem>
-         <NavItem>Job Seeker</NavItem>
-        </Dropdown>
+          <button type="button" className="waves-effect waves-light btn event__btn" onClick={this.handleSignUpButton}>Pick One (dropdown)</button> 
         </div>
          <button type="button" className="waves-effect waves-light btn event__btn" onClick={this.handleSignUpButton}>Sign Up for Event </button> 
       
