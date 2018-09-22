@@ -4,8 +4,9 @@
 }
 
 .landing__bear {
-    width: 100%;
-    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+
 }
 
 .landing__name {

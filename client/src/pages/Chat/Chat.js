@@ -4,13 +4,13 @@ import axios from "axios";
 class Chat extends Component {
     render(){
 
-        return([
+        return(
             <div>
             <div>Hello</div>
             <div>Hello</div>
             <div>Hello</div>
-            </div>
-        ])
+             </div>
+        )
     }
 }
 
