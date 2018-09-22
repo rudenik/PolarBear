@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import "./Event.css"
 import { InputText, InputArea } from "../../components/event__form";
 import { Row, Col, Container } from "../../components/Grid";
-import {Button, Icon, Dropdown, NavItem} from 'react-materialize'
+import {Button, Dropdown, NavItem} from 'react-materialize'
 
 class Event extends Component {
 
     state = {
         name: "Johnny",
         eventCode: "",
-        jobSeeker:""
+        choice:""
     };
+
 
      render() {
    return (
@@ -18,12 +19,12 @@ class Event extends Component {
      <Container>
        <div>
         <p>Hi {this.state.name}!</p> 
-         <InputArea label="Event Code Name" textAreaID="eventCode" onChange={this.handleInputChange}/>
+         <InputArea className="event__code" label="Event Code Name" textAreaID="eventCode" onChange={this.handleInputChange}/>
        </div>
         <div className="JobSeeker">
           <p>I am a:</p> 
           <Dropdown trigger={
-        <Button>Job Seeker Dropdown</Button>
+        <Button>Job Seeker</Button>
             }>
          <NavItem>Student</NavItem>
          <NavItem>Employer</NavItem>
