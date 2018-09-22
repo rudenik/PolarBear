@@ -4,15 +4,11 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import "./NavBar.css";
-
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-// import blue from '@material-ui/core/colors/blue';
 
 const theme = createMuiTheme({
   palette: {
@@ -66,7 +62,7 @@ class MenuAppBar extends React.Component {
   const { auth, anchorEl } = this.state;
   const open = Boolean(anchorEl); 
   return (
-      <MuiThemeProvider theme ={theme}>
+      <MuiThemeProvider theme={theme}>
     <div className={classes.root}>
       <AppBar position="static" >
         <Toolbar>
@@ -112,7 +108,6 @@ class MenuAppBar extends React.Component {
 }
 MenuAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
-//   variant: PropTypes.oneOf(['primary'])
 };
 
 export default withStyles(styles)(MenuAppBar);
