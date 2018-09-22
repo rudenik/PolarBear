@@ -12,7 +12,7 @@ class Landing extends Component {
      render() {
    return (
      <div className="Event">
-        <Person />
+        
         <div className="JobSeeker">
         <p>I am a:</p>
         </div>
@@ -21,3 +21,5 @@ class Landing extends Component {
  }
 
 }
+
+export default Event;

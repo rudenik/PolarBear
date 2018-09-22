@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const person = ( props ) => {
+const event = ( props ) => {
    return (
        <div>
       <p>Hi {props.name}!</p> 
@@ -9,4 +9,4 @@ const person = ( props ) => {
    )
 }
 
-export default person;
+export default event;

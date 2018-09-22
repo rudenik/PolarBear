@@ -1,25 +1,28 @@
-import React, { Component } from 'react'
-import "./Landing.css"
+import React, { Component } from 'react';
+import "./Landing.css";
+
 
 class Landing extends Component {
+    render () {
 
-    state = {
-        name:"Polar Bear",
-        tag:"Your Networking Icebreaker",
-        buttonSignup:"",
-        buttonLogin:""
-    };
-
- render() {
-   return (
-     <div className="Landing">
-      <h1>Hi, I'm a React App</h1>
-      <p>This is really working!</p>
-      <button onClick={this.switchNameHandler}>Switch Name</button>
-      <Person name={this.state.persons[0].name} age={this.state.persons[0].age}></Person>
-      <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
-      <Person name={this.state.persons[2].name} age = {this.state.persons[2].age} />
-     </div>
-   );
- }
+       const style = {
+         margin: "0",
+         fontWeight: "1100"
+       }
+        return (
+    <div className="landing">
+    <img className="landing__bear" src="bear.png"/>
+        <h1 style={style} clasName="landing__name">Polar Bear</h1>
+        <div className="landing__subscript">Your Networking Icebreaker</div>
+        <div>
+             <a className="waves-effect btn-large landing__button">Sign Up</a>           
+         </div>
+         <div>
+            <a className="waves-effect btn-large landing__button">Log In</a>
+        </div>
+    </div>
+        )
+    }
 }
+
+export default Landing;
