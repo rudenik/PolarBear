@@ -1,0 +1,39 @@
+.match__button-pc{
+    margin-top: 10px;
+    width: 125px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.match__pass{
+    background-color: #D0021B;
+    color: white;
+
+}
+
+.match__connect{
+    background-color: #619E1E;
+    color: white;
+
+}
+.match__card{
+    height: 400px;
+    margin-left:20px;
+    margin-right:20px;
+    padding: 10px;
+    border: 20px rgba(245, 166, 35, 41) solid;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.match__header{
+    height: 80px;
+    padding-top: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+.match__title{
+    color: #2667FF;
+}
+
