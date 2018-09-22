@@ -7,7 +7,7 @@ class MatchCard extends Component {
   render() {
     return (
       <div>
-      <Header />
+      {/* <Header /> */}
       <Card />
       <Button />
       </div>
