@@ -1,3 +1,4 @@
+
 .match__button-pc{
     margin-top: 10px;
     width: 125px;
@@ -17,6 +18,7 @@
 
 }
 .match__card{
+    margin-top: 45px;
     height: 400px;
     margin-left:20px;
     margin-right:20px;
