@@ -1,0 +1,86 @@
+.visuallyhidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.polarBlue {
+    color:#2667FF;
+}
+
+.yourAccount {
+    height:70vh;
+    padding:10px;
+}
+
+.wrapper {
+    /* max-width:80%; */
+    margin:0 auto;
+}
+
+.orangeBackground {
+    background-color:rgba(245, 166, 35, 0.7);
+    padding:15px;
+}
+
+.whiteBackground {
+    background-color:#FFF;
+}
+
+.headShot {
+    border-radius:50%;
+    width:100px;
+    padding:5px;
+}
+h3,h4 {
+    margin:0;
+    padding:3px;
+}
+h3 {
+    font-size:1.4em;
+}
+
+.align-center {
+    text-align:center;
+}
+
+
+.nameInfo {
+    width:60%;
+    padding-top:20px;
+}
+
+.flexRow {
+    display:flex;
+    flex-direction:row;
+}
+
+.flexCol {
+    display:flex;
+    flex-direction:column;
+}
+input {
+    border-radius:5px;
+    box-shadow:none;
+    border:1px solid black;
+    padding:2%;
+    margin:1%;
+}
+
+#jobStatus {
+    border:1px solid black;
+    border-radius:5px;
+    background:white;
+}
+
+
+
+
+
