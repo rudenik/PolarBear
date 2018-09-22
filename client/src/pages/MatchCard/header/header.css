@@ -1,10 +1,18 @@
+<<<<<<< HEAD
+.header{
+=======
 .match__header{
+>>>>>>> dev
     height: 80px;
     padding-top: 10px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 2rem;
 }
+<<<<<<< HEAD
+.title{
+=======
 .match__title{
+>>>>>>> dev
     color: #2667FF;
 }
