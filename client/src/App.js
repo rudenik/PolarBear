@@ -23,7 +23,8 @@ class App extends Component {
       <Switch>
       <Route exact path="/chat" component={Chat} />
       <Route exact path="/signup" component={SignUp} />
-      <Route exact path="/landing" component={Landing} />     
+      <Route exact path="/" component={Landing} />  
+      <Route exact path="/event" component={Event} />       
       </Switch>
           
       </Router> 

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const event = ( props ) => {
+const Event = ( props ) => {
    return (
        <div>
       <p>Hi {props.name}!</p> 
