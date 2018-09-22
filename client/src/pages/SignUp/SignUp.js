@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { InputText, InputArea } from "../../components/Form";
 import { Row, Col, Container } from "../../components/Grid";
 import "./SignUp.css";
+import axios from 'axios';
 
 class SignUp extends Component {
 
@@ -24,6 +25,22 @@ class SignUp extends Component {
     };
     handleSignUpButton = event => {
         event.preventDefault();
+        
+        upsertAuthor({
+            UserId: 1,
+            EventId: 1
+          });
+          
+          function upsertAuthor(authorData) {
+            axios.post("/api/users", authorData)
+            .then((res) => {
+              console.log(res)
+            }).catch((error) => {
+              console.log(error)
+            })
+          }
+        
+
         console.log("Sign up button pressed");
         //return/send info off. 
         this.setState({
