@@ -6,7 +6,8 @@ class UserMatches extends Component {
     return (
       <div>
         <UserCard />
-
+        <UserCard />
+        <UserCard />
       </div>
     );
   }
