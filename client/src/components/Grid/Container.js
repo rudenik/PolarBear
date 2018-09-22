@@ -1,7 +1,7 @@
 import React from "react";
 
-export const Container = ({ customClass,children }) => {
-  return (<div className={`container ${customClass?customClass:""}`}>
+export const Container = ({ children }) => {
+  return (<div className="container">
         { children }
     </div>)
 }
