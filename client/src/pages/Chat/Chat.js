@@ -5,9 +5,11 @@ class Chat extends Component {
     render(){
 
         return([
+            <div>
             <div>Hello</div>
             <div>Hello</div>
             <div>Hello</div>
+            </div>
         ])
     }
 }
