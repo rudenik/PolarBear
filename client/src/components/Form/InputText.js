@@ -10,7 +10,7 @@ return(
         <Col size="s1">
         <MaterialIcon icon={props.matIcon} color="#2667FF"/>
         </Col>
-        <Col size="s8">
+        <Col size="s9">
         <input id={props.inputID} type="text" className="validate"/>
         <label>{props.fieldName}</label>
         </Col>

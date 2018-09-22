@@ -66,30 +66,31 @@ class SignUp extends Component {
             <InputText fieldName="Event Code (optional)" inputId="eventCode" matIcon="event" onChange={this.handleInputChange}/>
             </Container>
             <Row>
-            
+            <Col size="s10 offset-s1">
             <p>Add up to 140 character to show 3 ‘highlights’</p>
+            </Col>
             </Row>
             <Container>
             <Row>
-            <Col size="s9">
+            <Col size="s9 offset-s1">
             <InputArea textAreaID="Card1" label="Card One" onChange={this.handleInputChange}/>
             </Col>
             </Row>
             <Row>
-            <Col size="s9">
+            <Col size="s9 offset-s1">
             <InputArea textAreaID="Card2" label="Card Two" onChange={this.handleInputChange}/>
             </Col>
             </Row>
             <Row>
-            <Col size="s9">
+            <Col size="s9 offset-s1">
             <InputArea textAreaID="Card3" label="Card Three" onChange={this.handleInputChange}/>
             </Col>
             </Row>
             
             <Row>
-            <div className="col s4 offset-s7">
+            <Col size="s4 offset-s7">
             <button type="button" className="waves-effect waves-light btn" onClick={this.handleSignUpButton}>Sign Up</button> 
-            </div>
+            </Col>
             </Row>
             </Container>
             </div>
