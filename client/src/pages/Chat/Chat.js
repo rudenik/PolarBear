@@ -12,8 +12,10 @@ class Chat extends Component {
 constructor(props){
     super(props);
 
+
     this.state={
         socket:null
+
     }
 }
 

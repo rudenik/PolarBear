@@ -13,7 +13,7 @@ class Landing extends Component {
         return (
     <div className="landing">
         <img className="landing__bear" src="bear.png"/>
-        <h1 style={style} clasName="landing__name">Polar Bear</h1>
+        <h1 style={style} className="landing__name">Polar Bear</h1>
         <div className="landing__subscript">Your Networking Icebreaker</div>
         <div>
              <a className="waves-effect btn-large landing__button">Sign Up</a>           
