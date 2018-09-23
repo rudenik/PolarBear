@@ -6,30 +6,54 @@ import MaterialIcon, { colorPalette } from "material-icons-react";
 import "./Chat.css";
 import Sender from "../../components/ChatComponents/Sender";
 import Receiver from "../../components/ChatComponents/Receiver";
-import io from 'socket.io-client';
-const socket=io.connect("http://localhost:3001");
+import io from "socket.io-client";
+
 class Chat extends Component {
-constructor(props){
+  constructor(props) {
     super(props);
 
+    this.state = {
+      socket: null,
+      username: "",
+      message: "",
+      messages: []
+    };
 
-    this.state={
-        socket:null
+    this.socket = io.connect();
+    console.log(this.socket);
 
-    }
-}
+    this.socket.on("RECEIVE_MESSAGE", function(data) {
+      console.log(data);
+      addMessage(data);
+    });
 
-componentWillMount(){
-    this.initSocket();
-}
+    const addMessage = data => {
+      console.log(data);
+      this.setState({ messages: [...this.state.messages, data] });
+      console.log(this.state.messages);
+    };
+  }
 
-initSocket=()=>{
-    socket.on('connect',()=>{
-        console.log('connected');
-    })
-}
+  componentWillMount() {
+    // this.initSocket();
+  }
 
+  initSocket = () => {
+    // const socket = io.connect();
+    // this.setState({ socket });
+    // socket.on("connect", () => {
+    //   console.log("connected");
+    //   console.log(this.state.socket);
+    // });
+  };
 
+  sendMessage = event => {
+    event.preventDefault();
+    this.socket.emit("SEND_MESSAGE", {
+      message: this.state.message
+    });
+    this.setState({ message: "" });
+  };
 
   render() {
     return [
@@ -52,14 +76,28 @@ initSocket=()=>{
           </div>
         </div>
 
-        <div className="chatArea">blah blah
-        
-        
-        
+        <div className="chat_area">
+          {this.state.messages.map(message => {
+            return <Sender message={message.message} />;
+          })}
         </div>
         <div class="type_msg">
           <div class="input_msg_write">
-            <input type="text" class="write_msg" placeholder="Type a message" />
+          <form onSubmit={this.sendMessage}>
+            <input
+              type="text"
+              class="write_msg"
+              placeholder="Type a message"
+              value={this.state.message}
+              onChange={e => this.setState({ message: e.target.value })}
+            />
+            <button
+              onClick={this.sendMessage}
+              className="btn btn-primary form-control"
+            >
+              Send
+            </button>
+            </form>
           </div>
         </div>
       </Container>
@@ -74,4 +112,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Chat);
+export default Chat;

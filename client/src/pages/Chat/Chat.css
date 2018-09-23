@@ -37,7 +37,7 @@
   max-width: 100%;
 }
 
-.chatArea{
+.chat_area{
     padding:0.5em 0.5em 0.5em 0.5em;
     flex-grow:20;
     border:1px solid blue;
