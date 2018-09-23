@@ -11,58 +11,67 @@
     overflow: hidden;
 }
 
-.polarBlue {
+.youraccount__polarBlue {
     color:#2667FF;
 }
 
-.yourAccount {
+.youraccount__yourAccount {
     height:70vh;
     padding:10px;
 }
 
-.wrapper {
-    /* max-width:80%; */
+.youraccount__wrapper {
     margin:0 auto;
 }
 
-.orangeBackground {
+.youraccount__orangeBackground {
     background-color:rgba(245, 166, 35, 0.7);
     padding:15px;
 }
 
-.whiteBackground {
+.youraccount__whiteBackground {
     background-color:#FFF;
 }
 
-.headShot {
+.youraccount__headShot {
     border-radius:50%;
     width:100px;
     padding:5px;
 }
-h3,h4 {
+
+.youraccount__blackText {
+    color:black;
     margin:0;
     padding:3px;
 }
+
+
 h3 {
     font-size:1.4em;
 }
 
-.align-center {
+.youraccount__align-center {
     text-align:center;
+
+}
+
+.youraccount__currentTitle {
+    font-size:1em;
 }
 
 
-.nameInfo {
+.youraccount__nameInfo {
     width:60%;
     padding-top:20px;
+    padding-left:15px;
 }
 
-.flexRow {
+.youraccount__flexRow {
     display:flex;
     flex-direction:row;
 }
 
-.flexCol {
+.youraccount__flexCol {
     display:flex;
     flex-direction:column;
 }
@@ -75,11 +84,22 @@ input {
 }
 
 #jobStatus {
-    border:1px solid black;
+    /* border:1px solid black; */
     border-radius:5px;
     background:white;
 }
 
+select {
+    display:inline-block;
+}
+input[type=text]:focus:not([readonly]){
+        border-bottom: 0.3px solid lightgrey;
+    box-shadow: 0 0.3px 0 0 lightgrey;
+}
+
+select:focus {
+    outline: 1px solid lightgrey;
+}
 
 
 
