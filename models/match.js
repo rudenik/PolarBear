@@ -1,6 +1,16 @@
 module.exports = function (sequelize, DataTypes)
 {
     var Match = sequelize.define("Match", {
+        user_one_id : {
+            type: DataTypes.STRING,
+            allowNull: false,
+
+        },
+        user_two_id : {
+            type: DataTypes.STRING,
+            allowNull: false,
+            
+        },
         status: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -15,6 +25,7 @@ module.exports = function (sequelize, DataTypes)
                isInt: true
             }
         }
+        //TODO: Add Event ID to filter even IDS
       
     });
 
