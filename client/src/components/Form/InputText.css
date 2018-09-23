@@ -1,0 +1,19 @@
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #2667FF;
+    box-shadow: 0 1px 0 0 #2667FF;
+  }
+
+  .input-field input[type=text]:focus  + label {
+    color: #2667FF;
+  }
+
+  .input-field textarea:focus {
+    border-bottom: 1px solid #2667FF;
+    box-shadow: 0 1px 0 0 #2667FF;
+  }
+
+  .input-field textarea:focus + label {
+    color: #2667FF;
+  }
+
+  
