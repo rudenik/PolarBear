@@ -8,7 +8,7 @@ class Chat extends Component {
             <div>
             <div>Hello</div>
             <div>Hello</div>
-            <div>Hello</div>'
+            <div>Hello</div>
             </div>
         ])
     }

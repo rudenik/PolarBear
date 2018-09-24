@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./InputText.css";
 // class InputArea extends Component {
 
 
@@ -8,7 +8,7 @@ import React, { Component } from "react";
 export const InputArea = (props) => {
     return(
     <div className="input-field">
-          <textarea id={props.textAreaID} className="materialize-textarea"></textarea>
+          <textarea id={props.textAreaID} className="materialize-textarea" data-length="140"></textarea>
           <label for={props.textAreaID}>{props.label}</label>
         </div>
     )
