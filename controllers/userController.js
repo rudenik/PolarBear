@@ -55,22 +55,4 @@ module.exports = //function (app)
                 res.json(err)
             })
         }
-
     };
-
-
-
-
-
-
-//getUserEvents
-//addUserEvent
-
-//match
-
-
-//Delete User
-
-//Write Routes with creates for Users, Events and UserEvents
-//Write Routes for Relationship
-
