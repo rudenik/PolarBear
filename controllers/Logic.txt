@@ -26,7 +26,7 @@ UserProfile==>
 AddUserProfile
 DeleteUserProfile
 UpdateUserProfile
-GetUserProfile
+GetSingleUserProfile
 
 Event==>
 None Event Creation is done db side future enhancment
@@ -42,8 +42,6 @@ CreateMatch where status = 0
 AcceptMatch and update to status = 4 and actionuser
 check match exists
 Get Single match -- may be usful for conversation if conversation ID is added to table 
-
-
 
 
 
