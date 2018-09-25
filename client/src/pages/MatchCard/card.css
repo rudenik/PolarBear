@@ -7,13 +7,12 @@
 }
 
 .match__pass{
-    background-color: #D0021B;
+    background-color: #D0021B !important;
     color: white;
-
 }
 
 .match__connect{
-    background-color: #619E1E;
+    background-color: #619E1E !important;
     color: white;
 
 }

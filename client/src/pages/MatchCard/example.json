@@ -1,0 +1,26 @@
+[
+    {
+        "name":"example1",
+        "cards": [
+            "1hello1",
+            "1hello2",
+            "1hello3"
+        ]
+    },
+    {
+        "name":"example2",
+        "cards": [
+            "2hello1",
+            "2hello2",
+            "2hello3"
+        ]
+    },
+    {
+        "name":"example3",
+        "cards": [
+            "3hello1",
+            "3hello2",
+            "3hello3"
+        ]
+    }
+]
