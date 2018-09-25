@@ -1,49 +1,74 @@
-.mainChatContainer {
+.chat_main_container {
   margin-top: 3em;
-  padding: 1em 1em 0 1em;
-  border: 2px solid red;
+  /* padding: 1em 1em 0 1em; */
+  /* border: 2px solid red; */
   height: 80vh;
-  display:flex;
-  flex-direction:column;
-  background-color:rgba(245, 166, 35, 0.7);
-}
-
-.userBar {
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
+}
+
+.chat_room_container {
+  border: 1px solid black;
+  background-color: #f6ae42;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-content:center;
+}
+
+.mainChatContainer {
+  background-color: #f6ae42;
+}
+
+
+.chat_area {
+  /* padding: 0.5em 0.5em 0.5em 0.5em; */
+  flex-grow: 1;
+  border: 1px solid blue;
+  overflow-y:scroll;
+  height:100%;
+}
+.chat_room_choose h3{
+ text-align:center;
+}
+
+
+/* .chat-room {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  height: 100%;
+  width: 100%;
+} */
+/* .chat-room.choose {
   align-items: center;
-  padding: 0.3em .5em 0.3em .5em;
-  flex-grow:1;
-  background-color:white;
+  justify-content: center;
+  font-size: 2em;
+} */
+ /* .thread-container {
+  flex-grow: 1;
+  overflow-y: scroll;
+  position: relative;
+} */
+/* .thread-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #cac8ee;
+}
+.thread-container::-webkit-scrollbar {
+  width: 5px;
+  background-color: green;
+}
+.thread-container::-webkit-scrollbar-thumb {
+  background-color: #484d79;
 }
 
-.userPhoto {
-  height: 4em;
-}
-
-.userInfo {
-  text-align: center;
-}
-
-.userInfo p{
-    margin:0;
-}
-
-.headShot {
-  border-radius: 50%;
-  max-height: 100%;
-  max-width: 100%;
-}
-
-.chat_area{
-    padding:0.5em 0.5em 0.5em 0.5em;
-    flex-grow:20;
-    border:1px solid blue;
-}
-
-.type_msg{
-    flex-grow:1;
-    background-color:white;
-}
+.thread-container .thread {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #b3b2ca;
+  background: #dcddf5;
+} */
