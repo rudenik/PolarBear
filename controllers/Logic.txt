@@ -8,19 +8,9 @@ Check Match
 If No match found CreateMatch
 if match found declineMatch - status = 2
 
-
-
-
-
 Check if user1 and user2 match exists in table 
 Select Count(*) from matches where user 1 - u1 and user2 = U2 
 
-
-User==>
-AddUser
-DeleteUser
-UpdateUser
-Get Single User
 
 UserProfile==>
 AddUserProfile
@@ -45,7 +35,8 @@ Get Single match -- may be usful for conversation if conversation ID is added to
 
 
 
-
+write API file and routers
+define what needs to be sent
 
 
 

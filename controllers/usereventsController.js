@@ -6,9 +6,9 @@ module.exports = //function (app)
         //When a user enters a code for user event
         createUserEvent: function (req, res)
         {
-            db.sequelize.query("INSERT INTO userevents (EventId, UserProfileId, createdAt, updatedAt ) VALUE ((SELECT id FROM events WHERE eventCode = :eventcode), 2, NOW(),NOW()",
+            db.sequelize.query("INSERT INTO userevents (EventId, UserProfileId, createdAt, updatedAt ) VALUE ((SELECT id FROM events WHERE eventCode = :eventcode), :userid, NOW(),NOW()",
                 //replacments:{Queryname: req.params.} eg: checkInDate: req.params.checkInDate
-                { replacements: { eventcode: req.params.eventCode, useId: req.params.id }, type: db.sequelize.QueryTypes.SELECT }
+                { replacements: { eventcode: req.body.eventCode, userid: req.body.id }, type: db.sequelize.QueryTypes.INSERT }
             ).then(function (room)
             {
                 console.log(room);
@@ -17,13 +17,14 @@ module.exports = //function (app)
 
         },
         //Returns list of events the user has a code to for.
+        //Get all Events a User has access to
         getAllUserEvents: function (req, res)
         {
             db.UserEvents.findAll({
                 where: {
                     UserProfileId: req.params.id
                 },
-                include: [db.Events]
+                include: [db.Events]//Using this to get events details such as name in res
 
             }).then(function (dbUserProfile)
             {
@@ -34,7 +35,10 @@ module.exports = //function (app)
                 res.json(err)
             })
         },
+        
         //Get a Users Match List 
+        //TODO: UPATE WITH QUERY FROM EMAIL REMOVE POSSIBLY to another controller
+        //GET all User for Event For User to Match With
         getAllEventUsers: function (req, res)
         {
             db.UserEvents.findAll({

@@ -6,7 +6,7 @@ module.exports =
         ///OBJ Requires: {useroneId, UsertwoId, status, actionuser}
         createMatch: function(req, res)//OBJ NEEDS RES FROM USERCONTROL ID FOR FK
         {
-            db.UserProfile.create(req.body).then(function(dbUserProfile) {
+            db.Match.create(req.body).then(function(dbUserProfile) {
                 res.json(dbUserProfile);
             }).catch(function(err) {
                 console.log(err)

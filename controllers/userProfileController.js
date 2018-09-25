@@ -29,7 +29,7 @@ module.exports =
       })
     },
     //Get Single UserProfile
-    getSingleUserProfile: function (req, res)
+    findById: function (req, res)
     {
       db.UserProfile.findById(req.params.id).then(function (dbUserProfile)
       {
@@ -40,7 +40,7 @@ module.exports =
         res.json(err)
       })
     },
-    deleteUserProfile: function (req, res)
+    remove: function (req, res)
     {
       db.UserProfile.destroy({
         where: {

@@ -40,13 +40,8 @@ module.exports = function (sequelize, DataTypes)
 
     UserProfile.associate = function (models)
     {
-        UserProfile.belongsTo(models.User,{
-            foreignKey: {
-                allowNull: false
-            }
-        });
-        UserProfile.belongsToMany(models.Events, {through: 'UserEvents'});
-        
+        UserProfile.belongsToMany(models.Events, { through: 'UserEvents' });
+        UserProfile.belongsToMany(UserProfile,{through: models.Match, as: "Matches", foreignKey: "user_one_id", otherKey: "user_two_id"});
     };
 
     return UserProfile;
