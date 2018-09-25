@@ -1,0 +1,50 @@
+.match__button-pc{
+    margin-top: 10px;
+    width: 125px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.match__pass{
+    background-color: #D0021B !important;
+    color: white;
+}
+
+.match__connect{
+    background-color: #619E1E !important;
+    color: white;
+
+}
+.match__card{
+    margin-top: 45px;
+    height: 400px;
+    margin-left:20px;
+    margin-right:20px;
+    padding: 10px;
+    border: 20px rgba(245, 166, 35, 0.7) solid;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    position: relative;
+}
+.indicators{
+    position:absolute !important;
+    bottom:0px !important;
+    color: black;
+}
+
+.match__carousel{
+    height:100%;
+}
+
+.match__header{
+    height: 80px;
+    padding-top: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+.match__title{
+    color: #2667FF;
+}
+

@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/rudenik/polarbear#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
@@ -33,11 +34,11 @@
     "if-env": "^1.0.4",
     "material-icons-react": "^1.0.2",
     "mongoose": "^5.2.13",
+    "mysql2": "^1.6.1",
     "nodemon": "^1.18.4",
     "react-materialize": "^2.4.5",
     "react-router-dom": "^4.3.1",
     "sequelize": "^4.38.1",
-    "socket.io": "^2.1.1",
-    "yarn": "^1.9.4"
+    "socket.io": "^2.1.1"
   }
 }

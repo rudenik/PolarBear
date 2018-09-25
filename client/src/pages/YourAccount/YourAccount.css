@@ -1,0 +1,106 @@
+.visuallyhidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.youraccount__polarBlue {
+    color:#2667FF;
+}
+
+.youraccount__yourAccount {
+    height:70vh;
+    padding:10px;
+}
+
+.youraccount__wrapper {
+    margin:0 auto;
+}
+
+.youraccount__orangeBackground {
+    background-color:rgba(245, 166, 35, 0.7);
+    padding:15px;
+}
+
+.youraccount__whiteBackground {
+    background-color:#FFF;
+}
+
+.youraccount__headShot {
+    border-radius:50%;
+    width:100px;
+    padding:5px;
+}
+
+.youraccount__blackText {
+    color:black;
+    margin:0;
+    padding:3px;
+}
+
+
+h3 {
+    font-size:1.4em;
+}
+
+.youraccount__align-center {
+    text-align:center;
+
+}
+
+.youraccount__currentTitle {
+    font-size:1em;
+}
+
+
+.youraccount__nameInfo {
+    width:60%;
+    padding-top:20px;
+    padding-left:15px;
+}
+
+.youraccount__flexRow {
+    display:flex;
+    flex-direction:row;
+}
+
+.youraccount__flexCol {
+    display:flex;
+    flex-direction:column;
+}
+input {
+    border-radius:5px;
+    box-shadow:none;
+    border:1px solid black;
+    padding:2%;
+    margin:1%;
+}
+
+#jobStatus {
+    /* border:1px solid black; */
+    border-radius:5px;
+    background:white;
+}
+
+select {
+    display:inline-block;
+}
+input[type=text]:focus:not([readonly]){
+        border-bottom: 0.3px solid lightgrey;
+    box-shadow: 0 0.3px 0 0 lightgrey;
+}
+
+select:focus {
+    outline: 1px solid lightgrey;
+}
+
+
+
+
