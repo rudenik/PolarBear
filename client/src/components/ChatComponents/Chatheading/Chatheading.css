@@ -1,0 +1,27 @@
+.userBar {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3em .5em 0.3em .5em;
+    background-color:white;
+  }
+  
+  .userPhoto {
+    height: 4em;
+  }
+  
+  .userInfo {
+    text-align: center;
+  }
+  
+  .userInfo p{
+      margin:0;
+  }
+  
+  .headShot {
+    border-radius: 50%;
+    max-height: 100%;
+    max-width: 100%;
+  }
