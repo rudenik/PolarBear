@@ -1,4 +1,3 @@
-
 .match__button-pc{
     margin-top: 10px;
     width: 125px;
@@ -7,13 +6,12 @@
 }
 
 .match__pass{
-    background-color: #D0021B;
+    background-color: #D0021B !important;
     color: white;
-
 }
 
 .match__connect{
-    background-color: #619E1E;
+    background-color: #619E1E !important;
     color: white;
 
 }
@@ -27,7 +25,18 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 1.5rem;
+    position: relative;
 }
+.indicators{
+    position:absolute !important;
+    bottom:0px !important;
+    color: black;
+}
+
+.match__carousel{
+    height:100%;
+}
+
 .match__header{
     height: 80px;
     padding-top: 10px;
