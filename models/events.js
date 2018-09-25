@@ -4,9 +4,6 @@ module.exports = function (sequelize, DataTypes)
         eventName: {
             type: DataTypes.TEXT,
             allowNull: false,
-            validate: {
-                max: [20]
-            }
         },
         eventCode: {
             type: DataTypes.TEXT,

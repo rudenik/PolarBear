@@ -1,20 +1,50 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
+  //AddUserProfile
+  addUserProfile: function ()
+  {
+    return axios.post("/api/userprofile", UserData);
   },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
+  //Update User Profile
+  updateUserProfile: function ()
+  {
+    return axios.put("/api/userprofile");
   },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
+  // Get UserProfile with givin ID
+  getUserProfile: function (id)
+  {
+    return axios.get("/api/userprofile/" + id);
+  },
+  // Deletes User Profile With given Id
+  deleteUserProfile: function (id)
+  {
     return axios.delete("/api/books/" + id);
   },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+
+  //USEREVENTS
+  //AddUserEvent
+  addUserProfile: function ()
+  {
+    return axios.post("/api/userevent", UserData);
+  },
+  //Get All Events User Belongs to
+  getUserEvents: function ()
+  {
+    return axios.get("/api/userevent/" + id);
+  },
+
+  //Match
+  getEventMatches: function ()
+  {
+    return axios.get("/api/userevent" + useroneid + "/" + eventid);
+  },
+  getUserMatches: function ()
+  {
+    return axios.get("/api/userevent" + useroneid );
+  },
+  createMatch: function ()
+  {
+    return axios.post("/api/userevent", MatchData);
   }
 };

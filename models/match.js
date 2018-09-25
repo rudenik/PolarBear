@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes)
             }
         }
         //TODO: Add Event ID to filter even IDS
-
+        //TODO: Add ConversationID 
     });
 
     return Match;

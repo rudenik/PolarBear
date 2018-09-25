@@ -24,14 +24,15 @@ router.route("/api/userevent/:id")
 
 //======================================================
 
-//MATCH CONTROLLER
-router
-    .route("/api/match")
+//MATCH ROUTES
+router.route("api/match")//:useroneid/:usertwoid/:status/:actionuser
     .post(matchController.createMatch);
-//
-
 router.route("/api/match/:useroneid")
     .get(matchController.getUserMatches);
+router.route("api/match/:useroneid/:eventid" )
+    .get(matchController.getEventMatches);
+
+
 
 
 module.exports = router; 
