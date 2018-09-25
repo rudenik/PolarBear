@@ -6,7 +6,7 @@ import { connect } from "mongoose";
 const { USER_CONNECTED, USER_DISCONNECTED } = require("../../../store/actions");
 const socket = io("localhost:3001");
 
-class Sidebar extends Component {
+export class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -95,7 +95,7 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+
 
 {
   /* <form onSubmit={this.handleSubmit} className="search">
