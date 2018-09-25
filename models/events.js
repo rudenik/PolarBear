@@ -4,9 +4,6 @@ module.exports = function (sequelize, DataTypes)
         eventName: {
             type: DataTypes.TEXT,
             allowNull: false,
-            validate: {
-                max: [20]
-            }
         },
         eventCode: {
             type: DataTypes.TEXT,
@@ -19,7 +16,7 @@ module.exports = function (sequelize, DataTypes)
 
     Events.associate = function (models)
     {
-        Events.belongsToMany(models.User, {through: 'UserEvents'});
+        Events.belongsToMany(models.UserProfile, {through: 'UserEvents'});
     };
 
 

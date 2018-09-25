@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes)
 {
-    var User = sequelize.define("User", {
+    var UserProfile = sequelize.define("UserProfile", {
         firstName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -38,12 +38,11 @@ module.exports = function (sequelize, DataTypes)
         }
     });
 
-    User.associate = function (models)
+    UserProfile.associate = function (models)
     {
-        // Associating Author with Posts
-        // When an Author is deleted, also delete any associated Posts
-        User.belongsToMany(models.Events, {through: 'UserEvents'});
+        UserProfile.belongsToMany(models.Events, { through: 'UserEvents' });
+        UserProfile.belongsToMany(UserProfile,{through: models.Match, as: "Matches", foreignKey: "user_one_id", otherKey: "user_two_id"});
     };
 
-    return User;
+    return UserProfile;
 };
