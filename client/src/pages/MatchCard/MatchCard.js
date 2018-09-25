@@ -15,7 +15,7 @@ class MatchCard extends Component {
   buttonClick = (button) => {
     this.setState({button:button})
     const i = this.state.i;
-    this.setState({i: i+1})
+    i < this.state.example.length ? this.setState({i: i+1}) : this.setState({i: 0})
   }
 
   render() {
