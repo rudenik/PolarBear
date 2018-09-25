@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
 
+import io from "socket.io-client";
+import { connect } from "mongoose";
+const { USER_CONNECTED, USER_DISCONNECTED } = require("../../../store/actions");
+const socket = io("localhost:3001");
+
 class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      receiver: ""
+      receiver: "",
+      connectedUsers: null
     };
   }
   handleSubmit = e => {
@@ -14,20 +20,54 @@ class Sidebar extends Component {
     console.log("receiver from chat component");
     console.log(receiver);
     const { onSendPrivateMessage } = this.props;
-    
+
     onSendPrivateMessage(receiver);
   };
 
+  componentDidMount() {
+    this.initSocket();
+  }
+
+  initSocket = () => {
+    socket.on(USER_CONNECTED, el => {
+      console.log("ONLINE");
+      console.log(el);
+      this.setState(
+        prevState => {
+          return {
+            connectedUsers: el
+          };
+        },
+        () => {
+          console.log(this.state.connectedUsers);
+        }
+      );
+    });
+
+    socket.on(USER_DISCONNECTED, el => {
+      console.log("OFFLINE");
+      console.log(el);
+      this.setState(prevState => {
+        return {
+          connectedUsers: el
+        };
+      });
+    });
+  };
+
   render() {
-console.log("sidebar stuff")
-console.log(this.state.receiver);/*woorks*/
+    console.log("sidebar stuff");
+    console.log(this.state.receiver); /*woorks*/
+    console.log("connected users");
+    console.log(this.state.connectedUsers);
+
     const { chats, activeChat, user, setActiveChat, logout } = this.props;
-    const { receiver } = this.state;
+    const { receiver, connectedUsers } = this.state;
 
     return (
       <div id="side-bar">
         <form onSubmit={this.handleSubmit} className="search">
-          <i className="search-icon">{/* <FASearch /> */}</i>
+        <i className="search-icon"></i>
           <input
             placeholder="Search"
             type="text"
@@ -35,13 +75,14 @@ console.log(this.state.receiver);/*woorks*/
             onChange={e => {
               this.setState({ receiver: e.target.value });
             }}
-          />
+      />
+
         </form>
         <div
           className="users"
           ref="users"
           onClick={e => {
-            e.target === this.refs.user && setActiveChat(null);
+            e.target === this.refs.users && setActiveChat(null);
           }}
         >
           {chats.map(chat => {
@@ -51,7 +92,7 @@ console.log(this.state.receiver);/*woorks*/
               const chatSideName =
                 chat.users.find(name => {
                   return name !== user.name;
-                }) || "Community";
+                }) || null;
               const classNames =
                 activeChat && activeChat.id === chat.id ? "active" : "";
 
@@ -66,9 +107,13 @@ console.log(this.state.receiver);/*woorks*/
                   <div className="user-photo">{/* pass photo in here*/}</div>
                   <div className="user-info">
                     <div className="name">{chatSideName}</div>
-                    {lastMessage && (
-                      <div className="last-message">{lastMessage.message}</div>
-                    )}
+                    {lastMessage ? (
+                      <div className="last-message">
+                        {lastMessage.message.length > 10
+                          ? lastMessage.message.substring(0, 10).concat("...")
+                          : lastMessage.message}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               );

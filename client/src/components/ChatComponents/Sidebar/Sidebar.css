@@ -66,6 +66,9 @@
 }
 #side-bar .users .user .user-info .last-message {
   font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   opacity: 0.56;
 }
 
