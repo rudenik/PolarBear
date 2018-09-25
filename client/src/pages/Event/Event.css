@@ -2,19 +2,38 @@
     text-align: center;
 }
 
-.btn {
+
+
+.btn .button:focus {
       background-color: #2667FF;
-    
+}
+.btn {
+  background-color: #2667FF;
 }
 
-.btn-large:hover {
+.btn-large:hover .btn:hover,
+.btn-large:hover  {
     background-color: #2667FF;
 }
 
 .event__btn {
-  margin-top:30px;
+  
+  position:relative;
+  margin-top:90%;
+  margin-bottom: 10%;
 }
 
-.event__code {
+#event__code {
   margin-bottom: 0;
+}
+
+#eventStatus {
+  border-radius: 5px;
+  background: white;
+  text-align: center;
+}
+
+.event__align-center {
+  text-align: center;
+
 }
