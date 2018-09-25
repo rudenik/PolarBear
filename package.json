@@ -37,6 +37,7 @@
     "mysql2": "^1.6.1",
     "nodemon": "^1.18.4",
     "react-materialize": "^2.4.5",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "sequelize": "^4.38.1",
     "socket.io": "^2.1.1"

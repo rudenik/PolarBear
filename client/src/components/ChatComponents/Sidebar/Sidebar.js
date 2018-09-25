@@ -56,72 +56,28 @@ class Sidebar extends Component {
   };
 
   render() {
-    console.log("sidebar stuff");
-    console.log(this.state.receiver); /*woorks*/
-    console.log("connected users");
-    console.log(this.state.connectedUsers);
-
     const { chats, activeChat, user, setActiveChat, logout } = this.props;
     const { receiver, connectedUsers } = this.state;
 
     return (
       <div id="side-bar">
-        <form onSubmit={this.handleSubmit} className="search">
-        <i className="search-icon"></i>
-          <input
-            placeholder="Search"
-            type="text"
-            value={receiver}
-            onChange={e => {
-              this.setState({ receiver: e.target.value });
-            }}
-      />
-
-        </form>
         <div
           className="users"
           ref="users"
           onClick={e => {
             e.target === this.refs.users && setActiveChat(null);
           }}
-        >
-          {chats.map(chat => {
-            console.log(chat);
-            if (chat.name) {
-              const lastMessage = chat.messages[chat.messages.length - 1];
-              const chatSideName =
-                chat.users.find(name => {
-                  return name !== user.name;
-                }) || null;
-              const classNames =
-                activeChat && activeChat.id === chat.id ? "active" : "";
+        />
+      
 
-              return (
-                <div
-                  key={chat.id}
-                  className={`user ${classNames}`}
-                  onClick={() => {
-                    setActiveChat(chat);
-                  }}
-                >
-                  <div className="user-photo">{/* pass photo in here*/}</div>
-                  <div className="user-info">
-                    <div className="name">{chatSideName}</div>
-                    {lastMessage ? (
-                      <div className="last-message">
-                        {lastMessage.message.length > 10
-                          ? lastMessage.message.substring(0, 10).concat("...")
-                          : lastMessage.message}
-                      </div>
-                    ) : null}
-                  </div>
-                </div>
-              );
-            }
 
-            return null;
-          })}
-        </div>
+
+
+
+
+
+
+
         <div className="current-user">
           <span>{user.name}</span>
           {/* <div
@@ -140,3 +96,62 @@ class Sidebar extends Component {
 }
 
 export default Sidebar;
+
+{
+  /* <form onSubmit={this.handleSubmit} className="search">
+<i className="search-icon"></i>
+  <input
+    placeholder="Search"
+    type="text"
+    value={receiver}
+    onChange={e => {
+      this.setState({ receiver: e.target.value });
+    }}
+/>
+
+</form>
+<div
+  className="users"
+  ref="users"
+  onClick={e => {
+    e.target === this.refs.users && setActiveChat(null);
+  }}
+>
+  {chats.map(chat => {
+    console.log(chat);
+    if (chat.name) {
+      const lastMessage = chat.messages[chat.messages.length - 1];
+      const chatSideName =
+        chat.users.find(name => {
+          return name !== user.name;
+        }) || null;
+      const classNames =
+        activeChat && activeChat.id === chat.id ? "active" : "";
+
+      return (
+        <div
+          key={chat.id}
+          className={`user ${classNames}`}
+          onClick={() => {
+            setActiveChat(chat);
+          }}
+        >
+          <div className="user-photo"></div>
+          <div className="user-info">
+            <div className="name">{chatSideName}</div>
+            {lastMessage ? (
+              <div className="last-message">
+                {lastMessage.message.length > 10
+                  ? lastMessage.message.substring(0, 10).concat("...")
+                  : lastMessage.message}
+              </div>
+            ) : null}
+          </div>
+        </div>
+      );
+    }
+
+    return null;
+  })}
+</div> */
+}
