@@ -24,7 +24,7 @@ class Event extends Component {
         <div className="JobSeeker">
           <p className="Event__left" >I am a:</p> 
           <label for="jobStatus" className="visuallyhidden">Job Status</label>
-
+                            <div className="styleSelect">
                             <select name="eventStatus" id="eventStatus" >
                                 <option value = "jobSeeker"
                                 className="event__align-center">Job Seeker</option>
@@ -32,6 +32,7 @@ class Event extends Component {
                                 <option value="youraccount__hiringManager">Student</option>
                                 <option value="youraccount__hiringManager">Curious</option>
                             </select> 
+                            </div>
         </div>
      
        
