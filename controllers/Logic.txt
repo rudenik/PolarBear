@@ -1,0 +1,42 @@
+MatchEvent => User action:
+Check Match ==> is this done in the db side. what does db of function(db) return
+If No match found CreateMatch
+if match found AcceptMatch - status = 1
+
+PassEvent => User action:
+Check Match
+If No match found CreateMatch
+if match found declineMatch - status = 2
+
+Check if user1 and user2 match exists in table 
+Select Count(*) from matches where user 1 - u1 and user2 = U2 
+
+
+UserProfile==>
+AddUserProfile
+DeleteUserProfile
+UpdateUserProfile
+GetSingleUserProfile
+
+Event==>
+None Event Creation is done db side future enhancment
+
+UserEvent==>
+CreateUserEvent
+DeleteUserEvent
+Get All Users For Event
+Get All Events For User
+
+Match ==>
+CreateMatch where status = 0
+AcceptMatch and update to status = 4 and actionuser
+check match exists
+Get Single match -- may be usful for conversation if conversation ID is added to table 
+
+
+
+write API file and routers
+define what needs to be sent
+
+
+
