@@ -39,7 +39,7 @@ app.use(express.static("public"));
 // {
 
 // });
-db.sequelize.sync({ force: true }).then(function ()
+db.sequelize.sync({ force: false }).then(function ()
 {
   app.listen(PORT, function ()
   {
@@ -47,7 +47,7 @@ db.sequelize.sync({ force: true }).then(function ()
   });
 });
 
-io.on("connection", SocketManager);
+// io.on("connection", SocketManager);
 // io.on("connection", function(socket) {
 //   console.log("user connected at socket id "+socket.id);
 //   socket.on('SEND_MESSAGE', function(data){

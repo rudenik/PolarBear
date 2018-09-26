@@ -10,10 +10,13 @@
     "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
     "googleapis": "^33.0.0",
+    "material-icons-react": "^1.0.4",
     "mysql": "^2.16.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-google-login": "^3.2.1",
+    "react-materialize": "^2.4.5",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
     "redux": "^4.0.0"
   },
