@@ -128,7 +128,7 @@ module.exports =
                     //Update Match 
                     db.sequelize.query("INSERT INTO matches (user_one_id, user_two_id, status, action_user_id) VALUES (:userone, :usertwo, (SELECT * FROM status WHERE statusName = :statusname), :actionuser)",
                         //replacments:{Queryname: req.params.} eg: checkInDate: req.params.checkInDate
-                        { replacements: { userone: useroneid,  usertwo: usertwoid, statusname: req.body.status, actionuser: req.body.actionuser }, type: db.sequelize.QueryTypes.INSERT }
+                        { replacements: { userone: useroneid,  usertwo: usertwoid, statusname: status, actionuser: req.body.actionuser }, type: db.sequelize.QueryTypes.INSERT }
                     ).then(function (dbMatch)
                     {
                         console.log(dbMatch);
@@ -168,8 +168,6 @@ module.exports =
             });
         }
     };
-
-//match
 
 //Check ids asign high and low id to corrrect ids
 //Match - check for relationship 

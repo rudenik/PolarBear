@@ -9,7 +9,7 @@ export default {
   //Update User Profile
   updateUserProfile: function ()
   {
-    return axios.put("/api/userprofile");
+    return axios.put("/api/userprofile", UserData);
   },
   // Get UserProfile with givin ID
   getUserProfile: function (id)
@@ -37,11 +37,11 @@ export default {
   //Match
   getEventMatches: function ()
   {
-    return axios.get("/api/userevent" + useroneid + "/" + eventid);
+    return axios.get("/api/userevent/" + useroneid + "/" + eventid);
   },
   getUserMatches: function ()
   {
-    return axios.get("/api/userevent" + useroneid );
+    return axios.get("/api/userevent/" + useroneid );
   },
   createMatch: function ()
   {

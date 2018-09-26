@@ -39,9 +39,12 @@ app.use(express.static("public"));
 // {
 
 // });
-
-server.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+db.sequelize.sync({ force: true }).then(function ()
+{
+  app.listen(PORT, function ()
+  {
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  });
 });
 
 io.on("connection", SocketManager);
