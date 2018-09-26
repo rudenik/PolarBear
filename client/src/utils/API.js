@@ -24,7 +24,7 @@ export default {
 
   //USEREVENTS
   //AddUserEvent
-  addUserProfile: function ()
+  addUserEvent: function ()
   {
     return axios.post("/api/userevent", UserData);
   },
