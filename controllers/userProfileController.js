@@ -31,6 +31,7 @@ module.exports =
     //Get Single UserProfile
     findById: function (req, res)
     {
+      console.log(req.params);
       db.UserProfile.findById(req.params.id).then(function (dbUserProfile)
       {
         res.json(dbUserProfile);
