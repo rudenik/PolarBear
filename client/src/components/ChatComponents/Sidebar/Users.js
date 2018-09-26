@@ -15,6 +15,7 @@ export const Users = props => {
           className={`user`}
           onClick={() => {
             // setActiveChat(chat);
+            props.click;
           }}
         />,
         <div className="user-photo" />,

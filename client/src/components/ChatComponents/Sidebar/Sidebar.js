@@ -21,7 +21,6 @@ export class Sidebar extends Component {
     console.log("receiver from chat component");
     console.log(receiver);
     const { onSendPrivateMessage } = this.props;
-
     onSendPrivateMessage(receiver);
   };
 
@@ -69,7 +68,7 @@ export class Sidebar extends Component {
             e.target === this.refs.users && setActiveChat(null);
           }}
         />
-      <Users click={this.showSpecificUser} connected={connectedUsers} chats={chats}/>
+      <Users click={this.handleSubmit} connected={connectedUsers} chats={chats}/>
 
 
         <div className="current-user">
