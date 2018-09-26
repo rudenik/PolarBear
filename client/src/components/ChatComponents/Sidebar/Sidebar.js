@@ -3,6 +3,7 @@ import "./Sidebar.css";
 
 import io from "socket.io-client";
 import { connect } from "mongoose";
+import {Users} from "../Sidebar";
 const { USER_CONNECTED, USER_DISCONNECTED } = require("../../../store/actions");
 const socket = io("localhost:3001");
 
@@ -68,14 +69,7 @@ export class Sidebar extends Component {
             e.target === this.refs.users && setActiveChat(null);
           }}
         />
-      
-
-
-
-
-
-
-
+      <Users click={this.showSpecificUser} connected={connectedUsers} chats={chats}/>
 
 
         <div className="current-user">

@@ -7,8 +7,10 @@ import "./Chat.css";
 import Sender from "../../components/ChatComponents/Sender";
 import Receiver from "../../components/ChatComponents/Receiver";
 import Chatheading from "../../components/ChatComponents/Chatheading";
-import Sidebar from "../../components/ChatComponents/Sidebar";
+import {Sidebar} from "../../components/ChatComponents/Sidebar";
 import io from "socket.io-client";
+
+
 const {
   MESSAGE_SENT,
   TYPING,
