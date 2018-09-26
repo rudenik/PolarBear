@@ -66,7 +66,7 @@ class SignUp extends Component {
             <InputText fieldName="Event Code (optional)" inputId="eventCode" matIcon="event" onChange={this.handleInputChange}/>
             </Container>
             <Row>
-            <Col size="s10">
+            <Col size="s10 offset-s2">
             <p>Add up to 140 character to show 3 ‘highlights’</p>
             </Col>
             </Row>
