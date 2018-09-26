@@ -2,12 +2,12 @@ import axios from "axios";
 
 export default {
   //AddUserProfile
-  addUserProfile: function ()
+  addUserProfile: function (UserData)
   {
     return axios.post("/api/userprofile", UserData);
   },
   //Update User Profile
-  updateUserProfile: function ()
+  updateUserProfile: function (UserData)
   {
     return axios.put("/api/userprofile", UserData);
   },
@@ -24,26 +24,26 @@ export default {
 
   //USEREVENTS
   //AddUserEvent
-  addUserProfile: function ()
+  addUserEvents: function (UserData)
   {
     return axios.post("/api/userevent", UserData);
   },
   //Get All Events User Belongs to
-  getUserEvents: function ()
+  getUserEvents: function (id)
   {
     return axios.get("/api/userevent/" + id);
   },
 
   //Match
-  getEventMatches: function ()
+  getEventMatches: function (useroneid, eventid)
   {
     return axios.get("/api/userevent/" + useroneid + "/" + eventid);
   },
-  getUserMatches: function ()
+  getUserMatches: function (useroneid)
   {
     return axios.get("/api/userevent/" + useroneid );
   },
-  createMatch: function ()
+  createMatch: function (MatchData)
   {
     return axios.post("/api/userevent", MatchData);
   }

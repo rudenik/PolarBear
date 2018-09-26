@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import API from "../../utils/API";
 import { Row } from '../../components/Grid';
 import GoogleLogin from 'react-google-login';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
@@ -12,11 +12,15 @@ const responseGoogle = (response) => {
   }
 const success = (response) => {
     console.log(response.googleId);
-    axios.get("/api/userprofile/"+ response.googleId).then(function (queryResp){
-        console.log(queryResp);
-        
-    })
+    // axios.get("/api/userprofile/"+ response.googleId).then(function (queryResp){
+    //     console.log(queryResp);
 
+    // })
+    API.getUserProfile(response.googleId).then(function (queryResp){
+        console.log(queryResp);
+    }
+
+    )
 
 }
 
