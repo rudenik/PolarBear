@@ -14,6 +14,7 @@ export default {
   // Get UserProfile with givin ID
   getUserProfile: function (id)
   {
+    console.log(id);
     return axios.get("/api/userprofile/" + id);
   },
   // Deletes User Profile With given Id

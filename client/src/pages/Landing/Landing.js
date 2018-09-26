@@ -16,13 +16,15 @@ const success = (response) => {
     //     console.log(queryResp);
 
     // })
-    API.getUserProfile(response.googleId).then(function (queryResp){
+    API.getUserProfile(response.googleId).then(function(queryResp){
         console.log(queryResp);
+        if(!queryResp.data){
+            console.log("user not present");
+        }else{
+            console.log(queryResp);
+        }
+    });
     }
-
-    )
-
-}
 
 class Landing extends Component {
 
