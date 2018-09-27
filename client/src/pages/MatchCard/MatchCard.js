@@ -27,7 +27,8 @@ class MatchCard extends Component {
     //update the current user's "match"
     //TODO: how to get id of "user One "
     updateMatchStatus(choice, id);
-    i < this.state.users.length ? this.setState({i: i+1}) : 
+    i < this.state.users.length ? 
+    this.setState({i: i+1}) : 
     this.setState({users: cardDone})
   }
 
