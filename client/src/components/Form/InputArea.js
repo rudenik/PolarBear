@@ -9,7 +9,7 @@ export const InputArea = (props) => {
     return(
     <div className="input-field">
           <textarea id={props.textAreaID} className="materialize-textarea" data-length="140"></textarea>
-          <label for={props.textAreaID}>{props.label}</label>
+          <label>{props.label}</label>
         </div>
     )
 }
