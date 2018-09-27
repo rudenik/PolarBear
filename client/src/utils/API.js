@@ -38,14 +38,14 @@ export default {
   //Match
   getEventMatches: function (useroneid, eventid)
   {
-    return axios.get("/api/userevent/" + useroneid + "/" + eventid);
+    return axios.get("/api/match/" + useroneid + "/" + eventid);
   },
   getUserMatches: function (useroneid)
   {
-    return axios.get("/api/userevent/" + useroneid );
+    return axios.get("/api/match/" + useroneid );
   },
   createMatch: function (MatchData)
   {
-    return axios.post("/api/userevent", MatchData);
+    return axios.post("/api/match", MatchData);
   }
 };

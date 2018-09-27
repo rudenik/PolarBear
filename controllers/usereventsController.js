@@ -37,36 +37,4 @@ module.exports = //function (app)
             })
         },
         
-        //Get a Users Match List 
-        //TODO: UPATE WITH QUERY FROM EMAIL REMOVE POSSIBLY to another controller
-        //GET all User for Event For User to Match With
-        getAllEventUsers: function (req, res)
-        {
-            db.UserEvents.findAll({
-                where: {
-                    EventId: req.params.eventid,
-                    [Op.ne]: req.params.userid
-                }
-            }).then(function (dbUserEvents)
-            {
-                res.json(dbUserEvents);
-            }).catch(function (err)
-            {
-                console.log(err)
-                res.json(err)
-            })
-        }
-
-        ///EVENTCONTROLLER
-        // getEventMatches: function(req, res) {
-        //   db.sequelize.query("SELECT * FROM matches WHERE (user_one_id = userone OR user_two_id = usertwo AND status = 1",
-        //       //replacments:{Queryname: req.params.} eg: checkInDate: req.params.checkInDate
-        //       { replacements: { userone: req.params.useroneid, statusname: req.params.status, actionuser: req.params.actionuser }, type: db.sequelize.QueryTypes.SELECT }
-        //   ).then(function(dbMatch) {
-        //       console.log(dbMatch);
-        //       res.json(dbMatch);
-        //   }).catch(function(err) {
-        //       console.log(err)
-        //       res.json(err)
-        //   });
     };

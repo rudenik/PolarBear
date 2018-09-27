@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports =
   {
-    createUserProfile: function (req, res)//OBJ NEEDS RES FROM USERCONTROL ID FOR FK
+    createUserProfile: function (req, res)
     {
       db.UserProfile.create(req.body).then(function (dbUserProfile)
       {
