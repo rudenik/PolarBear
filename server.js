@@ -31,11 +31,7 @@ app.use(express.static("public"));
 //   { useNewUrlParser: true }
 // );
 
-//start the api server ---- this gives me an error commenting out for now: shan
-// db.sequelize.sync({ force: false }).then(function ()
-// {
 
-// });
 db.sequelize.sync({ force: false }).then(function ()
 {
   server.listen(PORT, function ()
