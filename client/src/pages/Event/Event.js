@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "./Event.css"
+import API from "../../utils/API"
 import { InputText, InputArea } from "../../components/event__form";
 import { Row, Col, Container } from "../../components/Grid";
 
@@ -11,6 +12,14 @@ class Event extends Component {
         eventCode: "",
         choice:""
     };
+
+    EnterEventCode = () => {
+    API.addUserEvents()
+    .then(res =>{}
+      //SET STATE HERE) {eventCode , id}
+    
+    ).catch(err => console.log(err));
+  };
 
 
      render() {       
