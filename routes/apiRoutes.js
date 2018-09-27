@@ -1,18 +1,18 @@
 const router = require('express').Router();
 
-const userProfileController = require("../controller/userProfileController");
-const usereventsController = require("../controller/usereventsController");
-const matchController = require("../controller/matchController");
+const userProfileController = require("../controllers/userProfileController");
+const usereventsController = require("../controllers/usereventsController");
+const matchController = require("../controllers/matchController");
 
 
 //userProfile Routes
+router.route("/userprofile/:id")//this works
+    .get(userProfileController.findById)
+    .delete(userProfileController.remove);
 router.route("/api/userprofile")
     //.get(userController.findAll)
     .post(userProfileController.createUserProfile)
     .put(userProfileController.updateUserProfile);
-router.route("/api/userprofile/:id")
-    .get(userProfileController.findById)
-    .delete(userProfileController.remove);
 
 //======================================================
 
@@ -29,7 +29,7 @@ router.route("/api/userevent/:id")
 router.route("api/match")//:useroneid/:usertwoid/:status/:actionuser
     .post(matchController.createMatch);
 router.route("/api/match/:useroneid")
-    .get(matchController.getUserMatches);
+    .get(matchController.getUsersMatches);
 router.route("api/match/:useroneid/:eventid" )
     .get(matchController.getEventMatches);
 
