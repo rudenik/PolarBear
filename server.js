@@ -1,8 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-// const routes = require("./controllers/userProfileController");
-const apiRoutes=require("./routes");
+const apiRoutes = require("./routes");
 const app = express();
 const server = require("http").Server(app);
 const io = module.exports.io=require("socket.io")(server);
@@ -18,10 +17,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //add routes
-
 app.use(apiRoutes);
-// require('./controllers/userProfileController')
-
 
 // //Requiring our models for syncing
 var db = require("./models");
