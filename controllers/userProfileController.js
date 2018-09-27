@@ -49,6 +49,7 @@ module.exports =
         }
       }).then(function (dbUserProfile)
       {
+        
         res.json(dbUserProfile)
       }).catch(function (err)
       {

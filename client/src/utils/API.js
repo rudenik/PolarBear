@@ -20,7 +20,7 @@ export default {
   // Deletes User Profile With given Id
   deleteUserProfile: function (id)
   {
-    return axios.delete("/api/books/" + id);
+    return axios.delete("/api/userprofile/" + id);
   },
 
   //USEREVENTS
