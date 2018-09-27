@@ -26,7 +26,7 @@ module.exports =
         {
             console.log(req.params)
 
-            db.sequelize.query("Select UserProfileId FROM userevents where EventId = :eventid AND UserProfileId NOT EXISTS (SELECT user_one_id, user_two_id FROM matches WHERE (user_one_id = :userone OR user_two_id = :userone) AND status IN (1,2) AND action_user_id != :userone ) AND UserProfileId NOT EXISTS (SELECT user_one_id, user_two_id FROM matches WHERE (user_one_id = :userone OR user_two_id = :userone) AND status = 0 AND action_user_id = :userone);",
+            db.sequelize.query("SELECT up.* FROM userprofiles up INNER JOIN userevents ue ON ue.UserProfileID=up.id WHERE ue.EventID= :eventid AND up.id <> :userone AND NOT EXISTS (SELECT user_one_id, user_two_id FROM matches m WHERE (m.status IN (1,2) AND (m.user_one_id=up.id OR m.user_two_id=up.id)) OR (m.status = 0 AND m.action_user_id = up.id));",
                 //replacments:{Queryname: req.params.} eg: checkInDate: req.params.checkInDate
                 { replacements: { userone: req.params.useroneid, eventid: req.params.eventid}, type: db.sequelize.QueryTypes.SELECT }
             ).then(function (dbMatch)
