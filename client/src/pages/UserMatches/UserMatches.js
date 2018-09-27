@@ -6,16 +6,16 @@ class UserMatches extends Component {
     super(props);
     this.state = {
       user: '',
-      userMatches: []  
+      userMatches: []
   };
   }
   getUserMatches = (id) => {
-    $.ajax({
-      method: "GET",
-      url: `/api/match/${id}`
-    }).done(function (data) {
-      this.setState({userMatches: data})
-    })
+    // $.ajax({
+    //   method: "GET",
+    //   url: `/api/match/${id}`
+    // }).done(function (data) {
+    //   this.setState({userMatches: data})
+    // })
   }
   render() {
     return (
