@@ -11,10 +11,10 @@ return (
         </div>
     <div className="col s5">
     <div className="row">
-        <h5 className="user__cardname">Name</h5>
+        <h5 className="user__cardname">{this.props.name}</h5>
     </div>
     <div className="row  ">
-        <p className="user__carddesc">This my job</p>
+        <p className="user__carddesc">{this.props.job}</p>
     </div>
     </div>
     <div className="col s4 valign-wrapper">

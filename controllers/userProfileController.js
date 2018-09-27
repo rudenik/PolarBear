@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports =
   {
-    createUserProfile: function (req, res)//OBJ NEEDS RES FROM USERCONTROL ID FOR FK
+    createUserProfile: function (req, res)
     {
       db.UserProfile.create(req.body).then(function (dbUserProfile)
       {
@@ -31,6 +31,7 @@ module.exports =
     //Get Single UserProfile
     findById: function (req, res)
     {
+      console.log(req.params);
       db.UserProfile.findById(req.params.id).then(function (dbUserProfile)
       {
         res.json(dbUserProfile);
@@ -48,6 +49,7 @@ module.exports =
         }
       }).then(function (dbUserProfile)
       {
+        
         res.json(dbUserProfile)
       }).catch(function (err)
       {

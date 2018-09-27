@@ -19,6 +19,7 @@ class Event extends Component {
      <Container>
       
         <p>Hi {this.state.name}!</p> 
+<<<<<<< HEAD
         <br/>
        <InputText id="event__code" fieldName="Event Code" inputId="eventCode" matIcon="event" onChange={this.handleInputChange}/>
         <div className="JobSeeker">
@@ -36,6 +37,11 @@ class Event extends Component {
         </div>
      
        
+=======
+         <InputArea className="event__code" label="Event Code Name" textAreaID="eventCode" onChange={this.handleInputChange}/>
+       </div>
+        
+>>>>>>> e0846f564df543e4a6b63940d85d22ac30b54da0
          <button type="button" className="waves-effect waves-light btn event__btn" onClick={this.handleSignUpButton}>Sign Up for Event </button> 
     
          </Container>
@@ -46,3 +52,14 @@ class Event extends Component {
 }
 
 export default Event;
+
+//<div className="JobSeeker">
+         // <p>I am a:</p> 
+       //   <Dropdown trigger={
+     //   <Button>Job Seeker</Button>
+         //   }>
+       //  <NavItem>Student</NavItem>
+       //  <NavItem>Employer</NavItem>
+    ///     <NavItem>Job Seeker</NavItem>
+  //      </Dropdown>
+//        </div>

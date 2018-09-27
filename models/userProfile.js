@@ -1,6 +1,10 @@
 module.exports = function (sequelize, DataTypes)
 {
     var UserProfile = sequelize.define("UserProfile", {
+        id: {
+            type: DataTypes.STRING,
+            primaryKey: true
+        },
         firstName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -40,7 +44,7 @@ module.exports = function (sequelize, DataTypes)
 
     UserProfile.associate = function (models)
     {
-        UserProfile.belongsToMany(models.Events, { through: 'UserEvents' });
+        UserProfile.belongsToMany(models.Events, {through: 'UserEvents' });
         UserProfile.belongsToMany(UserProfile,{through: models.Match, as: "Matches", foreignKey: "user_one_id", otherKey: "user_two_id"});
     };
 
