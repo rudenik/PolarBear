@@ -10,12 +10,12 @@ class UserMatches extends Component {
   };
   }
   getUserMatches = (id) => {
-    $.ajax({
-      method: "GET",
-      url: `/api/match/${id}`
-    }).done(function (data) {
-      this.setState({userMatches: data})
-    })
+    // $.ajax({
+    //   method: "GET",
+    //   url: `/api/match/${id}`
+    // }).done(function (data) {
+    //   this.setState({userMatches: data})
+    // })
   }
   render() {
     return (

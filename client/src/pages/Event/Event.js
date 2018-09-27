@@ -8,11 +8,17 @@ import { Row, Col, Container } from "../../components/Grid";
 class Event extends Component {
 
     state = {
-        name: "Johnny",
+        name: "",
         eventCode: "",
         choice:""
     };
 
+    handleInputChange = event => {
+        const {
+          name,
+          value
+        } = event.target;
+      }
     EnterEventCode = () => {
     API.addUserEvents()
     .then(res =>{}
