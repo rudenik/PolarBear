@@ -27,6 +27,8 @@
   "homepage": "https://github.com/rudenik/polarbear#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-brands-svg-icons": "^5.3.1",
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
@@ -36,6 +38,7 @@
     "mongoose": "^5.2.13",
     "mysql2": "^1.6.1",
     "nodemon": "^1.18.4",
+    "owl.carousel": "^2.3.4",
     "react-materialize": "^2.4.5",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",

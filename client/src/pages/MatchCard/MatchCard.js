@@ -1,31 +1,78 @@
 import React, { Component } from 'react';
 import Card from "./card"
 import Button from "./button"
-import example from "./example.json";
+import API from "../../utils/API";
 
 class MatchCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      example,
+      firstName: '',
+      lastName: '',
+      card1: '',
+      card2: '',
+      card3: '',
       i: 0,
-      button: ''    
+      button: ''
   };
   }
-  buttonClick = (button) => {
-    this.setState({button:button})
-    const i = this.state.i;
-    this.setState({i: i+1})
+  componentDidMount() {
+    API.getUserProfile(1)
+      .then(
+        (result) => {
+          this.setState({
+            firstName: result.data.firstName,
+          });
+          console.log(result);
+        },
+        (error) => {
+          this.setState({
+            error
+          });
+        }
+      )
   }
+
+  cardDone = {
+    "name": "No users left",
+    "cardOne": "",
+    "cardTwo": "",
+    "cardThree": "",
+  }
+
+  buttonClick = (button) => {
+    this.setState({button:button});
+    console.log(this);
+    const choice = this.state.button
+    const i = this.state.i
+    //update the current user's "match"
+    //TODO: how to get id of "user One "
+    // updateMatchStatus(choice, id);
+    // i < this.state.users.length ? 
+    this.setState({i: i+1}) 
+    // : this.setState({users: this.cardDone})
+  }
+
+  // updateMatchStatus = (choice, id) => {
+  //   //this uses the "create match" API route, but not sure how that works
+  //   //choice is match/pass based on button value, id is the id of the user that is being swiped ON
+  //   $.ajax({
+  //     method: "post",
+  //     url: `/api/match`
+  //   }).done(function (data) {
+  //     console.log(data)
+  //   })
+  // }
 
   render() {
     return (
       <div>
-      <Card 
-      name={this.state.example[this.state.i].name}
-      cardOne={this.state.example[this.state.i].cards[0]}
-      cardTwo={this.state.example[this.state.i].cards[1]}
-      cardThree={this.state.example[this.state.i].cards[2]} />
+      <Card
+      name={this.state.firstName}
+      cardOne={this.state.firstName}
+      cardTwo='hey'
+      cardThree='hey'
+      />
       <Button 
       buttonClicked={this.buttonClick} />
       </div>
