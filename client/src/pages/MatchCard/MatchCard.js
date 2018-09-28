@@ -9,17 +9,23 @@ class MatchCard extends Component {
     super(props);
     this.state = {
       users: [],
-      currentUser:'',
+      currentUser:1,
       i: 0,
       button: ''
   };
   }
   componentDidMount() {
+  
     //To access the current user from global state reference like this
     //this.props.curUser
 
 
-    API.getUserProfile(1)
+    // API.getUserProfile(1).then(
+    //   (result) => {
+    //     console.log('get user profile: ')
+    //     console.log(result);
+    //   }
+    // )
 //TODO: first parameter will actually be id of logged in user
     API.getEventMatches(1,1)
       .then(
@@ -27,7 +33,6 @@ class MatchCard extends Component {
           this.setState({
             users: result.data
           });
-          console.log(this.props.curUser)
         },
         (error) => {
           this.setState({
@@ -38,23 +43,30 @@ class MatchCard extends Component {
   }
 
   buttonClick = (button) => {
-    this.setState({button:button});
-    console.log(this);
-    const choice = this.state.button
+    console.log(button)
+    this.setState({
+      button: button})
+    this.setMatch(button);  
     const i = this.state.i
-    //TODO:update the current user's "match"
-    // API.createMatch: function (MatchData)
     this.setState({i: i+1}) 
   }
 
-//   MatchData: {
-//     "useroneid": "1234", 
-//     "usertwoid": "24434", 
-//     "status": "Match", or "Decline"
-//     "actionuser": "1234"
-//  }
-
+  setMatch(buttonVal) {
+    const MatchData = {
+      "useroneid":this.state.currentUser,
+      "usertwoid":this.state.users[this.state.i].id,
+      "status": buttonVal,
+      "actionuser":this.state.currentUser
+    };
+    API.createMatch(MatchData)
+    .then(
+      (result) => {
+        console.log(result)
+      }
+    )
+  }
   render() {
+    // console.log(this.props.curUser)
     let card;
     let buttons;
     let noUsers;
