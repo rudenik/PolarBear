@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './aProfile.css';
+import './AProfile.css';
 import API from '../../utils/API';
 import {connect} from "react-redux";
 
