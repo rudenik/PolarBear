@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { InputText, InputArea } from "../../components/Form";
 import { Row, Col, Container } from "../../components/Grid";
+import { connect } from 'react-redux';
 import "./SignUp.css";
 import axios from 'axios';
 
@@ -21,18 +22,7 @@ class SignUp extends Component {
 
     }
     componentDidMount = () => {
-        console.log(this.state);
-        console.log(this.props.history.location.state.profileObj);
-        let ourUser = this.props.history.location.state.profileObj;
-        
-        this.setState({
-            name: this.props.history.location.state.profileObj.name,
-            photoUrl: ourUser.imageUrl,
-            googleId: ourUser.googleId,
-            email: ourUser.email,
-            
-        })
-        console.log(this.state);
+        console.log(this.props.curUser);
     }
     
     handleInputChange = event => {
@@ -116,7 +106,12 @@ class SignUp extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        curUser: state
+    }
+}
 
-export default SignUp;
+export default connect(mapStateToProps)(SignUp);
 
 

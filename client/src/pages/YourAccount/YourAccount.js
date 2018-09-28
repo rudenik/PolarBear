@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import './YourAccount.css';
 import API from '../../utils/API';
+import {connect} from "react-redux";
 
 class YourAccount extends Component {
+
+ //To access the current user from global state reference like this
+  //this.props.curUser
+
+
+    
   render() {
     return (
         <div className="youraccount__yourAccount youraccount__whiteBackground youracount__wrapper">
@@ -51,4 +58,10 @@ class YourAccount extends Component {
   }
 }
 
-export default YourAccount;
+const mapStateToProps = (state) => {
+  return {
+      curUser: state
+  }
+}
+
+export default connect(mapStateToProps)(YourAccount);

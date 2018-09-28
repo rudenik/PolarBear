@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import UserCard from "./UserCard.js";
+import { connect } from 'react-redux';
 
 
 class UserMatches extends Component {
+  //To access the current user from global state reference like this
+    //this.props.curUser
+
+
   constructor(props){
     super(props);
     this.state = {
@@ -10,16 +15,7 @@ class UserMatches extends Component {
       userMatches: []
   };
   }
-<<<<<<< HEAD
-  getUserMatches = (id) => {
-    // $.ajax({
-    //   method: "GET",
-    //   url: `/api/match/${id}`
-    // }).done(function (data) {
-    //   this.setState({userMatches: data})
-    // })
-  }
-=======
+
   // getUserMatches = (id) => {
   //   $.ajax({
   //     method: "GET",
@@ -28,7 +24,7 @@ class UserMatches extends Component {
   //     this.setState({userMatches: data})
   //   })
   // }
->>>>>>> trika-dev
+
   render() {
     return (
       //need to do a "for each" to loop through all user matches and create a user card per match
@@ -44,5 +40,11 @@ class UserMatches extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+      curUser: state
+  }
+}
 
-export default UserMatches;
+
+export default connect(mapStateToProps)(UserMatches);

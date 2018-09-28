@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from "./card"
 import Button from "./button"
 import API from "../../utils/API";
+import { connect } from 'react-redux';
 
 class MatchCard extends Component {
   constructor(props){
@@ -17,6 +18,10 @@ class MatchCard extends Component {
   };
   }
   componentDidMount() {
+    //To access the current user from global state reference like this
+    //this.props.curUser
+
+
     API.getUserProfile(1)
       .then(
         (result) => {
@@ -79,5 +84,10 @@ class MatchCard extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+      curUser: state
+  }
+}
 
-export default MatchCard;
+export default connect(mapStateToProps)(MatchCard);

@@ -3,9 +3,12 @@ import "./Event.css"
 import API from "../../utils/API"
 import { InputText, InputArea } from "../../components/event__form";
 import { Row, Col, Container } from "../../components/Grid";
-import {Button, Dropdown, NavItem} from 'react-materialize'
+import {Button, Dropdown, NavItem} from 'react-materialize';
+import { connect } from "react-redux";
 
 class Event extends Component {
+  //To access the current user from global state reference like this
+    //this.props.curUser
 
     state = {
         name: "Johnny",
@@ -40,7 +43,14 @@ class Event extends Component {
 
 }
 
-export default Event;
+const mapStateToProps = (state) => {
+  return {
+      curUser: state
+  }
+}
+
+
+export default connect(mapStateToProps)(Event);
 
 //<div className="JobSeeker">
          // <p>I am a:</p> 
