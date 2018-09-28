@@ -36,9 +36,16 @@ class MatchCard extends Component {
     const choice = this.state.button
     const i = this.state.i
     //TODO:update the current user's "match"
-    // updateMatchStatus(choice, id);
+    // API.createMatch: function (MatchData)
     this.setState({i: i+1}) 
   }
+
+//   MatchData: {
+//     "useroneid": "1234", 
+//     "usertwoid": "24434", 
+//     "status": "Match", or "Decline"
+//     "actionuser": "1234"
+//  }
 
   render() {
     let card;
