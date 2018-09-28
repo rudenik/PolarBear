@@ -60,6 +60,7 @@ class Landing extends Component {
             fontWeight: "1100"
         }
         return (
+<<<<<<< HEAD
             <div className="landing">
                 <img className="landing__bear" src="bear.png" />
                 <h1 style={style} className="landing__name">Polar Bear</h1>
@@ -77,6 +78,28 @@ class Landing extends Component {
                     <Row />
                 </div>
             </div>
+=======
+    <div className="landing">
+        <img className="landing__bear" src="polarb.svg"/>
+        <br/>
+          <br/>
+
+        <h1 style={style} className="landing__name">Polar Bear</h1>
+        <div className="landing__subscript">Your Networking Icebreaker</div>
+
+         <div>
+         <GoogleLogin
+      clientId="761752582634-s5vmm4g3eckq4m07h8hi6r3evn37t4lb.apps.googleusercontent.com"
+      onSuccess={success}
+      onFailure={responseGoogle}
+            >
+            <FontAwesomeIcon icon={faGoogle}/>
+            <span> Login/Sign Up With Google</span>
+            </GoogleLogin>
+            <Row/>
+         </div>
+    </div>
+>>>>>>> adriana-dev
         )
     }
 }
