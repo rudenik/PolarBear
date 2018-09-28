@@ -28,6 +28,7 @@ class UserMatches extends Component {
   render() {
     let card;
     this.state.userMatches[0] ?
+    //TODO: add conditional rendering of border colour
     card =
       <div>
         {this.state.userMatches.map(match => (
@@ -35,6 +36,8 @@ class UserMatches extends Component {
           name={match.name} 
           job={match.job} 
           photo={match.photoUrl} 
+          colour={match.type === 'employer' ? "row center-align valign-wrapper user__card__employer" :
+          "row center-align valign-wrapper user__card__employee"}
         />
         ))}
       </div> :
@@ -44,6 +47,15 @@ class UserMatches extends Component {
           name={"name"} 
           job={"job"} 
           photo={"http://www.placepuppy.net/1p/100/100"} 
+          //changing class from employer/employee changes from orange to blue
+          colour={"row center-align valign-wrapper user__card__employer"}
+        />
+        <UserCard 
+          name={"name2"} 
+          job={"job2"} 
+          photo={"http://www.placepuppy.net/1p/100/100"} 
+          //changing class from employer/employee changes from orange to blue
+          colour={"row center-align valign-wrapper user__card__employee"}
         />
       </div>
 
