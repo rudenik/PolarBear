@@ -8,7 +8,7 @@ import { Row, Col, Container } from "../../components/Grid";
 class Event extends Component {
 
     state = {
-        name: "",
+        name: "Adriana",
         eventCode: "",
         choice:""
     };
