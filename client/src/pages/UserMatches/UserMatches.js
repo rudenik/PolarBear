@@ -15,7 +15,6 @@ class UserMatches extends Component {
     userMatches: []
     };
   }
-<<<<<<< HEAD
   componentDidMount(){
     API.getUserMatches(this.state.user)
     .then(function(result){
@@ -26,16 +25,6 @@ class UserMatches extends Component {
     })
   }
 
-=======
-  // getUserMatches = (id) => {
-  //   $.ajax({
-  //     method: "GET",
-  //     url: `/api/match/${id}`
-  //   }).done(function (data) {
-  //     this.setState({userMatches: data})
-  //   })
-  // }
->>>>>>> adriana-dev
   render() {
     let card;
     this.state.userMatches[0] ?
