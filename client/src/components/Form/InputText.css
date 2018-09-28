@@ -16,4 +16,11 @@
     color: #2667FF;
   }
 
+  .btn:hover {
+  background-color: #2667FF;
+  }
+  .btn-large:hover {
+    background-color: #2667FF;
+  }
+
   
