@@ -5,19 +5,30 @@ module.exports = function (sequelize, DataTypes)
             type: DataTypes.STRING,
             primaryKey: true
         },
-        firstName: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 max: [20]
             }
         },
-        lastName: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 max: [20]
             }
+        },
+        photoUrl: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                max: [20]
+            }
+        },
+        isEmployee: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
         },
         card1: {
             type: DataTypes.STRING,

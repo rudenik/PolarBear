@@ -4,29 +4,47 @@ import { Row } from '../../components/Grid';
 import GoogleLogin from 'react-google-login';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { withRouter, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import "./Landing.css";
 
 const responseGoogle = (response) => {
     console.log(response);
   }
-const success = (response) => {
-    console.log(response.googleId);
-    // axios.get("/api/userprofile/"+ response.googleId).then(function (queryResp){
-    //     console.log(queryResp);
+// const 
 
-    // })
-    API.getUserProfile(response.googleId).then(function(queryResp){
-        console.log(queryResp);
-        if(!queryResp.data){
-            console.log("user not present");
-        }else{
-            console.log(queryResp);
-        }
-    });
-    }
 
 class Landing extends Component {
+
+    goToSignup = (respUser) => {
+        console.log("goToSignup")
+        // console.log(this.props.history);
+        this.props.history.push('/signup', respUser);
+    }
+
+     success = (response) => {
+        console.log(response.googleId);
+        // axios.get("/api/userprofile/"+ response.googleId).then(function (queryResp){
+        //     console.log(queryResp);
+    
+        // })
+        const that=this;
+        API.getUserProfile(response.googleId).then(function(queryResp){
+            console.log(queryResp);
+            if(!queryResp.data){
+                console.log("user not present");
+                that.goToSignup(response);
+    
+            }else{
+                console.log(queryResp);
+                
+            }
+        });
+        }
+    
+
+
 
     render () {
 
@@ -43,7 +61,7 @@ class Landing extends Component {
          <div>
          <GoogleLogin
       clientId="761752582634-s5vmm4g3eckq4m07h8hi6r3evn37t4lb.apps.googleusercontent.com"
-      onSuccess={success}
+      onSuccess={this.success}
       onFailure={responseGoogle}
             >
             <FontAwesomeIcon icon={faGoogle}/>
@@ -55,5 +73,12 @@ class Landing extends Component {
         )
     }
 }
+
+
+// Landing.propTypes = {
+//     history: React.PropTypes.shape({
+//       push: React.PropTypes.func.isRequired,
+//     }),
+//   };
 
 export default Landing;
