@@ -1,73 +1,101 @@
 import React, { Component } from 'react';
 import Card from "./card"
 import Button from "./button"
+import API from "../../utils/API";
+import { connect } from 'react-redux';
 
 class MatchCard extends Component {
   constructor(props){
     super(props);
     this.state = {
       users: [],
+      currentUser:1,
       i: 0,
       button: ''
   };
   }
+  componentDidMount() {
+  
+    //To access the current user from global state reference like this
+    //this.props.curUser
 
-  cardDone = {
-    "name": "No users left",
-    "cardOne": "",
-    "cardTwo": "",
-    "cardThree": "",
+
+    // API.getUserProfile(1).then(
+    //   (result) => {
+    //     console.log('get user profile: ')
+    //     console.log(result);
+    //   }
+    // )
+//TODO: first parameter will actually be id of logged in user
+    API.getEventMatches(1,1)
+      .then(
+        (result) => {
+          this.setState({
+            users: result.data
+          });
+        },
+        (error) => {
+          this.setState({
+            error
+          });
+        }
+      )
   }
 
   buttonClick = (button) => {
-    this.setState({button:button});
-    const choice = this.state.button
-    const i = this.state.i;
-    const id = i.id;
-    //update the current user's "match"
-    //TODO: how to get id of "user One "
-    // updateMatchStatus(choice, id);
-    // i < this.state.users.length ?
-    // this.setState({i: i+1}) :
-    // this.setState({users: cardDone})
+    console.log(button)
+    this.setState({
+      button: button})
+    this.setMatch(button);  
+    const i = this.state.i
+    this.setState({i: i+1}) 
   }
 
-  getUsers = (event) => {
-    //TODO: need to use GET to get all users under a specific event
-    // the current URL is probably not correct
-    // $.ajax({
-    //   method: "GET",
-    //   url: `/api/userprofile/${event}`
-    // }).done(function (data) {
-    //   this.setState({users: data})
-    // })
+  setMatch(buttonVal) {
+    const MatchData = {
+      "useroneid":this.state.currentUser,
+      "usertwoid":this.state.users[this.state.i].id,
+      "status": buttonVal,
+      "actionuser":this.state.currentUser
+    };
+    API.createMatch(MatchData)
+    .then(
+      (result) => {
+        console.log(result)
+      }
+    )
   }
-
-  updateMatchStatus = (choice, id) => {
-    //this uses the "create match" API route, but not sure how that works
-    //choice is match/pass based on button value, id is the id of the user that is being swiped ON
-    // $.ajax({
-    //   method: "post",
-    //   url: `/api/match`
-    // }).done(function (data) {
-    //   console.log(data)
-    // })
-  }
-
   render() {
-    this.getUsers();
-    return (
-      <div>
+    // console.log(this.props.curUser)
+    let card;
+    let buttons;
+    let noUsers;
+    if (this.state.i < this.state.users.length) {
+      card =       
       <Card
-      name={this.state.users[this.state.i].name}
-      cardOne={this.state.users[this.state.i].cards[0]}
-      cardTwo={this.state.users[this.state.i].cards[1]}
-      cardThree={this.state.users[this.state.i].cards[2]} />
-      <Button
+      cardOne={this.state.users[this.state.i] ? this.state.users[this.state.i].card1 : ''}
+      cardTwo={this.state.users[this.state.i] ? this.state.users[this.state.i].card2 : ''}
+      cardThree={this.state.users[this.state.i0] ? this.state.users[this.state.i].card3 : ''}
+      />
+      buttons = 
+      <Button 
       buttonClicked={this.buttonClick} />
+    } else {
+      noUsers = <p>Sorry, there are no users left!</p>
+    }
+    return (
+      <div> 
+        {card} 
+        {buttons}
+        {noUsers}
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+      curUser: state
+  }
+}
 
-export default MatchCard;
+export default connect(mapStateToProps)(MatchCard);

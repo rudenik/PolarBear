@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
 import { InputText, InputArea } from "../../components/Form";
 import { Row, Col, Container } from "../../components/Grid";
+import { connect } from 'react-redux';
 import "./SignUp.css";
 import axios from 'axios';
 
-class SignUp extends Component {
 
+
+class SignUp extends Component {
+    
     state ={
         name:"",
         photoUrl: "",
         emStatus: "",
         eventCode: "",
+        email: "",
         Card1: "",
         Card2: "",
-        Card3: ""
+        Card3: "",
+        googleId: ""
 
     }
+    componentDidMount = () => {
+        console.log(this.props.curUser);
+    }
+    
     handleInputChange = event => {
         const { name, value } = event.target;
 
@@ -26,19 +35,19 @@ class SignUp extends Component {
     handleSignUpButton = event => {
         event.preventDefault();
         
-        upsertAuthor({
-            UserId: 1,
-            EventId: 1
-          });
+        // upsertAuthor({
+        //     UserId: 1,
+        //     EventId: 1
+        //   });
           
-          function upsertAuthor(authorData) {
-            axios.post("/api/users", authorData)
-            .then((res) => {
-              console.log(res)
-            }).catch((error) => {
-              console.log(error)
-            })
-          }
+        //   function upsertAuthor(authorData) {
+        //     axios.post("/api/users", authorData)
+        //     .then((res) => {
+        //       console.log(res)
+        //     }).catch((error) => {
+        //       console.log(error)
+        //     })
+        //   }
         
 
         console.log("Sign up button pressed");
@@ -60,7 +69,7 @@ class SignUp extends Component {
         return (
             <div>
             <Container>
-            <InputText fieldName="Name" inputID="name" matIcon="person" onChange={this.handleInputChange}/>
+            <InputText fieldName="Name" inputID="name" matIcon="person" onChange={this.handleInputChange} value={this.state.name}/>
             <InputText fieldName="Picture (URL)" inputId="photoUrl" matIcon="photo" onChange={this.handleInputChange}/>
             <InputText fieldName="Employment Status" inputId="emStatus" matIcon="work" onChange={this.handleInputChange}/>
             <InputText fieldName="Event Code (optional)" inputId="eventCode" matIcon="event" onChange={this.handleInputChange}/>
@@ -97,7 +106,12 @@ class SignUp extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        curUser: state
+    }
+}
 
-export default SignUp;
+export default connect(mapStateToProps)(SignUp);
 
 

@@ -1,13 +1,22 @@
 .user__card__all{
     margin-top:45px;
 }
-.user__card{
+.user__card__employee{
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
     height: 120px;
     padding:10px;
     border: 10px rgba(245, 166, 35, 0.7) solid;
+    font-family: 'Open Sans', sans-serif;
+}
+.user__card__employer{
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 120px;
+    padding:10px;
+    border: 10px rgba(74,144,226, 0.7) solid;
     font-family: 'Open Sans', sans-serif;
 }
 .user__cardname,
