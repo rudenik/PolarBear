@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 
 const theme = createMuiTheme({
   palette: {
@@ -53,7 +54,8 @@ class MenuAppBar extends React.Component {
   };
 
   handleClose = (event) => {
-    this.setState({ anchorEl: null });
+    this.setState({ anchorEl: null});
+    this.open=false;
     console.log(event.target.id)
   };
 
@@ -94,9 +96,28 @@ class MenuAppBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                <MenuItem id="profile"  onClick={this.handleClose}>Profile</MenuItem>
-                  <MenuItem id="chat" onClick={this.handleClose}>Chat</MenuItem>
-                  <MenuItem id="match" onClick={this.handleClose}>Matching</MenuItem>
+                <MenuItem id="Home"  onClick={this.handleClose}>
+                  <Link to="/">Home</Link></MenuItem>
+
+                  <MenuItem id="layout"  onClick={this.handleClose}>
+                  <Link to="/layout">layout</Link></MenuItem>
+
+                  <MenuItem id="chat"  onClick={this.handleClose}>
+                  <Link to="/chat">Chat</Link></MenuItem>
+
+                  <MenuItem id="event"  onClick={this.handleClose}>
+                  <Link to="/event">Event</Link></MenuItem>
+
+                  <MenuItem id="signup"  onClick={this.handleClose}>
+                  <Link to="/signup">signup</Link></MenuItem>
+
+                  <MenuItem id="youraccount"  onClick={this.handleClose}>
+                  <Link to="/youraccount">Your Account</Link></MenuItem>
+
+                  <MenuItem id="match"  onClick={this.handleClose}>
+                  <Link to="/match">match</Link></MenuItem>
+                  <MenuItem id="usermatches"  onClick={this.handleClose}>
+                  <Link to="/usermatches">User Matches</Link></MenuItem>
                 </Menu>
         </Toolbar>
       </AppBar>

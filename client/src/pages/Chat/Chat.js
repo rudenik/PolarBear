@@ -9,12 +9,10 @@ import Receiver from "../../components/ChatComponents/Receiver";
 import Chatheading from "../../components/ChatComponents/Chatheading";
 import {Sidebar} from "../../components/ChatComponents/Sidebar";
 import io from "socket.io-client";
-
-
 const {
   MESSAGE_SENT,
   TYPING,
-  COMMUNITY_CHAT,
+  USER_CONNECTED,
   MESSAGE_RECEIVED,
   PRIVATE_MESSAGE
 } = require("../../store/actions");
@@ -38,16 +36,16 @@ class Chat extends Component {
     const { socket } = this.props;
     this.initSocket(socket);
     console.log(this.props.user);
+   
   }
 
   initSocket = socket => {
     const { user } = this.props;
     // socket.emit(COMMUNITY_CHAT, this.resetChat);
+    socket.on(USER_CONNECTED,function(data){
+      console.log(data);
+    })
     socket.on(PRIVATE_MESSAGE, this.addChat);
-    // socket.on("connect", () => {
-    //   socket.emit(COMMUNITY_CHAT, this.resetChat);
-    // });
-    // socket.emit(PRIVATE_MESSAGE, { receiver: "mike", sender: user.name });
   };
 
   sendOpenPrivateMessage = receiver => {
@@ -56,6 +54,8 @@ class Chat extends Component {
     const { socket, user } = this.props;
     console.log(socket);
     console.log(user);
+    var name= `${receiver}&${user.name}`
+    
     socket.emit(PRIVATE_MESSAGE, { receiver, sender: user.name });
   };
   
@@ -67,9 +67,13 @@ class Chat extends Component {
   addChat = (chat, reset) => {
     const { socket } = this.props;
     const { chats } = this.state;
+ 
 
     const newChats = reset ? [chat] : [...chats, chat];
-    this.setState({ chats: newChats });
+    this.setState({ chats: newChats },()=>{
+      console.log(this.state.chats);
+    });
+    
 
     const messageEvent = `${MESSAGE_RECEIVED}-${chat.id}`;
     const typingEvent = `${TYPING}-${chat.id}`;
@@ -79,7 +83,9 @@ class Chat extends Component {
   };
 
   addMessageToChat = chatId => {
+    console.log(chatId);
     return message => {
+      console.log(message);
       const { chats } = this.state;
       let newChats = chats.map(chat => {
         if (chat.id === chatId) {
@@ -112,6 +118,8 @@ class Chat extends Component {
 
   sendMessage = (chatId, message) => {
     const { socket } = this.props;
+    console.log(chatId);
+  //  socket.emit('create','room1');
     socket.emit(MESSAGE_SENT, { chatId, message });
   };
 
@@ -169,77 +177,5 @@ class Chat extends Component {
     );
   }
 }
-//   <Container customClass="mainChatContainer">
-//     <div class="col s12 m12 userBar">
-//       <div className="userPhoto">
-//         <img
-//           src="http://www.placepuppy.net/1p/200/200"
-//           alt=""
-//           className="headShot"
-//         />
-//       </div>
-//       <div className="userInfo">
-//         <p>{this.props.name}</p>
-//         <p>{this.props.title}</p>
-//       </div>
-//       <div className="icons">
-//         <MaterialIcon icon="account_circle" color="black" />
-//         <MaterialIcon icon="message" />
-//       </div>
-//     </div>
-
-//     <div className="chat_area">
-//       {this.state.messages.map(message => {
-//         return <Sender message={message.message} />;
-//       })}
-//     </div>
-//     <div class="type_msg">
-//       <div class="input_msg_write">
-//         <form onSubmit={this.sendMessage}>
-//           <input
-//             type="text"
-//             class="write_msg"
-//             placeholder="Type a message"
-//             value={this.state.message}
-//             onChange={e => this.setState({ message: e.target.value })}
-//           />
-//         </form>
-//       </div>
-//     </div>
-//   </Container>
-// ]);
-
-// const mapStateToProps = state => {
-//   return {
-//     name: state.userName,
-//     title: state.userTitle
-//   };
-// };
-
-//   sendMessage = event => {
-//     event.preventDefault();
-//     this.state.socket.emit("SEND_MESSAGE", {
-//       message: this.state.message
-//     });
-//     this.setState(
-//       prevState => {
-//         return {
-//           message: ""
-//         };
-//       },
-//       () => {
-//         this.state.socket.on("RECEIVE_MESSAGE", data => {
-//           console.log(data);
-//           this.addMessage(data);
-//         });
-//       }
-//     );
-//   };
-
-//   addMessage = data => {
-//     console.log(data);
-//     this.setState({ messages: [...this.state.messages, data] });
-//     console.log(this.state.messages);
-//   };
 
 export default Chat;

@@ -1,10 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./controllers/userProfileController");
+const routes = require("./routes/api-chat");
 const app = express();
 const server = require("http").Server(app);
-const io = module.exports.io=require("socket.io")(server);
+const io = (module.exports.io = require("socket.io")(server));
 const PORT = process.env.PORT || 3001;
 const SocketManager = require("./SocketManager");
 
@@ -17,10 +17,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //add routes
-
-//app.use(routes);
-require('./controllers/userProfileController')
-
+app.use(routes);
+require("./controllers/userProfileController");
 
 // //Requiring our models for syncing
 var db = require("./models");
@@ -28,26 +26,20 @@ var db = require("./models");
 // Static directory
 app.use(express.static("public"));
 
-//connect to mongodb
-// mongoose.connect(
-//   process.env.MONGODB_URI || "mongodb://localhost/reactnytsearch",
-//   { useNewUrlParser: true }
-// );
+// Connect to mongoose
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/chatDB",
+  { useNewUrlParser: true }
+);
 
-//start the api server ---- this gives me an error commenting out for now: shan
-// db.sequelize.sync({ force: false }).then(function ()
-// {
 
-// });
-db.sequelize.sync({ force: true }).then(function ()
-{
-  app.listen(PORT, function ()
-  {
+db.sequelize.sync({ force: true }).then(function() {
+  server.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   });
+  io.on("connection", SocketManager);
 });
 
-io.on("connection", SocketManager);
 // io.on("connection", function(socket) {
 //   console.log("user connected at socket id "+socket.id);
 //   socket.on('SEND_MESSAGE', function(data){

@@ -17,6 +17,8 @@ const {
 } = require("./client/src/store/Factories");
 let connectedUsers = {}; //will have user name, user id and anything with it
 let communityChat = createChat();
+let chatRooms = [];
+let tempRooms = [];
 
 module.exports = function(socket) {
   // console.log("socket id " + socket.id);
@@ -35,6 +37,12 @@ module.exports = function(socket) {
     }
   });
 
+  socket.on("create", function(room) {
+    console.log(socket);
+    socket.join(room);
+    io.sockets.in(room).emit("message", "what is going on?");
+  });
+
   /********************USER CONNECTED**************************************/
   socket.on(USER_CONNECTED, user => {
     user.socketId = socket.id;
@@ -46,7 +54,7 @@ module.exports = function(socket) {
 
     io.emit(USER_CONNECTED, connectedUsers);
     console.log("connected users");
-    console.log(connectedUsers);/*works*/
+    console.log(connectedUsers); /*works*/
   });
 
   /********************COMMUNITY CHAT**************************************/
@@ -81,24 +89,32 @@ module.exports = function(socket) {
 
   /********************PRIVATE MESSAGE**************************************/
   socket.on(PRIVATE_MESSAGE, ({ receiver, sender }) => {
-    console.log("socket manager")
+    console.log("socket manager");
     console.log(receiver);
     console.log(sender);
     console.log(connectedUsers);
+
     if (receiver in connectedUsers) {
+       
       const newChat = createChat({
         name: `${receiver}&${sender}`,
         users: [receiver, sender]
       });
+    
+      socket.join("room1");
+      chatRooms.push(newChat.name)
+      io.sockets.in(newChat.name).emit(PRIVATE_MESSAGE, newChat);
       const receiverSocket = connectedUsers[receiver].socketId;
-      socket.to(receiverSocket).emit(PRIVATE_MESSAGE, newChat);
-      socket.emit(PRIVATE_MESSAGE, newChat);
+      // socket.to(receiverSocket).emit(PRIVATE_MESSAGE, newChat);
+      // socket.emit(PRIVATE_MESSAGE, newChat);
     }
   });
 };
 
 function sendTypingToChat(user) {
   return (chatId, isTyping) => {
+    console.log("-----chatid-----");
+    console.log(chatId);
     io.emit(`${TYPING}-${chatId}`, { user, isTyping });
   };
 }

@@ -3,6 +3,7 @@ const router = require('express').Router();
 const userProfileController = require("../controller/userProfileController");
 const usereventsController = require("../controller/usereventsController");
 const matchController = require("../controller/matchController");
+const chatController = require("../controllers/chatController");
 
 
 //userProfile Routes
@@ -35,6 +36,6 @@ router.route("api/match/:useroneid/:eventid" )
 
 
 
-
+    
 
 module.exports = router; 

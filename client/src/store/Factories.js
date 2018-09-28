@@ -12,11 +12,13 @@ const createMessage = ({ message = "", sender = "" } = {}) => ({
 const createChat = ({
   messages = [],
   name = "Community",
-  users = []
+  users = [],
+  sender
 } = {}) => ({
   name,
   messages,
   users,
+  sender,
   typingUsers: []
 });
 

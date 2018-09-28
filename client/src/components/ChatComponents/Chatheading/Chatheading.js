@@ -5,12 +5,13 @@ import "./Chatheading.css";
 
 const Chatheading = ({ name, numberOfUsers }) => {
 console.log(numberOfUsers);
+console.log(name);
 
   return (
-    <div class="col s12 m12 userBar">
+    <div className="col s12 m12 userBar">
       <div className="userPhoto">
         <img
-          src="http://www.placepuppy.net/1p/200/200"
+          src=""
           alt=""
           className="headShot"
         />
