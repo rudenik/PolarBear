@@ -7,7 +7,7 @@ return (
     <div className = "user__card__all">
 <div className="row center-align valign-wrapper user__card">
     <div className="col s3"> 
-    <img src = "http://www.placepuppy.net/1p/100/100" alt = "user headshot" className="youraccount__headShot responsive-img"/ >
+    <img src = {this.props.photo} alt = "user headshot" className="youraccount__headShot responsive-img"/ >
         </div>
     <div className="col s5">
     <div className="row">
