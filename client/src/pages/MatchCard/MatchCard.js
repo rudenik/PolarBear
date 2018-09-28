@@ -8,11 +8,8 @@ class MatchCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      card1: '',
-      card2: '',
-      card3: '',
+      users: [],
+      currentUser:'',
       i: 0,
       button: ''
   };
@@ -23,12 +20,13 @@ class MatchCard extends Component {
 
 
     API.getUserProfile(1)
+//TODO: first parameter will actually be id of logged in user
+    API.getEventMatches(1,1)
       .then(
         (result) => {
           this.setState({
-            firstName: result.data.firstName,
+            users: result.data
           });
-          console.log(result);
         },
         (error) => {
           this.setState({
@@ -38,48 +36,45 @@ class MatchCard extends Component {
       )
   }
 
-  cardDone = {
-    "name": "No users left",
-    "cardOne": "",
-    "cardTwo": "",
-    "cardThree": "",
-  }
-
   buttonClick = (button) => {
     this.setState({button:button});
     console.log(this);
     const choice = this.state.button
     const i = this.state.i
-    //update the current user's "match"
-    //TODO: how to get id of "user One "
-    // updateMatchStatus(choice, id);
-    // i < this.state.users.length ? 
+    //TODO:update the current user's "match"
+    // API.createMatch: function (MatchData)
     this.setState({i: i+1}) 
-    // : this.setState({users: this.cardDone})
   }
 
-  // updateMatchStatus = (choice, id) => {
-  //   //this uses the "create match" API route, but not sure how that works
-  //   //choice is match/pass based on button value, id is the id of the user that is being swiped ON
-  //   $.ajax({
-  //     method: "post",
-  //     url: `/api/match`
-  //   }).done(function (data) {
-  //     console.log(data)
-  //   })
-  // }
+//   MatchData: {
+//     "useroneid": "1234", 
+//     "usertwoid": "24434", 
+//     "status": "Match", or "Decline"
+//     "actionuser": "1234"
+//  }
 
   render() {
-    return (
-      <div>
+    let card;
+    let buttons;
+    let noUsers;
+    if (this.state.i < this.state.users.length) {
+      card =       
       <Card
-      name={this.state.firstName}
-      cardOne={this.state.firstName}
-      cardTwo='hey'
-      cardThree='hey'
+      cardOne={this.state.users[this.state.i] ? this.state.users[this.state.i].card1 : ''}
+      cardTwo={this.state.users[this.state.i] ? this.state.users[this.state.i].card2 : ''}
+      cardThree={this.state.users[this.state.i0] ? this.state.users[this.state.i].card3 : ''}
       />
+      buttons = 
       <Button 
       buttonClicked={this.buttonClick} />
+    } else {
+      noUsers = <p>Sorry, there are no users left!</p>
+    }
+    return (
+      <div> 
+        {card} 
+        {buttons}
+        {noUsers}
       </div>
     );
   }
