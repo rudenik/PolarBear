@@ -1,20 +1,45 @@
 .Event {
     text-align: center;
+     min-height: 100vh;
 }
 
-.btn {
+.event__username {
+  font-weight: bolder;
+  margin-bottom: 15%;
+}
+
+.btn .button:focus {
       background-color: #2667FF;
-    
+}
+.btn {
+  background-color: #2667FF;
 }
 
-.btn-large:hover {
+.btn-large:hover .btn:hover,
+.btn-large:hover  {
     background-color: #2667FF;
 }
 
 .event__btn {
-  margin-top:30px;
+  
+  position:relative;
+  margin-top:10%;
+  margin-bottom: 10%;
 }
-
+.event__centerContent{
+margin-top: 30vh;
+}
 .event__code {
   margin-bottom: 0;
+}
+
+#eventStatus {
+  border-radius: 5px;
+  background: white;
+  text-align: center;
+  display:block
+}
+
+.event__align-center {
+  text-align: center;
 }
