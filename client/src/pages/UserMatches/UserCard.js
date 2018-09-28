@@ -5,7 +5,7 @@ class UserCard extends Component {
 render () {
 return (
     <div className = "user__card__all">
-<div className="row center-align valign-wrapper user__card">
+<div className={this.props.colour}>
     <div className="col s3"> 
     <img src = {this.props.photo} alt = "user headshot" className="youraccount__headShot responsive-img"/ >
         </div>
