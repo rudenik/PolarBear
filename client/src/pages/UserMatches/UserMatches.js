@@ -15,10 +15,7 @@ class UserMatches extends Component {
       userMatches: []
   };
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> trika-dev
   // getUserMatches = (id) => {
   //   $.ajax({
   //     method: "GET",
@@ -27,10 +24,7 @@ class UserMatches extends Component {
   //     this.setState({userMatches: data})
   //   })
   // }
-<<<<<<< HEAD
 
-=======
->>>>>>> trika-dev
   render() {
     return (
       //need to do a "for each" to loop through all user matches and create a user card per match

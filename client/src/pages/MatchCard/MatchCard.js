@@ -27,6 +27,7 @@ class MatchCard extends Component {
           this.setState({
             users: result.data
           });
+          console.log(this.props.curUser)
         },
         (error) => {
           this.setState({
