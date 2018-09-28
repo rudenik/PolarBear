@@ -36,7 +36,10 @@ class Landing extends Component {
        }
         return (
     <div className="landing">
-        <img className="landing__bear" src="bear.png"/>
+        <img className="landing__bear" src="polarb.svg"/>
+        <br/>
+          <br/>
+
         <h1 style={style} className="landing__name">Polar Bear</h1>
         <div className="landing__subscript">Your Networking Icebreaker</div>
 

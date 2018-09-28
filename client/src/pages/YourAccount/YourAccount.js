@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './YourAccount.css';
+import API from '../../utils/API';
 
 class YourAccount extends Component {
   render() {
@@ -40,6 +40,7 @@ class YourAccount extends Component {
                                 <textarea id="skillsThree" class="materialize-textarea" data-length="140" maxlength="140"></textarea>
                                 <label for="skillsThree">Card Three</label>
                             </div>
+
 
                         </form>
                     </div>

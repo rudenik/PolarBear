@@ -1,8 +1,12 @@
 .Event {
     text-align: center;
+     min-height: 100vh;
 }
 
-
+.event__username {
+  font-weight: bolder;
+  margin-bottom: 15%;
+}
 
 .btn .button:focus {
       background-color: #2667FF;
@@ -19,11 +23,13 @@
 .event__btn {
   
   position:relative;
-  margin-top:90%;
+  margin-top:10%;
   margin-bottom: 10%;
 }
-
-#event__code {
+.event__centerContent{
+margin-top: 30vh;
+}
+.event__code {
   margin-bottom: 0;
 }
 

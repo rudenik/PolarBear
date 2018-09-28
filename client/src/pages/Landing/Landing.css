@@ -6,6 +6,8 @@
 .landing__bear {
     max-width: 80%;
     margin: 0 auto;
+    margin-top: 15%;
+    margin-bottom: 5%;
 
 }
 
@@ -16,10 +18,13 @@
 
 .landing__subscript {
     margin-top: 0;
-    margin-bottom:30px;
+    margin-bottom:20%;
 }
 
 .landing__button {
     margin: 10px;
     background-color: #2667FF;
+}
+.landing{
+ min-height: 100vh;
 }

@@ -6,7 +6,7 @@ class UserMatches extends Component {
     super(props);
     this.state = {
       user: '',
-      userMatches: []  
+      userMatches: []
   };
   }
   getUserMatches = (id) => {

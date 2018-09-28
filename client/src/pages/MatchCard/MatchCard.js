@@ -8,7 +8,7 @@ class MatchCard extends Component {
     this.state = {
       users: [],
       i: 0,
-      button: ''    
+      button: ''
   };
   }
 
@@ -27,8 +27,8 @@ class MatchCard extends Component {
     //update the current user's "match"
     //TODO: how to get id of "user One "
     // updateMatchStatus(choice, id);
-    // i < this.state.users.length ? 
-    // this.setState({i: i+1}) : 
+    // i < this.state.users.length ?
+    // this.setState({i: i+1}) :
     // this.setState({users: cardDone})
   }
 
@@ -63,7 +63,7 @@ class MatchCard extends Component {
       cardOne={this.state.users[this.state.i].cards[0]}
       cardTwo={this.state.users[this.state.i].cards[1]}
       cardThree={this.state.users[this.state.i].cards[2]} />
-      <Button 
+      <Button
       buttonClicked={this.buttonClick} />
       </div>
     );
