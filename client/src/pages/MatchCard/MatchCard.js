@@ -1,36 +1,91 @@
 import React, { Component } from 'react';
 import Card from "./card"
 import Button from "./button"
-import example from "./example.json";
+import API from "../../utils/API";
+import { connect } from 'react-redux';
 
 class MatchCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      example,
+      users: [],
+      currentUser:this.props.curUser.googleId,
       i: 0,
-      button: ''    
+      button: ''
   };
   }
-  buttonClick = (button) => {
-    this.setState({button:button})
-    const i = this.state.i;
-    this.setState({i: i+1})
+  componentDidMount() {
+    API.getEventMatches( this.state.currentUser.id,1)
+      .then(
+        (result) => {
+          this.setState({
+            users: result.data
+          });
+          console.log(this.state.currentUser);
+        },
+        (error) => {
+          this.setState({
+            error
+          });
+        }
+      )
   }
 
+  buttonClick = (button) => {
+    console.log(button)
+    this.setState({
+      button: button})
+    this.setMatch(button);  
+    const i = this.state.i
+    this.setState({i: i+1}) 
+  }
+
+  setMatch(buttonVal) {
+    const MatchData = {
+      "useroneid":this.state.currentUser,
+      "usertwoid":this.state.users[this.state.i].id,
+      "status": buttonVal,
+      "actionuser":this.state.currentUser
+    };
+    API.createMatch(MatchData)
+    .then(
+      (result) => {
+        console.log(result)
+        console.log(MatchData)
+      }
+    )
+  }
   render() {
-    return (
-      <div>
-      <Card 
-      name={this.state.example[this.state.i].name}
-      cardOne={this.state.example[this.state.i].cards[0]}
-      cardTwo={this.state.example[this.state.i].cards[1]}
-      cardThree={this.state.example[this.state.i].cards[2]} />
+    // console.log(this.props.curUser)
+    let card;
+    let buttons;
+    let noUsers;
+    if (this.state.i < this.state.users.length) {
+      card =       
+      <Card
+      cardOne={this.state.users[this.state.i] ? this.state.users[this.state.i].card1 : ''}
+      cardTwo={this.state.users[this.state.i] ? this.state.users[this.state.i].card2 : ''}
+      cardThree={this.state.users[this.state.i] ? this.state.users[this.state.i].card3 : ''}
+      />
+      buttons = 
       <Button 
       buttonClicked={this.buttonClick} />
+    } else {
+      noUsers = <h1>Sorry, there are no users left!</h1>
+    }
+    return (
+      <div> 
+        {card} 
+        {buttons}
+        {noUsers}
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+      curUser: state
+  }
+}
 
-export default MatchCard;
+export default connect(mapStateToProps)(MatchCard);

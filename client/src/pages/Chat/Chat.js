@@ -19,6 +19,10 @@ const {
 const socket = io("localhost:3001");
 
 class Chat extends Component {
+   //To access the current user from global state reference like this
+  //this.props.curUser
+
+
   constructor(props) {
     super(props);
     // this.addMessage = this.addMessage.bind(this);
@@ -240,4 +244,12 @@ class Chat extends Component {
 //     console.log(this.state.messages);
 //   };
 
-export default Chat;
+
+
+const mapStateToProps = (state) => {
+  return {
+      curUser: state
+  }
+}
+
+export default connect(mapStateToProps)(Chat);

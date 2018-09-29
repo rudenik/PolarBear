@@ -1,12 +1,20 @@
 const initialState = {
-  userPhoto: "",
-  userName: "Loreum Ipsump the coder",
-  userTitle: "Web developer",
-  results: []
+  name: "Ron Swanson",
+  photoUrl: "https://en.wikipedia.org/wiki/Ron_Swanson#/media/File:RonSwanson.jpg",
+  googleId: 7,
+  id: 7,
+  email: "rswanson@email.com",
 };
 
 const reducer = (state = initialState, action) => {
-  return state;
+
+  switch(action.type){
+    case "SET_USER":
+    return Object.assign({}, state, action.curUser);
+    default:
+    return state;
+  }
+
 };
 
 

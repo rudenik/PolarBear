@@ -5,16 +5,16 @@ class UserCard extends Component {
 render () {
 return (
     <div className = "user__card__all">
-<div className="row center-align valign-wrapper user__card">
+<div className={this.props.colour}>
     <div className="col s3"> 
-    <img src = "http://www.placepuppy.net/1p/100/100" alt = "user headshot" className="youraccount__headShot responsive-img"/ >
+    <img src = {this.props.image} alt = "user headshot" className="youraccount__headShot responsive-img"/ >
         </div>
     <div className="col s5">
     <div className="row">
-        <h5 className="user__cardname">Name</h5>
+        <h5 className="user__cardname">{this.props.name}</h5>
     </div>
     <div className="row  ">
-        <p className="user__carddesc">This my job</p>
+        <p className="user__carddesc">{this.props.job}</p>
     </div>
     </div>
     <div className="col s4 valign-wrapper">
