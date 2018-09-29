@@ -4,7 +4,6 @@ import { Row } from '../../components/Grid';
 import GoogleLogin from 'react-google-login';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import "./Landing.css";
@@ -46,6 +45,18 @@ class Landing extends Component {
                 that.goToSignup(response);
             } else {
                 console.log(queryResp);
+                const curUser = {
+                    name: response.profileObj.name,
+                    photoUrl: response.profileObj.imageUrl,
+                    googleId: response.profileObj.googleId,
+                    email: response.profileObj.email,
+                    results: []
+                }
+                    that.props.dispatch({
+                        type: 'SET_USER',
+                        curUser});
+                    that.goToSignup(response);
+                that.props.history.push("/event");
             }
         });
     }
@@ -61,7 +72,7 @@ class Landing extends Component {
         }
         return (
             <div className="landing">
-                <img className="landing__bear" src="bear.png" />
+                <img className="landing__bear" src="bear.png" alt="Logo" />
                 <h1 style={style} className="landing__name">Polar Bear</h1>
                 <div className="landing__subscript">Your Networking Icebreaker</div>
 
