@@ -21,8 +21,9 @@ class ModifyYourAccount extends Component {
     handleChange = event => {
 
     }
-    componentDidMount() {
-        API.getUserProfile(this.props.curUser.googleId)
+    //TODO: add as onclick on 'save' button
+    updateUserProfile() {
+        API.updateUserProfile(this.props.curUser.googleId)
             .then(
                 (result) => {
                     console.log(this.props.curUser);
@@ -52,6 +53,10 @@ class ModifyYourAccount extends Component {
 
 
   render() {
+      API.updateUserProfile(data)
+      .then(function(results){
+          console.log(results)
+      })
 
  const {jobStatus}=this.state;
 
