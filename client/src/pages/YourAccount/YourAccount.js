@@ -7,15 +7,15 @@ class YourAccount extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.change=this.change.bind(this);
         this.state = {
-            firstName: "",
-            lastName:"",
+            name: "",
             photo: "",
             jobTitle: "",
             jobStatus: 'employer',
-            card1: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, adipisci!",
-            card2: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat!",
-            card3:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum, culpa.",
+            card1: "",
+            card2: "",
+            card3:"",
             modify:false
         }
     }
@@ -23,18 +23,20 @@ class YourAccount extends Component {
 
     }
     componentDidMount() {
-        API.getUserProfile(this.props.curUser.googleId)
-            .then(
-                (result) => {
-                    console.log(this.props.curUser);
-                    this.setState({
-                        name: this.props.curUser.name,
-                        photo: this.props.curUser.photoUrl,
-                        // jobTitle: result.jobTitle,
+        console.log("Current user: ", this.props.curUser);
+        const that = this;
+        API.getUserProfile(that.props.curUser.googleId)
+            .then(function (result) {
+                    console.log(result)
+                    console.log(that.props.curUser);
+                    that.setState({
+                        name: result.data.name,
+                        photo: result.data.photoUrl,
+                        jobTitle: result.data.jobTitle,
                         // jobStatus: res,
-                        // card1: this.props.curUser.card1,
-                        // card2: this.props.curUser.card2,
-                        // card3: this.props.curUser.card3
+                        card1: result.data.card1,
+                        card2: result.data.card2,
+                        card3: result.data.card3
                     });
                 },
                 (error) => {
@@ -63,20 +65,27 @@ class YourAccount extends Component {
         console.log(this.state.modify);
     }
 
-    changeJobStatus = (e) => {
-        console.log(e);
-        // const buttonVal = e.target.dataset.value;
-        // if ()
-        // this.setState({
-        // jobStatus: 'looking for a job'
-        // })
+    change = (event) => {
+        console.log(event.target.value);
+        this.setState({
+            jobStatus: event.target.value
+        })
 
     }
 
-    //TODO: take dropdown value, reset state on submit, function on submit with button onClick
+    changeJobStatus = (event) => {
+        API.updateUserProfile(this.curUser.googleId)
+        .then(function (results) {
+              console.log(results)
+
+
+
+          })
+
+    }
 
  //To access the current user from global state reference like this
-  //this.props.curUser 
+  //this.props.curUser
 
   render() {
       const { jobStatus } = this.state;
@@ -92,7 +101,7 @@ class YourAccount extends Component {
                       <img src={this.state.photo} alt="user headshot" className="youracc__headShot" />
                       <div className="youraccount__flexCol youraccount__nameInfo">
                           <h3 className="youraccount__name youraccount__align-center youraccount__blackText youraccount__h3">{this.state.name}</h3>
-                          <h4 className="youraccount__currentTitle youraccount__align-center youraccount__blackText">{this.state.jobTitle || "Job Title"}</h4>
+                          <h4 className="youraccount__currentTitle youraccount__align-center youraccount__blackText">{this.state.jobTitle || ""}</h4>
                       </div>
                   </div>
                   <div className="youraccount__flexCol youraccount__userInfo">
@@ -123,9 +132,8 @@ class YourAccount extends Component {
                <div className="youraccount__flexCol youraccount__nameInfo">
                   <h3 className="youraccount__name youraccount__align-center youraccount__blackText youraccount__h3">{this.state.name}</h3>
                   <form action="#">
-                    <input type="text" defaultValue={this.state.jobTitle || "Your Job Title"}/>
+                    <input type="text" defaultValue={this.state.jobTitle || ""}/>
                     </form>
-                  {/* <h4 className="youraccount__currentTitle youraccount__align-center youraccount__blackText">{this.state.jobTitle || "Job Title"}</h4> */}
               </div>
           </div>
 
@@ -133,11 +141,11 @@ class YourAccount extends Component {
               <form action="#" className="youraccount__flexCol">
                   <label for="jobStatus" className="visuallyhidden">Job Status</label>
 
-                  <select name="jobStatus" id="jobStatus" >
-                      <option value="jobSeeker"
-                          className="youraccount__align-center" data-value="job seeker"> Looking
+                  <select name="jobStatus" id="jobStatus" onChange={this.change} >
+                      <option value="employer">I'm a Hiring Manager</option>
+                    re<option value="jobSeeker"
+                              className="youraccount__align-center"> Looking
                                 for a Job </option>
-                      <option value="youraccount__hiringManager" data-value="employer">I'm a Hiring Manager</option>
                   </select>
                   <div className="input-field">
                           <textarea id="skillsOne" class="materialize-textarea" data-length="140" maxLength="140" defaultValue={this.state.card1}></textarea>
@@ -158,10 +166,6 @@ class YourAccount extends Component {
         </div>
       </div>;
       }
-    //   API.updateUserProfile(data)
-    //       .then(function (results) {
-    //           console.log(results)
-    //       })
 
 
 
@@ -173,7 +177,7 @@ class YourAccount extends Component {
     )
   }
 }
-{/* //TODO: on click of 'save', reload page */}
+
 
 const mapStateToProps = (state) => {
   return {

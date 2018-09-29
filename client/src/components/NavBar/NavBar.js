@@ -116,24 +116,22 @@ class MenuAppBar extends React.Component {
                     Home</MenuItem></NavLink>
                 <NavLink to="/layout">
                   <MenuItem id="layout" onClick={this.handleClose}>
-                    layout</MenuItem></NavLink>
-                  <NavLink to="/chat">
-                    <MenuItem id="chat" onClose={this.handleClose} onClick={this.handleChange}>
-                      Chat</MenuItem></NavLink>
+                    Chat</MenuItem></NavLink>
+                  
                   <NavLink to="/event">
                     <MenuItem id="event" onClick={this.handleClose}>
                       Event</MenuItem></NavLink>
 
                   <NavLink to="/signup">
                     <MenuItem id="signup" onClick={this.handleClose}>
-                      signup</MenuItem></NavLink>
+                      Sign Up</MenuItem></NavLink>
 
                   <NavLink to="/youraccount">
                     <MenuItem id="youraccount" onClick={this.handleClose}>
                       Your Account</MenuItem></NavLink>
                   <NavLink to="/match">
                     <MenuItem id="match" onClick={this.handleClose}>
-                      match</MenuItem></NavLink>
+                      Match</MenuItem></NavLink>
                   <NavLink to="/usermatches">
                     <MenuItem id="usermatches" onClick={this.handleClose}>
                       User Matches</MenuItem></NavLink>
