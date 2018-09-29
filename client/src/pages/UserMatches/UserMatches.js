@@ -47,9 +47,9 @@ class UserMatches extends Component {
       }
     )
    }
-   redirectTo = (userId) => {
-     <Redirect to = {"/userprofile/" + userId} />
-   }
+  //  redirectTo = (userId) => {
+  //    <Redirect to = {"/userprofile/" + userId} />
+  //  }
 
   render() {
     let card;
@@ -63,7 +63,6 @@ class UserMatches extends Component {
         image={user.photoUrl}
         colour={user.isEmployee === false  ? "row center-align valign-wrapper user__card__employer" :
           "row center-align valign-wrapper user__card__employee"}
-        redirect={this.redirectTo(user.id)}
         />
       ))}
     </div>

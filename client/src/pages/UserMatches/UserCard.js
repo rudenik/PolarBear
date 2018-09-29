@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {NavLink} from "react-router-dom";
 import "./UserMatches.css"
-import aProfile from "../UserProfile/AProfile"
+// import aProfile from "../UserProfile/AProfile"
 
 class UserCard extends Component {
     // sendMeToProfile = (id) =>{
@@ -26,7 +26,7 @@ return (
     <div className="row  ">
         <div className="col s6">
         
-        <i className="fa fa-user-circle-o user__profileicon" aria-hidden="true" onClick={this.props.redirect} ></i>
+        <i className="fa fa-user-circle-o user__profileicon" aria-hidden="true" ></i>
         
         </div>
         <div className="col s6">
