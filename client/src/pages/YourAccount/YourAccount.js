@@ -33,9 +33,9 @@ class YourAccount extends Component {
                         photo: this.props.curUser.photoUrl,
                         // jobTitle: result.jobTitle,
                         // jobStatus: res,
-                        // card1: this.props.curUser.card1,
-                        // card2: this.props.curUser.card2,
-                        // card3: this.props.curUser.card3
+                        card1: this.props.curUser.card1,
+                        card2: this.props.curUser.card2,
+                        card3: this.props.curUser.card3
                     });
                 },
                 (error) => {
@@ -65,18 +65,12 @@ class YourAccount extends Component {
     }
 
     change = (event) => {
-        console.log(event);
-        //TODO: add value
-        // const buttonVal = e.target.value;
-        // console.log(buttonVal);
-        // if ()
-        // this.setState({
-        //     jobStatus: e.target.jobStatus
-        // })
+        console.log(event.target.value);
+        this.setState({
+            jobStatus: event.target.value
+        })
 
     }
-
-    //TODO: take dropdown value, reset state on submit, function on submit with button onClick
 
  //To access the current user from global state reference like this
   //this.props.curUser
@@ -139,7 +133,7 @@ class YourAccount extends Component {
                       <option value="jobSeeker"
                           className="youraccount__align-center"> Looking
                                 for a Job </option>
-                      <option value="youraccount__hiringManager">I'm a Hiring Manager</option>
+                      <option value="employer">I'm a Hiring Manager</option>
                   </select>
                   <div className="input-field">
                           <textarea id="skillsOne" class="materialize-textarea" data-length="140" maxLength="140" defaultValue={this.state.card1}></textarea>
