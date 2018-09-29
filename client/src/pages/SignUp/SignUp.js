@@ -117,22 +117,22 @@ class SignUp extends Component {
             </Row>
             <Container>
             <Row>
-            <Col size="input-field s9">
+            <Col size="input-field s9 offset-s2">
             <textarea name="card1" className="materialize-textarea" data-length="140" onChange={this.handleInputChange} required></textarea>
-            <label style={{ color: "#2667FF" }}>Card One</label>
+            <label style={{ color: "#2667FF" }}>Highlight One</label>
             
             </Col>
             </Row>
             <Row>
-            <Col size="input-field s9">
+            <Col size="input-field s9 offset-s2">
             <textarea name="card2" className="materialize-textarea" data-length="140" onChange={this.handleInputChange} required></textarea>
-            <label style={{ color: "#2667FF" }}>Card Two</label>
+            <label style={{ color: "#2667FF" }}>Highlight Two</label>
             </Col>
             </Row>
             <Row>
-            <Col size="input-field s9">
+            <Col size="input-field s9 offset-s2">
             <textarea name="card3" className="materialize-textarea" data-length="140" onChange={this.handleInputChange}  required></textarea>
-            <label style={{ color: "#2667FF" }}>Card Three</label>
+            <label style={{ color: "#2667FF" }}>Highlight Three</label>
             
             </Col>
             </Row>
