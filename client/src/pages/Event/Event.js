@@ -27,24 +27,24 @@ class Event extends Component {
     API.addUserEvents()
     .then(res =>{}
       //SET STATE HERE) {eventCode , id}
-    
+
     ).catch(err => console.log(err));
   };
 
 
-     render() {       
+     render() {
    return (
      <div className="Event">
      <Container>
      <div className="event__centerContent">
-      
-        <p className="event__username">Hi {this.state.name}!</p> 
-        
-        <InputText className="event__code" fieldName="Event Code" inputId="eventCode" matIcon="event" onChange={this.handleInputChange}/>
-             
 
-         <button type="button" className="waves-effect waves-light btn event__btn" onClick={this.handleSignUpButton}>Sign Up for Event </button> 
-    
+        <p className="event__username">Hi {this.state.name}!</p>
+
+        <InputText className="event__code" fieldName="Event Code" inputId="eventCode" matIcon="event" onChange={this.handleInputChange}/>
+
+
+         <button type="button" className="waves-effect waves-light btn event__btn" onClick={this.handleSignUpButton}>Sign Up for Event </button>
+
         </div>
       </Container>
      </div>

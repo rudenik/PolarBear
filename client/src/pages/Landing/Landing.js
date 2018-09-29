@@ -11,7 +11,7 @@ import "./Landing.css";
 const responseGoogle = (response) => {
     console.log(response);
 }
-// const 
+// const
 
 
 class Landing extends Component {
