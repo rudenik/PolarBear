@@ -7,6 +7,7 @@ class YourAccount extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.change=this.change.bind(this);
         this.state = {
             firstName: "",
             lastName:"",
@@ -63,12 +64,14 @@ class YourAccount extends Component {
         console.log(this.state.modify);
     }
 
-    changeJobStatus = (e) => {
-        console.log(e);
-        // const buttonVal = e.target.dataset.value;
+    change = (event) => {
+        console.log(event);
+        //TODO: add value
+        // const buttonVal = e.target.value;
+        // console.log(buttonVal);
         // if ()
         // this.setState({
-        // jobStatus: 'looking for a job'
+        //     jobStatus: e.target.jobStatus
         // })
 
     }
@@ -76,7 +79,7 @@ class YourAccount extends Component {
     //TODO: take dropdown value, reset state on submit, function on submit with button onClick
 
  //To access the current user from global state reference like this
-  //this.props.curUser 
+  //this.props.curUser
 
   render() {
       const { jobStatus } = this.state;
@@ -125,7 +128,6 @@ class YourAccount extends Component {
                   <form action="#">
                     <input type="text" defaultValue={this.state.jobTitle || "Your Job Title"}/>
                     </form>
-                  {/* <h4 className="youraccount__currentTitle youraccount__align-center youraccount__blackText">{this.state.jobTitle || "Job Title"}</h4> */}
               </div>
           </div>
 
@@ -133,11 +135,11 @@ class YourAccount extends Component {
               <form action="#" className="youraccount__flexCol">
                   <label for="jobStatus" className="visuallyhidden">Job Status</label>
 
-                  <select name="jobStatus" id="jobStatus" >
+                  <select name="jobStatus" id="jobStatus" onChange={this.change} >
                       <option value="jobSeeker"
-                          className="youraccount__align-center" data-value="job seeker"> Looking
+                          className="youraccount__align-center"> Looking
                                 for a Job </option>
-                      <option value="youraccount__hiringManager" data-value="employer">I'm a Hiring Manager</option>
+                      <option value="youraccount__hiringManager">I'm a Hiring Manager</option>
                   </select>
                   <div className="input-field">
                           <textarea id="skillsOne" class="materialize-textarea" data-length="140" maxLength="140" defaultValue={this.state.card1}></textarea>
