@@ -11,7 +11,7 @@ class Event extends Component {
     //this.props.curUser
 
     state = {
-        name: "Johnny",
+        name: this.props.curUser.name,
         eventCode: "",
         choice:""
     };
