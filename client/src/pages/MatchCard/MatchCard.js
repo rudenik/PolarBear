@@ -76,7 +76,7 @@ class MatchCard extends Component {
       <Card
       cardOne={this.state.users[this.state.i] ? this.state.users[this.state.i].card1 : ''}
       cardTwo={this.state.users[this.state.i] ? this.state.users[this.state.i].card2 : ''}
-      cardThree={this.state.users[this.state.i0] ? this.state.users[this.state.i].card3 : ''}
+      cardThree={this.state.users[this.state.i] ? this.state.users[this.state.i].card3 : ''}
       />
       buttons = 
       <Button 
