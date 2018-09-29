@@ -7,48 +7,18 @@ class UserMatches extends Component {
   constructor(props){
     super(props);
     this.state = {
-    user: this.props.curUser,
-    userMatches:'',
-    matchProfiles:[]
-    };
+      user: '',
+      userMatches: []
+  };
   }
-
-  componentDidMount() {
-    API.getUserMatches( this.state.user.id )
-    .then(
-      (result) => {
-        this.setState({
-          userMatches: result.data
-        });
-        //for each of the user matches:
-        result.data.map( (ele) => {
-          console.log(ele)
-          const userId = ele.user_one_id
-          //getting profiles of all the matches
-          API.getUserProfile(userId)
-          .then(
-            (result) => {
-              console.log(result)
-              const data = result.data;
-              const matchProfiles = this.state.matchProfiles;
-              this.setState({
-                matchProfiles: [...matchProfiles, data]
-              });
-
-              // console.log(data.name, data.isEmployee, data.photoUrl);
-
-            }
-          )
-        })
-      },
-      (error) => {
-        this.setState({
-          error
-        });
-      }
-    )
-   }
-
+  // getUserMatches = (id) => {
+  //   $.ajax({
+  //     method: "GET",
+  //     url: `/api/match/${id}`
+  //   }).done(function (data) {
+  //     this.setState({userMatches: data})
+  //   })
+  // }
   render() {
     let card;
     this.state.userMatches[0] ?
