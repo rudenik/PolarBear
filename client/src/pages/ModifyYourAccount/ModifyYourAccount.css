@@ -57,25 +57,13 @@
 
 .youraccount__align-center {
     text-align:center;
+
 }
 
 .youraccount__currentTitle {
     font-size:1em;
 }
 
-.youraccount__blueButton {
-    background-color:#2667FF;
-    color:white;
-    border:none;
-    border-radius:5px;
-    margin:0 auto;
-    display:flex;
-    margin-top:5px;
-}
-
-.youraccount__blueButton:hover {
-    background-color:
-}
 
 .youraccount__nameInfo {
     width:60%;

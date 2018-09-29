@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './YourAccount.css';
+import './ModifyYourAccount.css';
 import API from '../../utils/API';
 import {connect} from "react-redux";
 
-class YourAccount extends Component {
+class ModifyYourAccount extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -32,8 +32,8 @@ class YourAccount extends Component {
                         // jobTitle: result.jobTitle,
                         // jobStatus: res,
                         card1: this.props.curUser.card1,
-                        card2: this.props.curUser.card2,
-                        card3: this.props.curUser.card3
+                        // card2: result.data.card2,
+                        // card3: result.data.card3
                     });
                 },
                 (error) => {
@@ -72,21 +72,32 @@ class YourAccount extends Component {
                     </div>
 
                 <div className="youraccount__flexCol youraccount__userInfo">
+                        <form action="#" className="youraccount__flexCol">
+                            <label for="jobStatus" className="visuallyhidden">Job Status</label>
 
-                            <div className="youraccount__align-center">{this.props.jobStatus || 'Looking for a job'}</div>
+                            <select name="jobStatus" id="jobStatus" >
+                                <option value = "jobSeeker"
+                                className="youraccount__align-center"> Looking
+                                for a Job </option>
+                                <option value="youraccount__hiringManager">I'm a Hiring Manager</option>
+                            </select>
                             <div className="input-field">
-                                <p>{this.state.card1}</p>
+                                <textarea id="skillsOne" class="materialize-textarea" data-length="140" maxLength="140">{this.state.card1}</textarea>
+                                <label for="skillsOne">Card One</label>
                             </div>
                             <div className="input-field">
-                                <p>{this.state.card2}</p>
+                                <textarea id="skillsTwo" class="materialize-textarea" data-length="140" maxLength="140">{this.state.card2}</textarea>
+                                <label for="skillsTwo">Card Two</label>
                             </div>
                             <div className="input-field">
-                                <p>{this.state.card3}</p>
+                                <textarea id="skillsThree" class="materialize-textarea" data-length="140" maxLength="140"></textarea>
+                                <label for="skillsThree">Card Three</label>
                             </div>
 
+
+                        </form>
                     </div>
                     </div>
-                <button className="youraccount__align-center youraccount__blueButton">Modify</button>
             </div>
         </div>
     )
@@ -99,4 +110,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(YourAccount);
+export default connect(mapStateToProps)(ModifyYourAccount);

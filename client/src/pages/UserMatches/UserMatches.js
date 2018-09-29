@@ -15,18 +15,6 @@ class UserMatches extends Component {
     userMatches: []
     };
   }
-<<<<<<< HEAD
-  componentDidMount(){
-    API.getUserMatches(this.state.user)
-    .then(function(result){
-      console.log(result);
-      this.setState({
-        userMatches: result.data
-      });
-    })
-  }
-
-=======
   // getUserMatches = (id) => {
   //   $.ajax({
   //     method: "GET",
@@ -35,7 +23,6 @@ class UserMatches extends Component {
   //     this.setState({userMatches: data})
   //   })
   // }
->>>>>>> adriana-dev
   render() {
     let card;
     this.state.userMatches[0] ?
@@ -43,10 +30,10 @@ class UserMatches extends Component {
     card =
       <div>
         {this.state.userMatches.map(match => (
-        <UserCard 
-          name={match.name} 
-          job={match.job} 
-          photo={match.photoUrl} 
+        <UserCard
+          name={match.name}
+          job={match.job}
+          photo={match.photoUrl}
           colour={match.type === 'employer' ? "row center-align valign-wrapper user__card__employer" :
           "row center-align valign-wrapper user__card__employee"}
         />
@@ -54,17 +41,17 @@ class UserMatches extends Component {
       </div> :
     card =
       <div>
-        <UserCard 
-          name={"name"} 
-          job={"job"} 
-          photo={"http://www.placepuppy.net/1p/100/100"} 
+        <UserCard
+          name={"name"}
+          job={"job"}
+          photo={"http://www.placepuppy.net/1p/100/100"}
           //changing class from employer/employee changes from orange to blue
           colour={"row center-align valign-wrapper user__card__employer"}
         />
-        <UserCard 
-          name={"name2"} 
-          job={"job2"} 
-          photo={"http://www.placepuppy.net/1p/100/100"} 
+        <UserCard
+          name={"name2"}
+          job={"job2"}
+          photo={"http://www.placepuppy.net/1p/100/100"}
           //changing class from employer/employee changes from orange to blue
           colour={"row center-align valign-wrapper user__card__employee"}
         />

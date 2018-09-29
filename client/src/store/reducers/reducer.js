@@ -1,6 +1,6 @@
 const initialState = {
-  name: "Ron Swonson",
-  photoUrl: "https://en.wikipedia.org/wiki/Ron_Swanson#/media/File:RonSwanson.jpg",
+  name: "Ron Swanson",
+  photoUrl: "https://upload.wikimedia.org/wikipedia/en/a/ae/RonSwanson.jpg",
   googleId: "42",
   email: "rswanson@email.com",
   results: []

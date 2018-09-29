@@ -32,14 +32,14 @@ app.use(express.static("public"));
 // );
 
 
-db.sequelize.sync({ force: false }).then(function ()
+db.sequelize.sync({ force: true }).then(function ()
 {
   server.listen(PORT, function ()
   {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   });
 io.on("connection", SocketManager);
-  
+
 });
 
 // io.on("connection", SocketManager);
