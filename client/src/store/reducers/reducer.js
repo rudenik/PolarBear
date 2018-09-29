@@ -1,5 +1,5 @@
 const initialState = {
-  name: "Ron Swonson",
+  name: "Ron Swanson",
   photoUrl: "https://en.wikipedia.org/wiki/Ron_Swanson#/media/File:RonSwanson.jpg",
   googleId: "42",
   email: "rswanson@email.com",

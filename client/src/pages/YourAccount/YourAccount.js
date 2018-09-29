@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 class YourAccount extends Component {
 
  //To access the current user from global state reference like this
-  //this.props.curUser
+  //this.props.curUser 
 
 
     
