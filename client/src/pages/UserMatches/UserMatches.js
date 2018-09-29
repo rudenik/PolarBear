@@ -3,55 +3,69 @@ import UserCard from "./UserCard.js";
 import { connect } from 'react-redux';
 import API from "../../utils/API";
 
-
 class UserMatches extends Component {
-//To access the current user from global state reference like this
-//this.props.curUser
-
   constructor(props){
     super(props);
     this.state = {
-    user: '',
-    userMatches: []
+    user: this.props.curUser,
+    userMatches:'',
+    matchProfiles:[]
     };
   }
-<<<<<<< HEAD
-  componentDidMount(){
-    API.getUserMatches(this.state.user)
-    .then(function(result){
-      console.log(result);
-      this.setState({
-        userMatches: result.data
-      });
-    })
-  }
+  
+  componentDidMount() {
+    API.getUserMatches( this.state.user.id )
+    .then(
+      (result) => {
+        this.setState({
+          userMatches: result.data
+        });
+        //for each of the user matches:
+        result.data.map( (ele) => {
+          console.log(ele)
+          const userId = ele.user_one_id
+          //getting profiles of all the matches
+          API.getUserProfile(userId)
+          .then(
+            (result) => {
+              console.log(result)
+              const data = result.data;
+              const matchProfiles = this.state.matchProfiles;
+              this.setState({
+                matchProfiles: [...matchProfiles, data]
+              });
+              
+              // console.log(data.name, data.isEmployee, data.photoUrl);
 
-=======
-  // getUserMatches = (id) => {
-  //   $.ajax({
-  //     method: "GET",
-  //     url: `/api/match/${id}`
-  //   }).done(function (data) {
-  //     this.setState({userMatches: data})
-  //   })
-  // }
->>>>>>> adriana-dev
+            }
+          )
+        })
+      },
+      (error) => {
+        this.setState({
+          error
+        });
+      }
+    )
+   }
+
   render() {
     let card;
     this.state.userMatches[0] ?
-    //TODO: add conditional rendering of border colour
-    card =
-      <div>
-        {this.state.userMatches.map(match => (
+    card = 
+    <div>
+      {this.state.matchProfiles.map(user => (
         <UserCard 
-          name={match.name} 
-          job={match.job} 
-          photo={match.photoUrl} 
-          colour={match.type === 'employer' ? "row center-align valign-wrapper user__card__employer" :
+        key = {user.id}
+        name={user.name}
+        image={user.photoUrl}
+        colour={user.isEmployee === false  ? "row center-align valign-wrapper user__card__employer" :
           "row center-align valign-wrapper user__card__employee"}
+        
         />
-        ))}
-      </div> :
+      ))}
+    </div>
+:
     card =
       <div>
         <UserCard 

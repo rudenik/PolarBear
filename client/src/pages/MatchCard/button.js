@@ -19,7 +19,7 @@ class Button extends Component {
         return (
             <div className="row center-align">
                 <div className= 'col s6'>
-            <button className="btn-large match__button-pc match__pass" data-value='Decline' onClick={ this.buttonClick }>Pass</button>
+            <button className="btn-large match__button-pc match__pass" data-value='Declined' onClick={ this.buttonClick }>Pass</button>
             </div>
             <div className='col s6'>
             <button className="btn-large match__button-pc match__connect" data-value='Match' onClick={ this.buttonClick }>Connect</button>
