@@ -7,7 +7,7 @@ return (
     <div className = "user__card__all">
 <div className={this.props.colour}>
     <div className="col s3"> 
-    <img src = {this.props.photo} alt = "user headshot" className="youraccount__headShot responsive-img"/ >
+    <img src = {this.props.image} alt = "user headshot" className="youraccount__headShot responsive-img"/ >
         </div>
     <div className="col s5">
     <div className="row">

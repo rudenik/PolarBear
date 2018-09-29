@@ -22,13 +22,6 @@ return (
     </div>
 </div>
 )
-// TODO: fix carousel CSS
-//TODO: fix so that on "pass/connect" it navigates to first carousel item 
-//TODO: might have to scrap carousel idea all together and do from scratch.
 }
-
-
 }
-
-
 // export default Card;
