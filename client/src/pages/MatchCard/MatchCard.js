@@ -9,18 +9,19 @@ class MatchCard extends Component {
     super(props);
     this.state = {
       users: [],
-      currentUser:1,
+      currentUser:this.props.curUser.googleId,
       i: 0,
       button: ''
   };
   }
   componentDidMount() {
-    API.getEventMatches(1,1)
+    API.getEventMatches( this.state.currentUser.id,1)
       .then(
         (result) => {
           this.setState({
             users: result.data
           });
+          console.log(this.state.currentUser);
         },
         (error) => {
           this.setState({
@@ -50,6 +51,7 @@ class MatchCard extends Component {
     .then(
       (result) => {
         console.log(result)
+        console.log(MatchData)
       }
     )
   }
