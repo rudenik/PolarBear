@@ -82,14 +82,16 @@ module.exports = function(socket) {
   /********************PRIVATE MESSAGE**************************************/
   socket.on(PRIVATE_MESSAGE, ({ receiver, sender }) => {
     console.log("socket manager")
-    console.log(receiver);
-    console.log(sender);
-    console.log(connectedUsers);
+    console.log("receiver: ", receiver);
+    console.log("Sender: ", sender.name);
+    console.log("Connected Users: ", connectedUsers);
     if (receiver in connectedUsers) {
       const newChat = createChat({
-        name: `${receiver}&${sender}`,
-        users: [receiver, sender]
+        name: `${receiver}&${sender.name}`,
+        users: [receiver, sender.name]
+
       });
+      console.log("New Chat: ", newChat);
       const receiverSocket = connectedUsers[receiver].socketId;
       socket.to(receiverSocket).emit(PRIVATE_MESSAGE, newChat);
       socket.emit(PRIVATE_MESSAGE, newChat);

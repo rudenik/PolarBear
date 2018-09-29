@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
-import { LoginForm } from "../../ChatComponents/Layout";
+import LoginForm  from "../../ChatComponents/Layout";
 import Chat from "../../../pages/Chat";
 const { USER_CONNECTED, LOGOUT } = require("../../../store/actions");
 const socketUrl = "http://localhost:3001";

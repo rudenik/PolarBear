@@ -9,20 +9,37 @@ import Receiver from "../../components/ChatComponents/Receiver";
 import Chatheading from "../../components/ChatComponents/Chatheading";
 import Sidebar from "../../components/ChatComponents/Sidebar";
 import io from "socket.io-client";
+
+
+const socketUrl = "http://localhost:3001";
+
+
 const {
   MESSAGE_SENT,
   TYPING,
   COMMUNITY_CHAT,
   MESSAGE_RECEIVED,
-  PRIVATE_MESSAGE
+  PRIVATE_MESSAGE,
+  USER_CONNECTED
 } = require("../../store/actions");
 const socket = io("localhost:3001");
+
+
 
 class Chat extends Component {
    //To access the current user from global state reference like this
   //this.props.curUser
+  // initSocket = () => {
+  //   const socket = io(socketUrl);
 
+  //   socket.on("connect", () => {
+  //     console.log("Connected");
+  //   });
 
+  //   this.setState({ socket });
+  // };
+
+  
   constructor(props) {
     super(props);
     // this.addMessage = this.addMessage.bind(this);
@@ -32,18 +49,27 @@ class Chat extends Component {
       //   message: "",
       //   messages: [],
       chats: [],
-      activeChat: null
+      activeChat: null,
+      socket:null
     };
   }
 
   componentDidMount() {
-    const { socket } = this.props;
+    // const { socket } = this.props;
     this.initSocket(socket);
     console.log(this.props.user);
   }
 
   initSocket = socket => {
-    const { user } = this.props;
+    // const socket = io(socketUrl);
+
+    socket.on("connect", () => {
+      console.log("Connected");
+      socket.emit(USER_CONNECTED, this.props.curUser);
+    });
+    this.setState({ socket });
+
+    const user  = this.props.curUser;
     // socket.emit(COMMUNITY_CHAT, this.resetChat);
     socket.on(PRIVATE_MESSAGE, this.addChat);
     // socket.on("connect", () => {
@@ -55,10 +81,10 @@ class Chat extends Component {
   sendOpenPrivateMessage = receiver => {
       console.log("send open private message");
       console.log(receiver);
-    const { socket, user } = this.props;
+    // const { socket, user } = this.props;
     console.log(socket);
-    console.log(user);
-    socket.emit(PRIVATE_MESSAGE, { receiver, sender: user.name });
+    console.log(this.props.curUser);
+    socket.emit(PRIVATE_MESSAGE, { receiver, sender: this.props.curUser });
   };
   
 
@@ -127,7 +153,8 @@ class Chat extends Component {
   };
 
   render() {
-    const { user, logout } = this.props;
+    const { logout } = this.props;
+    const user = this.props.curUser;
     const { chats, activeChat } = this.state;
     console.log(this.state.chats);
     return (
