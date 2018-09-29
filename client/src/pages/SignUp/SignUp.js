@@ -42,6 +42,7 @@ class SignUp extends Component {
 
         console.log(this.state);
         console.log("Sign up button pressed");
+        console.log(this.state.card1);
         API.addUserProfile(this.state);
 
         //return/send info off. 
@@ -77,7 +78,7 @@ class SignUp extends Component {
             <i className="prefix material-icons" style={{color:"#2667FF" , padding:"20px"}}>photo</i>
             </Col>
             <Col size="s9">
-            <input type="text" name="photoUrl" onChange={this.handleInputChange} defaultValue={this.state.photoUrl}/>
+            <input type="text" name="photoUrl" onChange={this.handleInputChange} defaultValue={this.state.photoUrl} value={this.state.photoUrl} />
             <label style={{ color: "#2667FF" }}>Picture (URL)</label>
             </Col>
             </Row>
@@ -87,7 +88,7 @@ class SignUp extends Component {
             <i className="prefix material-icons" style={{color:"#2667FF" , padding:"20px"}}>work</i>
             </Col>
             <Col size="s9">
-            <input type="text" name="emStatus" inputID="emStatus" onChange={this.handleInputChange}/>
+            <input type="text" name="emStatus" onChange={this.handleInputChange} value={this.state.emStatus} />
             <label style={{ color: "#2667FF" }}>Employement Status (true/false)</label> 
             </Col>
             </Row>
@@ -97,7 +98,7 @@ class SignUp extends Component {
             <i className="prefix material-icons" style={{color:"#2667FF" , padding:"20px"}}>event</i>
             </Col>
             <Col size="s9">
-            <input type="text" name="emStatus" inputID="emStatus" onChange={this.handleInputChange}/>
+            <input type="text" name="eventCode"  onChange={this.handleInputChange} value={this.state.eventCode}/>
             <label style={{ color: "#2667FF" }}>Event ID(Optional)</label>
             </Col>
             </Row>
@@ -111,22 +112,21 @@ class SignUp extends Component {
             </Row>
             <Container>
             <Row>
-            <Col size="s9">
-            <textarea name="Card1" className="materialize-textarea" data-length="140" onChange={this.handleInputChange}></textarea>
+            <Col size="input-field s9">
+            <textarea name="card1" className="materialize-textarea" data-length="140" onChange={this.handleInputChange} required></textarea>
             <label style={{ color: "#2667FF" }}>Card One</label>
             
             </Col>
             </Row>
             <Row>
-            <Col size="s9">
-            <textarea name="Card1" className="materialize-textarea" data-length="140" onChange={this.handleInputChange}></textarea>
+            <Col size="input-field s9">
+            <textarea name="card2" className="materialize-textarea" data-length="140" onChange={this.handleInputChange} required></textarea>
             <label style={{ color: "#2667FF" }}>Card Two</label>
             </Col>
             </Row>
             <Row>
-            <Col size="s9">
-            
-            <textarea name="Card3" className="materialize-textarea" data-length="140" onChange={this.handleInputChange}></textarea>
+            <Col size="input-field s9">
+            <textarea name="card3" className="materialize-textarea" data-length="140" onChange={this.handleInputChange}  required></textarea>
             <label style={{ color: "#2667FF" }}>Card Three</label>
             
             </Col>
