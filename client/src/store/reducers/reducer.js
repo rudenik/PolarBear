@@ -4,7 +4,6 @@ const initialState = {
   googleId: "42",
   id: "42",
   email: "rswanson@email.com",
-  id: "314",
   results: []
 };
 
