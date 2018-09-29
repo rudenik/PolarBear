@@ -33,7 +33,7 @@ class UserMatches extends Component {
       <div>
         {this.state.userMatches.map(match => (
         <UserCard 
-          name={match.name} 
+          name={match.name}  
           job={match.job} 
           photo={match.photoUrl} 
           colour={match.type === 'employer' ? "row center-align valign-wrapper user__card__employer" :

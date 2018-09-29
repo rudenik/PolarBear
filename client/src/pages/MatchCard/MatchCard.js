@@ -15,18 +15,6 @@ class MatchCard extends Component {
   };
   }
   componentDidMount() {
-  
-    //To access the current user from global state reference like this
-    //this.props.curUser
-
-
-    // API.getUserProfile(1).then(
-    //   (result) => {
-    //     console.log('get user profile: ')
-    //     console.log(result);
-    //   }
-    // )
-//TODO: first parameter will actually be id of logged in user
     API.getEventMatches(1,1)
       .then(
         (result) => {
@@ -62,7 +50,6 @@ class MatchCard extends Component {
     .then(
       (result) => {
         console.log(result)
-        console.log(MatchData)
       }
     )
   }
@@ -82,7 +69,7 @@ class MatchCard extends Component {
       <Button 
       buttonClicked={this.buttonClick} />
     } else {
-      noUsers = <p>Sorry, there are no users left!</p>
+      noUsers = <h1>Sorry, there are no users left!</h1>
     }
     return (
       <div> 
