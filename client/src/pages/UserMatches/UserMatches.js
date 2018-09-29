@@ -34,9 +34,6 @@ class UserMatches extends Component {
               this.setState({
                 matchProfiles: [...matchProfiles, data]
               });
-
-              // console.log(data.name, data.isEmployee, data.photoUrl);
-
             }
           )
         })
@@ -61,26 +58,23 @@ class UserMatches extends Component {
         image={user.photoUrl}
         colour={user.isEmployee === false  ? "row center-align valign-wrapper user__card__employer" :
           "row center-align valign-wrapper user__card__employee"}
-
         />
       ))}
     </div>
 :
     card =
       <div>
-        <UserCard
-          name={"name"}
-          job={"job"}
-          photo={"http://www.placepuppy.net/1p/100/100"}
-          //changing class from employer/employee changes from orange to blue
-          colour={"row center-align valign-wrapper user__card__employer"}
+        <UserCard 
+          name="name"
+          job="job"
+          photo="http://www.placepuppy.net/1p/100/100"
+          colour="row center-align valign-wrapper user__card__employer"
         />
-        <UserCard
-          name={"name2"}
-          job={"job2"}
-          photo={"http://www.placepuppy.net/1p/100/100"}
-          //changing class from employer/employee changes from orange to blue
-          colour={"row center-align valign-wrapper user__card__employee"}
+        <UserCard 
+          name="name2"
+          job="job2"
+          photo="http://www.placepuppy.net/1p/100/100"
+          colour="row center-align valign-wrapper user__card__employee"
         />
       </div>
 
