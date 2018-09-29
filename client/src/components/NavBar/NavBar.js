@@ -8,7 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-
+import "./NavBar.css"
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { NavLink, Link } from "react-router-dom";
 
@@ -38,6 +38,14 @@ const styles = (theme) => ({
     marginRight: 20,
   },
 });
+
+const bearStyles = {
+  margin: "0 auto",
+  "max-width": "15%",
+  position: "absolute",
+  left: "15px",
+  top: "4px"
+}
 
 class MenuAppBar extends React.Component {
   state = {
@@ -72,7 +80,7 @@ class MenuAppBar extends React.Component {
 
               </IconButton>
               <Typography variant="title" color="inherit" className={classes.grow}>
-                Polar Bear
+                 <img style={bearStyles} className="landing__bear" src="polarb.svg"/>
           </Typography>
               <IconButton
                 aria-owns={open ? 'menu-appbar' : null}
