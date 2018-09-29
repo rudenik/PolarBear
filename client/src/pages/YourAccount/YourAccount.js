@@ -76,6 +76,9 @@ class YourAccount extends Component {
         API.updateUserProfile(this.curUser.googleId)
         .then(function (results) {
               console.log(results)
+
+
+
           })
 
     }
