@@ -11,7 +11,7 @@ import "./Landing.css";
 const responseGoogle = (response) => {
     console.log(response);
 }
-// const 
+// const
 
 
 class Landing extends Component {
@@ -72,7 +72,7 @@ class Landing extends Component {
         }
         return (
             <div className="landing">
-                <img className="landing__bear" src="bear.png" alt="Logo" />
+                <img className="landing__bear" src="polarbear.png" alt="Logo" />
                 <h1 style={style} className="landing__name">Polar Bear</h1>
                 <div className="landing__subscript">Your Networking Icebreaker</div>
 

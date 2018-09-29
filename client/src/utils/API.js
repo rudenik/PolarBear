@@ -36,14 +36,17 @@ export default {
   },
 
   //Match
+  //Get All Users for User to MAtch to
   getEventMatches: function (useroneid, eventid)
   {
     return axios.get("/api/match/" + useroneid + "/" + eventid);
   },
+  //Get all users matches
   getUserMatches: function (useroneid)
   {
     return axios.get("/api/match/" + useroneid );
   },
+  //Create a match
   createMatch: function (MatchData)
   {
     return axios.post("/api/match", MatchData);

@@ -61,6 +61,7 @@ class SignUp extends Component {
     render() {
         return (
             <div>
+
                 <Container>
                     <Row>
                         <Col size="s1">
@@ -139,6 +140,7 @@ class SignUp extends Component {
                         </Col>
                     </Row>
                 </Container>
+
             </div>
         )
     }
