@@ -43,9 +43,14 @@ class SignUp extends Component {
         console.log(this.state);
         console.log("Sign up button pressed");
         console.log(this.state.card1);
-        API.addUserProfile(this.state);
+        const that = this;
+        API.addUserProfile(this.state).then(function (response){
+            if(response.status==200){
+                that.props.history.push("/event");
+            }
+            console.log(response)
+        });
 
-        //return/send info off. 
         this.setState({
             name:"",
             photoUrl: "",
