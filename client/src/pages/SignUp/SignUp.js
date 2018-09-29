@@ -70,7 +70,7 @@ class SignUp extends Component {
             <Col size="s1">
             <i className="prefix material-icons" style={{color:"#2667FF" , padding:"20px"}}>person</i>
             </Col>
-            <Col size="s9">
+            <Col size="s9 offset-s1">
             
             <input type="text" name="name" onChange={this.handleInputChange} defaultValue={this.state.name} value={this.state.name}/>
             <label style={{ color: "#2667FF" }}>Name</label>
@@ -82,7 +82,7 @@ class SignUp extends Component {
             <Col size="s1">
             <i className="prefix material-icons" style={{color:"#2667FF" , padding:"20px"}}>photo</i>
             </Col>
-            <Col size="s9">
+            <Col size="s9 offset-s1">
             <input type="text" name="photoUrl" onChange={this.handleInputChange} defaultValue={this.state.photoUrl} value={this.state.photoUrl} />
             <label style={{ color: "#2667FF" }}>Picture (URL)</label>
             </Col>
@@ -92,7 +92,7 @@ class SignUp extends Component {
             <Col size="s1">
             <i className="prefix material-icons" style={{color:"#2667FF" , padding:"20px"}}>work</i>
             </Col>
-            <Col size="s9">
+            <Col size="s9 offset-s1">
             <input type="text" name="emStatus" onChange={this.handleInputChange} value={this.state.emStatus} />
             <label style={{ color: "#2667FF" }}>Employement Status (true/false)</label> 
             </Col>
@@ -102,7 +102,7 @@ class SignUp extends Component {
             <Col size="s1">
             <i className="prefix material-icons" style={{color:"#2667FF" , padding:"20px"}}>event</i>
             </Col>
-            <Col size="s9">
+            <Col size="s9 offset-s1">
             <input type="text" name="eventCode"  onChange={this.handleInputChange} value={this.state.eventCode}/>
             <label style={{ color: "#2667FF" }}>Event ID(Optional)</label>
             </Col>
