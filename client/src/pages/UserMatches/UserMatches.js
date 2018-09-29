@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import UserCard from "./UserCard.js";
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {Redirect} from "react-router";
 import API from "../../utils/API";
 
 class UserMatches extends Component {
@@ -45,6 +47,9 @@ class UserMatches extends Component {
       }
     )
    }
+   redirectTo = (userId) => {
+     <Redirect to = {"/userprofile/" + userId} />
+   }
 
   render() {
     let card;
@@ -58,6 +63,7 @@ class UserMatches extends Component {
         image={user.photoUrl}
         colour={user.isEmployee === false  ? "row center-align valign-wrapper user__card__employer" :
           "row center-align valign-wrapper user__card__employee"}
+        redirect={this.redirectTo(user.id)}
         />
       ))}
     </div>

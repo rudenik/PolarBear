@@ -26,7 +26,7 @@ return (
     <div className="row  ">
         <div className="col s6">
         
-        <i className="fa fa-user-circle-o user__profileicon" aria-hidden="true" ></i>
+        <i className="fa fa-user-circle-o user__profileicon" aria-hidden="true" onClick={this.props.redirect} ></i>
         
         </div>
         <div className="col s6">
