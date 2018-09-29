@@ -16,7 +16,7 @@
 }
 
 .youraccount__yourAccount {
-    height:70vh;
+    min-height:70vh;
     padding:10px;
 }
 
