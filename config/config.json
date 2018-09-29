@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "development": {
     "username": "root",
     "password": "uoft18",
@@ -19,5 +20,27 @@
     "database": "database_production",
     "host": "localhost:3000",
     "dialect": "mysql"
+=======
+    "development": {
+      "username": "root",
+      "password": "password",
+      "database": "polarbear",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": null,
+      "database": "database_test",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "root",
+      "password": null,
+      "database": "database_production",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+>>>>>>> dev
   }
-}

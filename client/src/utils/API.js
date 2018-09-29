@@ -2,49 +2,50 @@ import axios from "axios";
 
 export default {
   //AddUserProfile
-  addUserProfile: function ()
+  addUserProfile: function (UserData)
   {
     return axios.post("/api/userprofile", UserData);
   },
   //Update User Profile
-  updateUserProfile: function ()
+  updateUserProfile: function (UserData)
   {
     return axios.put("/api/userprofile", UserData);
   },
   // Get UserProfile with givin ID
   getUserProfile: function (id)
   {
+    console.log(id);
     return axios.get("/api/userprofile/" + id);
   },
   // Deletes User Profile With given Id
   deleteUserProfile: function (id)
   {
-    return axios.delete("/api/books/" + id);
+    return axios.delete("/api/userprofile/" + id);
   },
 
   //USEREVENTS
   //AddUserEvent
-  addUserProfile: function ()
+  addUserEvents: function (UserData)
   {
     return axios.post("/api/userevent", UserData);
   },
   //Get All Events User Belongs to
-  getUserEvents: function ()
+  getUserEvents: function (id)
   {
     return axios.get("/api/userevent/" + id);
   },
 
   //Match
-  getEventMatches: function ()
+  getEventMatches: function (useroneid, eventid)
   {
-    return axios.get("/api/userevent/" + useroneid + "/" + eventid);
+    return axios.get("/api/match/" + useroneid + "/" + eventid);
   },
-  getUserMatches: function ()
+  getUserMatches: function (useroneid)
   {
-    return axios.get("/api/userevent/" + useroneid );
+    return axios.get("/api/match/" + useroneid );
   },
-  createMatch: function ()
+  createMatch: function (MatchData)
   {
-    return axios.post("/api/userevent", MatchData);
+    return axios.post("/api/match", MatchData);
   }
 };

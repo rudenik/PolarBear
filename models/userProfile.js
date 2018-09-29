@@ -1,19 +1,34 @@
 module.exports = function (sequelize, DataTypes)
 {
     var UserProfile = sequelize.define("UserProfile", {
-        firstName: {
+        id: {
+            type: DataTypes.STRING,
+            primaryKey: true
+        },
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 max: [20]
             }
         },
-        lastName: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 max: [20]
             }
+        },
+        photoUrl: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                max: [20]
+            }
+        },
+        isEmployee: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
         },
         card1: {
             type: DataTypes.STRING,
@@ -40,7 +55,7 @@ module.exports = function (sequelize, DataTypes)
 
     UserProfile.associate = function (models)
     {
-        UserProfile.belongsToMany(models.Events, { through: 'UserEvents' });
+        UserProfile.belongsToMany(models.Events, {through: 'UserEvents' });
         UserProfile.belongsToMany(UserProfile,{through: models.Match, as: "Matches", foreignKey: "user_one_id", otherKey: "user_two_id"});
     };
 

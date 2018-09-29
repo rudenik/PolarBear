@@ -1,7 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+<<<<<<< HEAD
 const routes = require("./routes/api-chat");
+=======
+const apiRoutes = require("./routes");
+>>>>>>> dev
 const app = express();
 const server = require("http").Server(app);
 const io = (module.exports.io = require("socket.io")(server));
@@ -17,8 +21,12 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //add routes
+<<<<<<< HEAD
 app.use(routes);
 require("./controllers/userProfileController");
+=======
+app.use(apiRoutes);
+>>>>>>> dev
 
 // //Requiring our models for syncing
 var db = require("./models");
@@ -33,6 +41,7 @@ mongoose.connect(
 );
 
 
+<<<<<<< HEAD
 db.sequelize.sync({ force: true }).then(function() {
   server.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
@@ -40,6 +49,19 @@ db.sequelize.sync({ force: true }).then(function() {
   io.on("connection", SocketManager);
 });
 
+=======
+db.sequelize.sync({ force: false }).then(function ()
+{
+  server.listen(PORT, function ()
+  {
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  });
+io.on("connection", SocketManager);
+  
+});
+
+// io.on("connection", SocketManager);
+>>>>>>> dev
 // io.on("connection", function(socket) {
 //   console.log("user connected at socket id "+socket.id);
 //   socket.on('SEND_MESSAGE', function(data){
