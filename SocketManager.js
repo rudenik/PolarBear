@@ -98,15 +98,18 @@ module.exports = function(socket) {
        
       const newChat = createChat({
         name: `${receiver}&${sender}`,
-        users: [receiver, sender]
+        users: [receiver, sender],
+        chatname:`${receiver}&${sender}`,
+        chatname1:`${sender}&${receiver}`
       });
     
-      socket.join("room1");
-      chatRooms.push(newChat.name)
-      io.sockets.in(newChat.name).emit(PRIVATE_MESSAGE, newChat);
+     
+      // socket.join("room1");
+      // chatRooms.push(newChat.name)
+      // io.sockets.in(newChat.name).emit(PRIVATE_MESSAGE, newChat);
       const receiverSocket = connectedUsers[receiver].socketId;
-      // socket.to(receiverSocket).emit(PRIVATE_MESSAGE, newChat);
-      // socket.emit(PRIVATE_MESSAGE, newChat);
+      socket.to(receiverSocket).emit(PRIVATE_MESSAGE, newChat);
+      socket.emit(PRIVATE_MESSAGE, newChat);
     }
   });
 };

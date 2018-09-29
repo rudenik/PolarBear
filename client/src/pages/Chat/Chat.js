@@ -9,6 +9,8 @@ import Receiver from "../../components/ChatComponents/Receiver";
 import Chatheading from "../../components/ChatComponents/Chatheading";
 import {Sidebar} from "../../components/ChatComponents/Sidebar";
 import io from "socket.io-client";
+import API from "../../utils/chatAPI";
+
 const {
   MESSAGE_SENT,
   TYPING,
@@ -28,7 +30,8 @@ class Chat extends Component {
       //   message: "",
       //   messages: [],
       chats: [],
-      activeChat: null
+      activeChat: null,
+      prevChat:null
     };
   }
 
@@ -54,8 +57,6 @@ class Chat extends Component {
     const { socket, user } = this.props;
     console.log(socket);
     console.log(user);
-    var name= `${receiver}&${user.name}`
-    
     socket.emit(PRIVATE_MESSAGE, { receiver, sender: user.name });
   };
   
@@ -66,9 +67,8 @@ class Chat extends Component {
 
   addChat = (chat, reset) => {
     const { socket } = this.props;
-    const { chats } = this.state;
- 
-
+    const { chats,prevChat } = this.state;
+    
     const newChats = reset ? [chat] : [...chats, chat];
     this.setState({ chats: newChats },()=>{
       console.log(this.state.chats);
@@ -148,7 +148,7 @@ class Chat extends Component {
         />
 
         <div className="chat_room_container">
-          {activeChat !== null ? ([
+          {activeChat ? ([
             // <div customClass="mainChatContainer">
               <Chatheading name={activeChat.name} />,
               <div className="chat_area">

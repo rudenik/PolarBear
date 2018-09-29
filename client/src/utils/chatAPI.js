@@ -13,4 +13,8 @@ export default {
   deleteChat: function(id) {
     return axios.delete("/api/chat/" + id);
   },
+  saveRoom:function(roomData){
+    console.log(roomData);
+    return axios.post("/api/chat/rooms");
+  }
 };

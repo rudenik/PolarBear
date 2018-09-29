@@ -11,15 +11,19 @@ const createMessage = ({ message = "", sender = "" } = {}) => ({
 
 const createChat = ({
   messages = [],
-  name = "Community",
+  name = "",
   users = [],
-  sender
+  sender,
+  chatname,
+  chatname1
 } = {}) => ({
   name,
   messages,
   users,
   sender,
-  typingUsers: []
+  typingUsers: [],
+  chatname,
+  chatname1
 });
 
 const getTime = date => {

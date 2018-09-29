@@ -63,7 +63,8 @@ export class Sidebar extends Component {
 
     const { chats, activeChat, user, setActiveChat, logout } = this.props;
     const { receiver, connectedUsers } = this.state;
-
+    console.log(chats);
+    console.log(activeChat);
     return (
       <div id="side-bar">
         <form onSubmit={this.handleSubmit} className="search">
@@ -93,13 +94,12 @@ export class Sidebar extends Component {
                 chat.users.find(name => {
                   return name !== user.name;
                 }) || null;
-              const classNames =
-                activeChat && activeChat.id === chat.id ? "active" : "";
-
+                
               return (
                 <div
-                  key={chat.id}
-                  className={`user ${classNames}`}
+                  key={chat.chatname}
+                  ref={`${chat.chatname}`&`${chat.chatname1}`}
+                  className={`user`}
                   onClick={() => {
                     setActiveChat(chat);
                   }}
@@ -138,3 +138,5 @@ export class Sidebar extends Component {
     );
   }
 }
+
+export default Sidebar;
