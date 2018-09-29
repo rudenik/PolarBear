@@ -9,14 +9,13 @@ class YourAccount extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.change=this.change.bind(this);
         this.state = {
-            firstName: "",
-            lastName:"",
+            name: "",
             photo: "",
             jobTitle: "",
             jobStatus: 'employer',
-            card1: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, adipisci!",
-            card2: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat!",
-            card3:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum, culpa.",
+            card1: "",
+            card2: "",
+            card3:"",
             modify:false
         }
     }
@@ -31,7 +30,7 @@ class YourAccount extends Component {
                     this.setState({
                         name: this.props.curUser.name,
                         photo: this.props.curUser.photoUrl,
-                        // jobTitle: result.jobTitle,
+                        jobTitle: result.jobTitle,
                         // jobStatus: res,
                         card1: this.props.curUser.card1,
                         card2: this.props.curUser.card2,
@@ -69,6 +68,14 @@ class YourAccount extends Component {
         this.setState({
             jobStatus: event.target.value
         })
+
+    }
+
+    changeJobStatus = (event) => {
+        API.updateUserProfile(this.curUser.googleId)
+        .then(function (results) {
+              console.log(results)
+          })
 
     }
 
@@ -130,10 +137,10 @@ class YourAccount extends Component {
                   <label for="jobStatus" className="visuallyhidden">Job Status</label>
 
                   <select name="jobStatus" id="jobStatus" onChange={this.change} >
-                      <option value="jobSeeker"
-                          className="youraccount__align-center"> Looking
-                                for a Job </option>
                       <option value="employer">I'm a Hiring Manager</option>
+                    re<option value="jobSeeker"
+                              className="youraccount__align-center"> Looking
+                                for a Job </option>
                   </select>
                   <div className="input-field">
                           <textarea id="skillsOne" class="materialize-textarea" data-length="140" maxLength="140" defaultValue={this.state.card1}></textarea>
@@ -154,10 +161,6 @@ class YourAccount extends Component {
         </div>
       </div>;
       }
-    //   API.updateUserProfile(data)
-    //       .then(function (results) {
-    //           console.log(results)
-    //       })
 
 
 
@@ -169,7 +172,7 @@ class YourAccount extends Component {
     )
   }
 }
-{/* //TODO: on click of 'save', reload page */}
+
 
 const mapStateToProps = (state) => {
   return {
