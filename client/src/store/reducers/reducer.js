@@ -1,10 +1,9 @@
 const initialState = {
   name: "Ron Swanson",
   photoUrl: "https://en.wikipedia.org/wiki/Ron_Swanson#/media/File:RonSwanson.jpg",
-  googleId: "42",
-  id: "42",
+  googleId: 7,
+  id: 7,
   email: "rswanson@email.com",
-  results: []
 };
 
 const reducer = (state = initialState, action) => {
