@@ -3,6 +3,7 @@ import "./Event.css"
 import API from "../../utils/API"
 import { InputText, InputArea } from "../../components/event__form";
 import { Row, Col, Container } from "../../components/Grid";
+import {Button, Dropdown, NavItem} from 'react-materialize';
 import { connect } from "react-redux";
 
 class Event extends Component {
@@ -10,7 +11,8 @@ class Event extends Component {
     //this.props.curUser
 
     state = {
-        name: "Adriana",
+
+        name: this.props.curUser.name,
         eventCode: "",
         choice:""
     };

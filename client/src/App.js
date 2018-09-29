@@ -10,6 +10,7 @@ import MatchCard from "./pages/MatchCard"
 import YourAccount from "./pages/YourAccount"
 import UserMatches from "./pages/UserMatches";
 import { Layout } from "./components/ChatComponents/Layout";
+import UserProfile from "./pages/UserProfile";
 
 
 
@@ -29,6 +30,7 @@ class App extends Component {
               <Route exact path="/youraccount" component={YourAccount} />
               <Route exact path="/match" component={MatchCard} />
               <Route exact path="/usermatches" component={UserMatches} />
+              <Route exact path="/userprofile" component={UserProfile} />
             </Switch>
           </div>
         </Router>

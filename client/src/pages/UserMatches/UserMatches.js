@@ -15,6 +15,7 @@ class UserMatches extends Component {
     userMatches: []
     };
   }
+<<<<<<< HEAD
   // getUserMatches = (id) => {
   //   $.ajax({
   //     method: "GET",
@@ -23,6 +24,18 @@ class UserMatches extends Component {
   //     this.setState({userMatches: data})
   //   })
   // }
+=======
+  componentDidMount(){
+    API.getUserMatches(this.state.user)
+    .then(function(result){
+      console.log(result);
+      this.setState({
+        userMatches: result.data
+      });
+    })
+  }
+
+>>>>>>> cba03808923191714ce52adb9415bfa29b811b7e
   render() {
     let card;
     this.state.userMatches[0] ?

@@ -62,6 +62,7 @@ class MatchCard extends Component {
     .then(
       (result) => {
         console.log(result)
+        console.log(MatchData)
       }
     )
   }

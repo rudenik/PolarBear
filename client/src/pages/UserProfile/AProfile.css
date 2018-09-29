@@ -1,0 +1,119 @@
+.visuallyhidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.aProfile__polarBlue {
+    color:#2667FF;
+}
+
+.aProfile__aProfile {
+    height:70vh;
+    padding:10px;
+}
+
+.aProfile__wrapper {
+    margin:0 auto;
+}
+
+.aProfile__orangeBackground {
+    background-color:rgba(245, 166, 35, 0.7);
+    padding:15px;
+}
+
+.aProfile__whiteBackground {
+    background-color:#FFF;
+}
+
+.aProfile__headShot {
+    border-radius:50%;
+    width:100px;
+    padding:5px;
+}
+
+.aProfile__blackText {
+    color:black;
+    margin:0;
+    padding:3px;
+}
+
+
+.aProfile__h3 {
+    font-size:1.4em;
+}
+
+.aProfile__align-center {
+    text-align:center;
+
+}
+
+.aProfile__currentTitle {
+    font-size:1em;
+}
+
+
+.aProfile__nameInfo {
+    width:60%;
+    padding-top:20px;
+    padding-left:15px;
+}
+
+.aProfile__flexRow {
+    display:flex;
+    flex-direction:row;
+}
+
+.aProfile__flexCol {
+    display:flex;
+    flex-direction:column;
+}
+
+.aProfile__h2 {
+    font-size:1.9em;
+}
+input {
+    border-radius:5px;
+    box-shadow:none;
+    border:1px solid black;
+    padding:2%;
+    margin:1%;
+}
+
+#jobStatus {
+    /* border:1px solid black; */
+    border-radius:5px;
+    background:white;
+}
+
+select {
+    display:inline-block;
+}
+input[type=text]:focus:not([readonly]){
+        border-bottom: 0.3px solid lightgrey;
+    box-shadow: 0 0.3px 0 0 lightgrey;
+}
+
+select:focus {
+    outline: 1px solid lightgrey;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid lightgrey;
+    box-shadow: 0 1px 0 0 lightgrey;
+}
+
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color:darkgrey;
+}
+
+
+
+
