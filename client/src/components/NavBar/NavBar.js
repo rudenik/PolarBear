@@ -10,11 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-=======
 import { NavLink, Link } from "react-router-dom";
->>>>>>> dev
 
 const theme = createMuiTheme({
   palette: {
@@ -79,52 +75,6 @@ class MenuAppBar extends React.Component {
               <Typography variant="title" color="inherit" className={classes.grow}>
                 Polar Bear
           </Typography>
-<<<<<<< HEAD
-          <IconButton
-                  aria-owns={open ? 'menu-appbar' : null}
-                  aria-haspopup="true"
-                  onClick={this.handleMenu}
-                  color="inherit"
-                >
-          <MenuIcon />
-          </IconButton>
-          <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={open}
-                  onClose={this.handleClose}
-                >
-                <MenuItem id="Home"  onClick={this.handleClose}>
-                  <Link to="/">Home</Link></MenuItem>
-
-                  <MenuItem id="layout"  onClick={this.handleClose}>
-                  <Link to="/layout">layout</Link></MenuItem>
-
-                  <MenuItem id="chat"  onClick={this.handleClose}>
-                  <Link to="/chat">Chat</Link></MenuItem>
-
-                  <MenuItem id="event"  onClick={this.handleClose}>
-                  <Link to="/event">Event</Link></MenuItem>
-
-                  <MenuItem id="signup"  onClick={this.handleClose}>
-                  <Link to="/signup">signup</Link></MenuItem>
-
-                  <MenuItem id="youraccount"  onClick={this.handleClose}>
-                  <Link to="/youraccount">Your Account</Link></MenuItem>
-
-                  <MenuItem id="match"  onClick={this.handleClose}>
-                  <Link to="/match">match</Link></MenuItem>
-                  <MenuItem id="usermatches"  onClick={this.handleClose}>
-                  <Link to="/usermatches">User Matches</Link></MenuItem>
-=======
               <IconButton
                 aria-owns={open ? 'menu-appbar' : null}
                 aria-haspopup="true"
@@ -173,7 +123,6 @@ class MenuAppBar extends React.Component {
                   <NavLink to="/usermatches">
                     <MenuItem id="usermatches" onClick={this.handleClose}>
                       User Matches</MenuItem></NavLink>
->>>>>>> dev
                 </Menu>
         </Toolbar>
       </AppBar>

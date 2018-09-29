@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 const { VERIFY_USER } = require("../../../store/actions");
 
-export class LoginForm extends Component {
+class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,3 +58,10 @@ export class LoginForm extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    curUser: state
+  }
+}
+export default connect(mapStateToProps)(LoginForm)

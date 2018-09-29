@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./Sidebar.css";
 
 import io from "socket.io-client";
-import { connect } from "mongoose";
+import { connect } from "react-redux";
+
 const { USER_CONNECTED, USER_DISCONNECTED } = require("../../../store/actions");
 const socket = io("localhost:3001");
 
