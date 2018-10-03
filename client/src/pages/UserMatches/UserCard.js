@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {NavLink} from "react-router-dom";
 import "./UserMatches.css"
-import aProfile from "../UserProfile/AProfile"
+// import aProfile from "../UserProfile/AProfile"
 
 class UserCard extends Component {
     // sendMeToProfile = (id) =>{
