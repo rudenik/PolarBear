@@ -89,7 +89,7 @@ class MenuAppBar extends React.Component {
               </IconButton>
               <Typography variant="title" color="inherit" className={classes.grow}><div style={navNameStyles}>Polar Bear</div>
                  <img style={bearStyles} className="landing__bear" src="polarbear.png"/>
-                 
+
           </Typography>
               <IconButton
                 aria-owns={open ? 'menu-appbar' : null}
@@ -116,27 +116,29 @@ class MenuAppBar extends React.Component {
                 <NavLink to="/">
                   <MenuItem id="Home" onClick={this.handleClose}>
                     Home</MenuItem></NavLink>
-                <NavLink to="/layout">
-                  <MenuItem id="layout" onClick={this.handleClose}>
-                    Chat</MenuItem></NavLink>
-                  
+  
                   <NavLink to="/event">
                     <MenuItem id="event" onClick={this.handleClose}>
                       Event</MenuItem></NavLink>
-
                   <NavLink to="/signup">
                     <MenuItem id="signup" onClick={this.handleClose}>
                       Sign Up</MenuItem></NavLink>
 
+                  {/* <NavLink to="/chat">
+                    <MenuItem id="chat" onClose={this.handleClose} onClick={this.handleChange}>
+                      Chat</MenuItem></NavLink> */}
+
                   <NavLink to="/youraccount">
                     <MenuItem id="youraccount" onClick={this.handleClose}>
                       Your Account</MenuItem></NavLink>
+
                   <NavLink to="/match">
                     <MenuItem id="match" onClick={this.handleClose}>
                       Match</MenuItem></NavLink>
                   <NavLink to="/usermatches">
                     <MenuItem id="usermatches" onClick={this.handleClose}>
                       User Matches</MenuItem></NavLink>
+
                 </Menu>
         </Toolbar>
       </AppBar>
@@ -148,5 +150,5 @@ class MenuAppBar extends React.Component {
 MenuAppBar.propTypes = {
           classes: PropTypes.object.isRequired,
       };
-      
+
       export default withStyles(styles)(MenuAppBar);

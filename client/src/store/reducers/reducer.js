@@ -4,6 +4,7 @@ const initialState = {
   googleId: 42,
   id: 42,
   email: "rswanson@email.com",
+
 };
 
 const reducer = (state = initialState, action) => {
