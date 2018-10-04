@@ -76,16 +76,16 @@ class Landing extends Component {
             //   "background-color": "rgb(213, 10, 10)"
             display: "inline-block",
             background: "rgb(209, 72, 54)",
-            "background-color": "rgb(237,56,51)",
+            "backgroundColor": "rgb(237,56,51)",
             width: "190px",
             color: "white",
-            "padding-top": "10px",
-            "padding-bottom": "10px",
-            "border-radius": "2px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "borderRadius": "2px",
             border: "1px solid transparent",
-            "font-size": "16px",
-            "font-weight": "bold",
-            "font-family": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "bold",
+            "fontFamily": "Roboto",
         }
 
         return (
