@@ -33,15 +33,16 @@ class Landing extends Component {
             if (!queryResp.data) {
                 console.log("user not present");
                 const curUser = {
-                name: response.profileObj.name,
-                photoUrl: response.profileObj.imageUrl,
-                googleId: response.profileObj.googleId,
-                email: response.profileObj.email,
-                results: []
-            }
+                    name: response.profileObj.name,
+                    photoUrl: response.profileObj.imageUrl,
+                    googleId: response.profileObj.googleId,
+                    email: response.profileObj.email,
+                    results: []
+                }
                 that.props.dispatch({
                     type: 'SET_USER',
-                    curUser});
+                    curUser
+                });
                 that.goToSignup(response);
             } else {
                 console.log(queryResp);
@@ -52,16 +53,17 @@ class Landing extends Component {
                     email: response.profileObj.email,
                     results: []
                 }
-                    that.props.dispatch({
-                        type: 'SET_USER',
-                        curUser});
-                    that.goToSignup(response);
+                that.props.dispatch({
+                    type: 'SET_USER',
+                    curUser
+                });
+                that.goToSignup(response);
                 that.props.history.push("/event");
             }
         });
     }
 
-    
+
 
 
     render() {
@@ -71,19 +73,20 @@ class Landing extends Component {
             fontWeight: "1100"
         }
         const styleButton = {
-        //   "background-color": "rgb(213, 10, 10)"
+            //   "background-color": "rgb(213, 10, 10)"
             display: "inline-block",
-    background: "rgb(209, 72, 54)",
-    "background-color": "rgb(234,51,46)",
-    width: "190px",
-    "padding-top": "10px",
-    "padding-bottom": "10px",
-    "border-radius": "2px",
-    border: "1px solid transparent",
-    "font-size": "16px",
-    "font-weight": "bold",
-    "font-family": "Roboto",
-         }
+            background: "rgb(209, 72, 54)",
+            "background-color": "rgb(237,56,51)",
+            width: "190px",
+            color: "white",
+            "padding-top": "10px",
+            "padding-bottom": "10px",
+            "border-radius": "2px",
+            border: "1px solid transparent",
+            "font-size": "16px",
+            "font-weight": "bold",
+            "font-family": "Roboto",
+        }
 
         return (
             <div className="landing">
