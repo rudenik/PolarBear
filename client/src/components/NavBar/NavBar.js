@@ -42,7 +42,7 @@ const styles = (theme) => ({
 const bearStyles = {
   margin: "0 auto",
   // "max-width": "2em",
-  "max-height": "2.5em",
+  "maxHeight": "2.5em",
   position: "absolute",
   padding: "2px",
   left: "15px",
