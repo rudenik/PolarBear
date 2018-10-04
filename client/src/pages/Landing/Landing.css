@@ -14,17 +14,21 @@
 .landing__name {
     font-weight: 1000px;
     margin: 0;
+      color: #2667FF;
 }
 
 .landing__subscript {
     margin-top: 0;
     margin-bottom:20%;
+      color: #2667FF;
 }
 
 .landing__button {
     margin: 10px;
     background-color: #2667FF;
+    
 }
 .landing{
  min-height: 100vh;
 }
+

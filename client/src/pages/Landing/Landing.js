@@ -61,7 +61,7 @@ class Landing extends Component {
         });
     }
 
-
+    
 
 
     render() {
@@ -70,6 +70,21 @@ class Landing extends Component {
             margin: "0",
             fontWeight: "1100"
         }
+        const styleButton = {
+        //   "background-color": "rgb(213, 10, 10)"
+            display: "inline-block",
+    background: "rgb(209, 72, 54)",
+    "background-color": "rgb(234,51,46)",
+    width: "190px",
+    "padding-top": "10px",
+    "padding-bottom": "10px",
+    "border-radius": "2px",
+    border: "1px solid transparent",
+    "font-size": "16px",
+    "font-weight": "bold",
+    "font-family": "Roboto",
+         }
+
         return (
             <div className="landing">
                 <img className="landing__bear" src="polarbear.png" alt="Logo" />
@@ -78,6 +93,7 @@ class Landing extends Component {
 
                 <div>
                     <GoogleLogin
+                        style={styleButton}
                         clientId="761752582634-s5vmm4g3eckq4m07h8hi6r3evn37t4lb.apps.googleusercontent.com"
                         onSuccess={this.success}
                         onFailure={responseGoogle}
