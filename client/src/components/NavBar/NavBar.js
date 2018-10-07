@@ -100,9 +100,6 @@ class MenuAppBar extends React.Component {
                 <NavLink to="/">
                   <MenuItem id="Home" onClick={this.handleClose}>
                     Home</MenuItem></NavLink>
-                <NavLink to="/layout">
-                  <MenuItem id="layout" onClick={this.handleClose}>
-                    layout</MenuItem></NavLink>
                   <NavLink to="/chat">
                     <MenuItem id="chat" onClose={this.handleClose} onClick={this.handleChange}>
                       Chat</MenuItem></NavLink>

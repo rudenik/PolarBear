@@ -1,16 +1,8 @@
 const router = require('express').Router();
 
-<<<<<<< HEAD
-const userProfileController = require("../controller/userProfileController");
-const usereventsController = require("../controller/usereventsController");
-const matchController = require("../controller/matchController");
-const chatController = require("../controllers/chatController");
-
-=======
 const userProfileController = require("../controllers/userProfileController");
 const usereventsController = require("../controllers/usereventsController");
 const matchController = require("../controllers/matchController");
->>>>>>> dev
 
 //userProfile Routes
 router.route("/userprofile/:id")//this works
@@ -39,11 +31,4 @@ router.route("/match/:useroneid")
 router.route("/match/:useroneid/:eventid" )
     .get(matchController.getEventMatches);
 
-<<<<<<< HEAD
-
-
-    
-
-=======
->>>>>>> dev
 module.exports = router; 

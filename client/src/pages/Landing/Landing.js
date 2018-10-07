@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 
 import "./Landing.css";
 
+
 const responseGoogle = (response) => {
     console.log(response);
 }
@@ -15,6 +16,7 @@ const responseGoogle = (response) => {
 
 
 class Landing extends Component {
+    
 
     goToSignup = (respUser) => {
         console.log("goToSignup")
@@ -25,7 +27,7 @@ class Landing extends Component {
         console.log(response.googleId);
         // axios.get("/api/userprofile/"+ response.googleId).then(function (queryResp){
         //     console.log(queryResp);
-
+        
         // })
         const that = this;
         API.getUserProfile(response.googleId).then(function (queryResp) {

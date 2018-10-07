@@ -9,6 +9,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+console.log(action);
 
   switch(action.type){
     case "SET_USER":
@@ -16,6 +17,7 @@ const reducer = (state = initialState, action) => {
     default:
     return state;
   }
+  
 
 };
 

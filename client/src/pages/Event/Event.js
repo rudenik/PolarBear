@@ -5,7 +5,19 @@ import { InputText, InputArea } from "../../components/event__form";
 import { Row, Col, Container } from "../../components/Grid";
 import {Button, Dropdown, NavItem} from 'react-materialize';
 import { connect } from "react-redux";
+import io from "socket.io-client";
 
+
+const socketUrl = "http://localhost:3001";
+const socket = io("localhost:3001");
+
+const {
+    MESSAGE_SENT,
+    TYPING,
+    USER_CONNECTED,
+    MESSAGE_RECEIVED,
+    PRIVATE_MESSAGE
+  } = require("../../store/actions");
 class Event extends Component {
   //To access the current user from global state reference like this
     //this.props.curUser
@@ -14,9 +26,16 @@ class Event extends Component {
 
         name: this.props.curUser.name,
         eventCode: "",
-        choice:""
+        choice:"",
+        socket:null
     };
-
+componentDidMount(){
+  socket.on("connect", () => {
+    console.log("Connected");
+    socket.emit(USER_CONNECTED, this.props.curUser);
+  });
+  this.setState({ socket });
+}
     handleInputChange = event => {
         const {
           name,
