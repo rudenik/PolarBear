@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import UserCard from "./UserCard.js";
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {Redirect} from "react-router";
 import API from "../../utils/API";
 
 class UserMatches extends Component {
@@ -12,7 +14,7 @@ class UserMatches extends Component {
     matchProfiles:[]
     };
   }
-  
+
   componentDidMount() {
     API.getUserMatches( this.state.user.id )
     .then(
@@ -34,9 +36,6 @@ class UserMatches extends Component {
               this.setState({
                 matchProfiles: [...matchProfiles, data]
               });
-              
-              // console.log(data.name, data.isEmployee, data.photoUrl);
-
             }
           )
         })
@@ -48,20 +47,22 @@ class UserMatches extends Component {
       }
     )
    }
+  //  redirectTo = (userId) => {
+  //    <Redirect to = {"/userprofile/" + userId} />
+  //  }
 
   render() {
     let card;
     this.state.userMatches[0] ?
-    card = 
+    card =
     <div>
       {this.state.matchProfiles.map(user => (
-        <UserCard 
+        <UserCard
         key = {user.id}
         name={user.name}
         image={user.photoUrl}
         colour={user.isEmployee === false  ? "row center-align valign-wrapper user__card__employer" :
           "row center-align valign-wrapper user__card__employee"}
-        
         />
       ))}
     </div>
@@ -69,18 +70,16 @@ class UserMatches extends Component {
     card =
       <div>
         <UserCard 
-          name={"name"} 
-          job={"job"} 
-          photo={"http://www.placepuppy.net/1p/100/100"} 
-          //changing class from employer/employee changes from orange to blue
-          colour={"row center-align valign-wrapper user__card__employer"}
+          name="name"
+          job="job"
+          photo="http://www.placepuppy.net/1p/100/100"
+          colour="row center-align valign-wrapper user__card__employer"
         />
         <UserCard 
-          name={"name2"} 
-          job={"job2"} 
-          photo={"http://www.placepuppy.net/1p/100/100"} 
-          //changing class from employer/employee changes from orange to blue
-          colour={"row center-align valign-wrapper user__card__employee"}
+          name="name2"
+          job="job2"
+          photo="http://www.placepuppy.net/1p/100/100"
+          colour="row center-align valign-wrapper user__card__employee"
         />
       </div>
 

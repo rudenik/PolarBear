@@ -16,7 +16,7 @@
 }
 
 .youraccount__yourAccount {
-    height:70vh;
+    min-height:70vh;
     padding:10px;
 }
 
@@ -29,13 +29,18 @@
     padding:15px;
 }
 
+.youraccount__blueBackground {
+    background-color:rgba(74,144,226,0.7);
+    padding:15px;
+}
+
 .youraccount__whiteBackground {
     background-color:#FFF;
 }
 
-.youraccount__headShot {
+.youracc__headShot {
     border-radius:50%;
-    width:100px;
+    max-height:100px;
     padding:5px;
 }
 
@@ -52,13 +57,25 @@
 
 .youraccount__align-center {
     text-align:center;
-
 }
 
 .youraccount__currentTitle {
     font-size:1em;
 }
 
+.youraccount__blueButton {
+    background-color:#2667FF;
+    color:white;
+    border:none;
+    border-radius:5px;
+    margin:0 auto;
+    display:flex;
+    margin-top:5px;
+}
+
+.youraccount__blueButton:focus {
+    background-color:#2667FF;
+}
 
 .youraccount__nameInfo {
     width:60%;
@@ -69,6 +86,12 @@
 .youraccount__flexRow {
     display:flex;
     flex-direction:row;
+}
+
+.youraccount__p {
+    color:black;
+    border:1px solid darkgrey;
+    padding:2%;
 }
 
 .youraccount__flexCol {

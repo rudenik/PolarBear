@@ -38,7 +38,7 @@ db.sequelize.sync({ force: false }).then(function ()
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   });
 io.on("connection", SocketManager);
-  
+
 });
 
 // io.on("connection", SocketManager);

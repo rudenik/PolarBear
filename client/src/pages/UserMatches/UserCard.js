@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import {NavLink} from "react-router-dom";
 import "./UserMatches.css"
+// import aProfile from "../UserProfile/AProfile"
 
 class UserCard extends Component {
+    // sendMeToProfile = (id) =>{
+    //     this.props.history.push("/userprofile", id)
+    // }
 render () {
 return (
     <div className = "user__card__all">
@@ -20,11 +25,14 @@ return (
     <div className="col s4 valign-wrapper">
     <div className="row  ">
         <div className="col s6">
-        <i className="fa fa-user-circle-o user__profileicon" aria-hidden="true"></i>
+        
+        <i className="fa fa-user-circle-o user__profileicon" aria-hidden="true" ></i>
+        
         </div>
         <div className="col s6">
         <i className="fa fa-wechat user__chaticon" aria-hidden="true"></i>
         </div>
+        <aProfile name="Trika" />
     </div>
     </div>
 </div>

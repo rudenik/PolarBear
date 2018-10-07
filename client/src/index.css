@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+button:focus {
+  background-color: #2667FF;
+}
+
 /* html,
 body,
 #root {

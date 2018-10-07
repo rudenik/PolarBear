@@ -12,7 +12,7 @@ import "./Landing.css";
 const responseGoogle = (response) => {
     console.log(response);
 }
-// const 
+// const
 
 
 class Landing extends Component {
@@ -35,15 +35,16 @@ class Landing extends Component {
             if (!queryResp.data) {
                 console.log("user not present");
                 const curUser = {
-                name: response.profileObj.name,
-                photoUrl: response.profileObj.imageUrl,
-                googleId: response.profileObj.googleId,
-                email: response.profileObj.email,
-                results: []
-            }
+                    name: response.profileObj.name,
+                    photoUrl: response.profileObj.imageUrl,
+                    googleId: response.profileObj.googleId,
+                    email: response.profileObj.email,
+                    results: []
+                }
                 that.props.dispatch({
                     type: 'SET_USER',
-                    curUser});
+                    curUser
+                });
                 that.goToSignup(response);
             } else {
                 console.log(queryResp);
@@ -54,10 +55,11 @@ class Landing extends Component {
                     email: response.profileObj.email,
                     results: []
                 }
-                    that.props.dispatch({
-                        type: 'SET_USER',
-                        curUser});
-                    that.goToSignup(response);
+                that.props.dispatch({
+                    type: 'SET_USER',
+                    curUser
+                });
+                that.goToSignup(response);
                 that.props.history.push("/event");
             }
         });
@@ -72,14 +74,31 @@ class Landing extends Component {
             margin: "0",
             fontWeight: "1100"
         }
+        const styleButton = {
+            //   "background-color": "rgb(213, 10, 10)"
+            display: "inline-block",
+            background: "rgb(209, 72, 54)",
+            "backgroundColor": "rgb(237,56,51)",
+            width: "190px",
+            color: "white",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "borderRadius": "2px",
+            border: "1px solid transparent",
+            "fontSize": "16px",
+            "fontWeight": "bold",
+            "fontFamily": "Roboto",
+        }
+
         return (
             <div className="landing">
-                <img className="landing__bear" src="bear.png" alt="Logo" />
+                <img className="landing__bear" src="polarbear.png" alt="Logo" />
                 <h1 style={style} className="landing__name">Polar Bear</h1>
                 <div className="landing__subscript">Your Networking Icebreaker</div>
 
                 <div>
                     <GoogleLogin
+                        style={styleButton}
                         clientId="761752582634-s5vmm4g3eckq4m07h8hi6r3evn37t4lb.apps.googleusercontent.com"
                         onSuccess={this.success}
                         onFailure={responseGoogle}
