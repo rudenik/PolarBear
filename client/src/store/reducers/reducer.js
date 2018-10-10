@@ -4,23 +4,16 @@ const initialState = {
   googleId: 7,
   id: 7,
   email: "rswanson@email.com",
-
+  sid:7
 };
 
-const connectedUsers={
-  users:[]
-}
-
 const reducer = (state = initialState, action) => {
-console.log(action);
-
   switch(action.type){
     case "SET_USER":
     return Object.assign({}, state, action.curUser);
     default:
     return state;
   }
-  
 };
 
 

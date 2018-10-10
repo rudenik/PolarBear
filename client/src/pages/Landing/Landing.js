@@ -1,118 +1,131 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import API from "../../utils/API";
-import { Row } from '../../components/Grid';
-import GoogleLogin from 'react-google-login';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { connect } from 'react-redux';
+import ChatAPI from "../../utils/chatAPI";
+import { Row } from "../../components/Grid";
+import GoogleLogin from "react-google-login";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { connect } from "react-redux";
+
 
 import "./Landing.css";
+import io from "socket.io-client";
+const socketUrl = "http://localhost:3001";
+const socket = io("localhost:3001");
 
+const {
+    MESSAGE_SENT,
+    TYPING,
+    USER_CONNECTED,
+    MESSAGE_RECEIVED,
+    PRIVATE_MESSAGE
+  } = require("../../store/actions");
 
-const responseGoogle = (response) => {
-    console.log(response);
-}
+const responseGoogle = response => {
+  console.log(response);
+};
 // const
 
-
 class Landing extends Component {
+  goToSignup = respUser => {
+    console.log("goToSignup");
+    this.props.history.push("/signup", respUser);
+  };
+
+  success = response => {
+    console.log(response.googleId);
+    // axios.get("/api/userprofile/"+ response.googleId).then(function (queryResp){
+    //     console.log(queryResp);
+
+    // })
+    const that = this;
+    API.getUserProfile(response.googleId).then(function(queryResp) {
+      console.log(queryResp);
+      if (!queryResp.data) {
+        console.log("user not present");
+        const curUser = {
+          name: response.profileObj.name,
+          photoUrl: response.profileObj.imageUrl,
+          googleId: response.profileObj.googleId,
+          email: response.profileObj.email,
+          results: [],
+          sid:socket.id
+        };
     
-
-    goToSignup = (respUser) => {
-        console.log("goToSignup")
-        this.props.history.push('/signup', respUser);
-    }
-
-    success = (response) => {
-        console.log(response.googleId);
-        // axios.get("/api/userprofile/"+ response.googleId).then(function (queryResp){
-        //     console.log(queryResp);
         
-        // })
-        const that = this;
-        API.getUserProfile(response.googleId).then(function (queryResp) {
-            console.log(queryResp);
-            if (!queryResp.data) {
-                console.log("user not present");
-                const curUser = {
-                    name: response.profileObj.name,
-                    photoUrl: response.profileObj.imageUrl,
-                    googleId: response.profileObj.googleId,
-                    email: response.profileObj.email,
-                    results: []
-                }
-                that.props.dispatch({
-                    type: 'SET_USER',
-                    curUser
-                });
-                that.goToSignup(response);
-            } else {
-                console.log(queryResp);
-                const curUser = {
-                    name: response.profileObj.name,
-                    photoUrl: response.profileObj.imageUrl,
-                    googleId: response.profileObj.googleId,
-                    email: response.profileObj.email,
-                    results: []
-                }
-                that.props.dispatch({
-                    type: 'SET_USER',
-                    curUser
-                });
-                that.goToSignup(response);
-                that.props.history.push("/event");
-            }
+        that.props.dispatch({
+          type: "SET_USER",
+          curUser
         });
-    }
+        that.goToSignup(response);
+      } else {
+        console.log(queryResp);
+        const curUser = {
+          name: response.profileObj.name,
+          photoUrl: response.profileObj.imageUrl,
+          googleId: response.profileObj.googleId,
+          email: response.profileObj.email,
+          results: [],
+          sid:socket.id
+        };
+       
+        socket.emit(USER_CONNECTED,curUser);
 
+        that.props.dispatch({
+          type: "SET_USER",
+          curUser
+        });
+        that.goToSignup(response);
+        that.props.history.push("/event");
+      }
+    });
+  };
 
+  render() {
+    const style = {
+      margin: "0",
+      fontWeight: "1100"
+    };
+    const styleButton = {
+      //   "background-color": "rgb(213, 10, 10)"
+      display: "inline-block",
+      background: "rgb(209, 72, 54)",
+      backgroundColor: "rgb(237,56,51)",
+      width: "190px",
+      color: "white",
+      paddingTop: "10px",
+      paddingBottom: "10px",
+      borderRadius: "2px",
+      border: "1px solid transparent",
+      fontSize: "16px",
+      fontWeight: "bold",
+      fontFamily: "Roboto"
+    };
 
+    return (
+      <div className="landing">
+        <img className="landing__bear" src="polarbear.png" alt="Logo" />
+        <h1 style={style} className="landing__name">
+          Polar Bear
+        </h1>
+        <div className="landing__subscript">Your Networking Icebreaker</div>
 
-    render() {
-
-        const style = {
-            margin: "0",
-            fontWeight: "1100"
-        }
-        const styleButton = {
-            //   "background-color": "rgb(213, 10, 10)"
-            display: "inline-block",
-            background: "rgb(209, 72, 54)",
-            "backgroundColor": "rgb(237,56,51)",
-            width: "190px",
-            color: "white",
-            "paddingTop": "10px",
-            "paddingBottom": "10px",
-            "borderRadius": "2px",
-            border: "1px solid transparent",
-            "fontSize": "16px",
-            "fontWeight": "bold",
-            "fontFamily": "Roboto",
-        }
-
-        return (
-            <div className="landing">
-                <img className="landing__bear" src="polarbear.png" alt="Logo" />
-                <h1 style={style} className="landing__name">Polar Bear</h1>
-                <div className="landing__subscript">Your Networking Icebreaker</div>
-
-                <div>
-                    <GoogleLogin
-                        style={styleButton}
-                        clientId="761752582634-s5vmm4g3eckq4m07h8hi6r3evn37t4lb.apps.googleusercontent.com"
-                        onSuccess={this.success}
-                        onFailure={responseGoogle}
-                    >
-                        <FontAwesomeIcon icon={faGoogle} />
-                        <span> Login/Sign Up With Google</span>
-                    </GoogleLogin>
-                    <Row />
-                </div>
-            </div>
-        )
-    }
+        <div>
+          <GoogleLogin
+            style={styleButton}
+            clientId="761752582634-s5vmm4g3eckq4m07h8hi6r3evn37t4lb.apps.googleusercontent.com"
+            onSuccess={this.success}
+            onFailure={responseGoogle}
+          >
+            <FontAwesomeIcon icon={faGoogle} />
+            <span> Login/Sign Up With Google</span>
+          </GoogleLogin>
+          <Row />
+        </div>
+      </div>
+    );
+  }
 }
-
 
 // Landing.propTypes = {
 //     history: React.PropTypes.shape({

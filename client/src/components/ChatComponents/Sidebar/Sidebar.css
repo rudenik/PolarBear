@@ -84,3 +84,22 @@
   padding-left: 16px;
   padding-right: 16px;
 }
+
+
+.specific_user{
+  align-items: center;
+  background: #215dff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+  max-height: 65px;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin:.5em 0 .5em 0;
+}
+
+.specific_user:hover{
+  cursor: pointer;
+}

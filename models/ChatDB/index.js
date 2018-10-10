@@ -1,3 +1,4 @@
 module.exports={
-    Chat:require("./chat")
+    Chat:require("./chat"),
+    Online:require("./online")
 }

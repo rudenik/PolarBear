@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
-import {Users} from "./Users";
+import { Users } from "./Users";
 import io from "socket.io-client";
 import { connect } from "react-redux";
-
-const { USER_CONNECTED, USER_DISCONNECTED } = require("../../../store/actions");
+import ChatAPI from "../../../utils/chatAPI";
+const {
+  USER_CONNECTED,
+  USER_ONLINE,
+  USER_DISCONNECTED
+} = require("../../../store/actions");
+const socketUrl = "http://localhost:3001";
 const socket = io("localhost:3001");
 
 export class Sidebar extends Component {
@@ -12,25 +17,41 @@ export class Sidebar extends Component {
     super(props);
     this.state = {
       receiver: "",
-      connectedUsers: null
+      users: []
     };
   }
 
+  componentDidMount() {
+    console.log(this.props.users);
+    this.setState({users:this.props.users})
+  }
+
+  activateUser = (id, e) => {
+    e.preventDefault();
+    // console.log(id);
+    this.props.openThisChat(id);
+  };
 
   render() {
-    
+    const { name } = this.props;
 
-    const { name} = this.props;
-  
- 
+    let content = [];
+    {
+      this.props.users.map(user => {
+        console.log(user);
+        console.log(name);
+        if (user.name !== name) {
+          content.push(<Users users={user} click={this.activateUser} />);
+        }
+      });
+    }
     return (
       <div id="side-bar">
         <div className="current-user">
           <span>{name}</span>
         </div>
-        <div className="restOfUsers">
-        <Users/>
-        </div>
+
+        <div className="restOfUsers">{content}</div>
       </div>
     );
   }

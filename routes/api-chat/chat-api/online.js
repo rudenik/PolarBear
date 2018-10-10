@@ -2,13 +2,12 @@ const router = require("express").Router();
 const chatController = require("../../../controllers/chatController");
 
 //CHAT ROUTES
-router.route("/").get(chatController.findAll).post(chatController.save);
-
+router.route("/").post(chatController.saveOnlineUsers).get(chatController.findUsers);
 
 // Matches with "/api/chat/:id"
 router
   .route("/:id")
-  .get(chatController.findById)
-  .put(chatController.update)
-  .delete(chatController.remove);
+  .get(chatController.getTargetUser);
+  
+
 module.exports = router;

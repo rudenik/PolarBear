@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const apiRoutes = require("./routes");
+const chatRoutes=require("./routes/api-chat")
 const app = express();
 const server = require("http").Server(app);
 const io = (module.exports.io = require("socket.io")(server));
@@ -17,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //add routes
-app.use(apiRoutes);
+app.use(apiRoutes,chatRoutes);
 require("./controllers/userProfileController");
 
 var db = require("./models");
