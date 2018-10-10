@@ -23,13 +23,14 @@ class YourAccount extends Component {
 
     }
     componentDidMount() {
-        console.log("Current user: ", this.props.curUser);
-        const that = this;
-        API.getUserProfile(that.props.curUser.googleId)
-            .then(function (result) {
+
+        API.getUserProfile(this.props.curUser.googleId)
+            .then(
+                (result) => {
                     console.log(result)
-                    console.log(that.props.curUser);
-                    that.setState({
+                    // console.log(this.props.curUser);
+                    this.setState({
+
                         name: result.data.name,
                         photo: result.data.photoUrl,
                         jobTitle: result.data.jobTitle,
